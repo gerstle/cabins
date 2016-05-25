@@ -12,6 +12,6 @@ Post.create([
 ])
 
 User.create([
-   {name: 'mint', email:'minty@inappropirates.com'},
-   {name: 'maximus', email:'maximus@fatboycentral.com'}
+   {name: 'minty', email:'minty@inappropirates.com', password:'nope', password_confirmation:'nope'},
+   {name: 'maximus', email:'maximus@fatboycentral.com', password:'nope', password_confirmation:'nope'}
 ])
