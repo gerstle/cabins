@@ -13,3 +13,7 @@
 /tmp
 
 .idea
+
+# Ignore configuration secrets
+/config/database.yml
+/config/secrets.yml
