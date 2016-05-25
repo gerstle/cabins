@@ -6,4 +6,6 @@ class UsersControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+
+
 end
