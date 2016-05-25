@@ -17,3 +17,4 @@
 # Ignore configuration secrets
 /config/database.yml
 /config/secrets.yml
+/config/deploy/production.rb
