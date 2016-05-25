@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
 
-set :application, 'FnF Cabins'
+set :application, 'cabins'
 set :repo_url, 'https://github.com/gerstle/cabins.git'
 
 # Default branch is :master
