@@ -1,5 +1,5 @@
 class WelcomeController < ApplicationController
   def index
-    @posts = Post.all()
+    @posts = Post.where("category = 'welcome'")
   end
 end

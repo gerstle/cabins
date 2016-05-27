@@ -1,0 +1,6 @@
+<% @rules.each do |r| %>
+    <div class="post">
+      <div class="title"><h3><%= r.title %></h3></div>
+      <div class="content"><%= r.body.try(:html_safe) %></div>
+    </div>
+<% end %>

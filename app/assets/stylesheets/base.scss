@@ -21,13 +21,12 @@ body {
   width: 800px;
 }
 
-header {
-  background-color: #78797e;
+.header {
+  //background-color: #78797e;
   margin-top: 145px;
-  height: 0;
   padding: 4px 0 0 0;
-  color: #020204;
-  visibility: hidden;
+  color: #8ced28;
+  font-weight: bold;
 }
 
 footer {
@@ -120,4 +119,30 @@ input {
   .form-control {
     color: $state-danger-text;
   }
+}
+
+.header .link {
+  padding: 4px 24px;
+  border: 0 none;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.header .link:focus, .header .link:active:focus, .header .link.active:focus {
+  outline: 0 none;
+}
+
+.header .link-primary {
+  background: #480b70;
+  color: #bbbbbb;
+}
+
+.header .link-primary:hover, .header .link-primary:focus, .header .link-primary:active, .header .link-primary.active, .header .open > .dropdown-toggle.link-primary {
+  background: #8ced28;
+}
+
+.header .link-primary:active, .header .link-primary.active {
+  background: #007299;
+  box-shadow: none;
 }
