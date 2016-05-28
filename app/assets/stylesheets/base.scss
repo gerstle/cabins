@@ -37,7 +37,7 @@ footer {
 
 main {
   flex: 1;
-  margin: 0 12px 12px 12px;
+  margin: 8px 12px 12px 12px;
 }
 
 @mixin box_sizing {
@@ -122,7 +122,7 @@ input {
 }
 
 .header .link {
-  padding: 4px 24px;
+  padding: 4px 12px;
   border: 0 none;
   font-weight: 700;
   letter-spacing: 1px;
@@ -138,6 +138,10 @@ input {
   color: #bbbbbb;
 }
 
+.gray {
+  color: #bbbbbb;
+}
+
 .header .link-primary:hover, .header .link-primary:focus, .header .link-primary:active, .header .link-primary.active, .header .open > .dropdown-toggle.link-primary {
   background: #8ced28;
 }
@@ -145,4 +149,15 @@ input {
 .header .link-primary:active, .header .link-primary.active {
   background: #007299;
   box-shadow: none;
+}
+
+div.headerlinks {
+}
+
+div.headeruser {
+  width: 100%;
+  text-align: right;
+}
+
+div.user {
 }
