@@ -115,7 +115,11 @@ input {
   color: #bbbbbb;
 }
 
-.header .link {
+.green {
+  color: #8ced28;
+}
+
+.link {
   padding: 4px 12px;
   border: 0 none;
   font-weight: 700;
@@ -123,20 +127,20 @@ input {
   text-transform: uppercase;
 }
 
-.header .link:focus, .header .link:active:focus, .header .link.active:focus {
+.link:focus, .header .link:active:focus, .header .link.active:focus {
   outline: 0 none;
 }
 
-.header .link-primary {
+.link-primary {
   background: #480b70;
   color: #bbbbbb;
 }
 
-.header .link-primary:hover, .header .link-primary:focus, .header .link-primary:active, .header .link-primary.active, .header .open > .dropdown-toggle.link-primary {
+.link-primary:hover, .header .link-primary:focus, .header .link-primary:active, .header .link-primary.active, .header .open > .dropdown-toggle.link-primary {
   background: #8ced28;
 }
 
-.header .link-primary:active, .header .link-primary.active {
+.link-primary:active, .header .link-primary.active {
   background: #007299;
   box-shadow: none;
 }
@@ -144,7 +148,7 @@ input {
 div.headerlinks {
 }
 
-div.headeruser {
+.right {
   text-align: right;
 }
 
@@ -164,4 +168,28 @@ div.user {
 
 .content {
   margin: 6px;
+}
+
+textarea.body {
+  height: 200px;
+}
+
+.table-striped {
+  > thead > tr {
+    background-color: #480b70;
+  }
+
+  > tbody {
+    > tr:nth-of-type(2n+1) {
+      background-color: #666666;
+    }
+
+    > tr {
+      background-color: #2E2F30;
+    }
+  }
+
+  a {
+    color: #8ced28;
+  }
 }

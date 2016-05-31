@@ -1,16 +1,16 @@
 <div class="header">
-  <% if logged_in? %>
-    <div class="row headeruser">
-      <div class="user">
-        <%= current_user.name %><span class="gray">&nbsp|&nbsp;</span><%= link_to 'Log out', logout_path, method: :delete %>
-      </div>
+  <div class="row right">
+    <div class="user">
+      <% if logged_in? %>
+        <%= current_user.name %><span class="gray">&nbsp|</span>
+        <%= link_to 'Log out', logout_path, method: :delete %>
+      <% else %>
+          <%= link_to 'login', login_path %>&nbsp;|&nbsp;<%= link_to 'register', signup_path %>
+      <% end %>
     </div>
-  <% end %>
+  </div>
   <div class="row">
       <%= link_to 'home', home_path, class: 'link link-primary' %>
-    <% if !logged_in? %>
-          <%= link_to 'login', login_path, class: 'link link-primary' %>
-    <% end %>
       <%= link_to 'overview & pricing', overview_path, class: 'link link-primary' %>
       <%= link_to 'map', '/files/2016_Saratoga_Springs_Property_Map_CL.pdf', class: 'link link-primary' %>
       <%= link_to 'cabin details', details_path, class: 'link link-primary' %>

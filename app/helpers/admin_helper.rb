@@ -1,8 +1,4 @@
 module AdminHelper
-  def is_admin?
-    !current_user.nil? && current_user.admin
-  end
-
   def is_admin_route?
     request.env['PATH_INFO'].starts_with?('/admin')
   end

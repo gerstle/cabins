@@ -1,6 +1,4 @@
-<div class="post">
-  <div class="title"><h4>manage home page posts</h4></div>
-  <div class="content"><%= link_to 'new', new_welcome_path %>, <%= link_to 'manage', admin_welcomes_path %></div>
-  <div class="title"><h4>manage rules</h4></div>
-  <div class="content"><a href="/files/2016Cabin567.pdf">manage rules</a></div>
+<div class="row">
+  <%= link_to 'welcome posts', {:controller => 'posts', :action => 'index', :category => 'welcome'}, class: 'link link-primary' %>
+  <%= link_to 'rule posts', {:controller => 'posts', :action => 'index', :category => 'rule'}, class: 'link link-primary' %>
 </div>
