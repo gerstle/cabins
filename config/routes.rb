@@ -11,6 +11,16 @@ Rails.application.routes.draw do
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy', as: 'logout'
 
+  get 'admin/index', as: 'admin'
+
+  get 'admin/posts' => 'posts#index', as: 'admin_posts'
+  get 'admin/posts/new' => 'posts#new'
+  get 'posts/new' => 'posts#new', as: 'new_post'
+  post 'admin/posts' => 'posts#create', as: 'posts'
+
+  get 'admin/posts/:id' => 'posts#show', as: 'edit_post'
+  patch 'admin/posts/:id' => 'posts#update', as: 'post'
+  delete 'admin/posts/:id' => 'posts#delete', as: 'delete_post'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
