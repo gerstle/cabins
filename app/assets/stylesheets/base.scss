@@ -6,17 +6,28 @@
 }
 
 body {
-  background-image: image-url("2016_site_banner.png");
-  background-repeat: no-repeat;
+  background-image: image-url("2016_site_lines.png");
+  background-repeat: repeat-x;
   background-color: #020204;
   background-position: center 4px;
   color: #bcbdc2;
 }
 
+
 .header {
-  margin-top: 145px;
   padding: 4px 0 0 0;
   color: #8ced28;
+  text-align: center;
+
+  .gearhead {
+    background-image: image-url("2016_site_gearhead.png");
+    background-repeat: no-repeat;
+    background-position: center 0;
+    background-color: black;
+    height: 145px;
+    width: 250px;
+    margin: auto;
+  }
 }
 
 .footer {
@@ -68,6 +79,7 @@ input {
 
 .row {
   padding: 4px 4px 4px 12px;
+  text-align: left;
 }
 
 .btn {
@@ -132,12 +144,14 @@ input {
 }
 
 .link-primary {
-  background: #480b70;
+  //background: #480b70;
   color: #bbbbbb;
 }
 
 .link-primary:hover, .header .link-primary:focus, .header .link-primary:active, .header .link-primary.active, .header .open > .dropdown-toggle.link-primary {
-  background: #8ced28;
+  //background: #8ced28;
+  background: #480b70;
+  text-decoration: none;
 }
 
 .link-primary:active, .header .link-primary.active {
@@ -146,6 +160,7 @@ input {
 }
 
 div.headerlinks {
+  background-color: #78797e;
 }
 
 .right {

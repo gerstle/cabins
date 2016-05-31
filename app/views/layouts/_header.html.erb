@@ -1,4 +1,5 @@
 <div class="header">
+  <div class="gearhead"></div>
   <div class="row right">
     <div class="user">
       <% if logged_in? %>
@@ -9,7 +10,7 @@
       <% end %>
     </div>
   </div>
-  <div class="row">
+  <div class="row headerlinks">
       <%= link_to 'home', home_path, class: 'link link-primary' %>
       <%= link_to 'overview & pricing', overview_path, class: 'link link-primary' %>
       <%= link_to 'map', '/files/2016_Saratoga_Springs_Property_Map_CL.pdf', class: 'link link-primary' %>
