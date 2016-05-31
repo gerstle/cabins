@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'details/index', as: 'details'
   get 'overview/index', as: 'overview'
   get 'rules/index', as: 'rules'
+  get 'map/index', as: 'map'
 
   get    'login'   => 'sessions#new', as: 'login'
   post   'login'   => 'sessions#create'
