@@ -8,7 +8,7 @@
 
 posts = Post.create([
   {
-    category: 'welcome', title: 'Greetings FnFers!',
+    category: 'home', title: 'Greetings FnFers!',
     body:
       'Welcome to the FnF 2016 Cabin Reservation App<br/><br/>'\
       'Using FnF 2016 Cabins you can register for lodging at the FnF Summer Campout, receive notification of lodging '\
@@ -17,7 +17,7 @@ posts = Post.create([
       'below and lodging policy details, and click <strong><a href="/users/new">here to register</a></strong>.'
   },
   {
-    category: 'welcome', title: 'Using FnF 2016 Cabins',
+    category: 'home', title: 'Using FnF 2016 Cabins',
     body:
       '<p>On the next page, FnF 2016 Cabins will prompt you for contact information and details about your participation '\
       'in this year\'s summer campout. We will be assigning people to signup tiers based on the following</p>'\
@@ -29,7 +29,7 @@ posts = Post.create([
       'register for the lodging of your choice at Saratoga Springs.</p>'
   },
   {
-      category: 'welcome', title: 'Register',
+      category: 'home', title: 'Register',
       body:
         '<p>During the registration period, log onto the FnF 2016 Cabins lodging registration page '\
         '(you will receive the URL in email). Please review the available lodging and select from the available options.'\
@@ -47,7 +47,7 @@ posts = Post.create([
         '<br/><br/>** Assuming 2 people to a double or queen bed and 1 person to a twin.</p>'
   },
   {
-    category: 'welcome', title: 'Pay',
+    category: 'home', title: 'Pay',
     body:
         '<p>Once you have reserved your lodging through FnF 2016 Cabins, you will receive a confirmation email with '\
         'details on where to send your payment by check or money order.</p>'\

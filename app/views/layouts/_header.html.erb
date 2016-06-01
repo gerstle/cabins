@@ -11,11 +11,12 @@
     </div>
   </div>
   <div class="row headerlinks">
-      <%= link_to 'home', home_path, class: 'link link-primary' %>
+      <%= link_to 'home', {controller: 'blog', action: 'index', category: 'home'}, class: 'link link-primary' %>
       <%= link_to 'overview & pricing', overview_path, class: 'link link-primary' %>
       <%= link_to 'map', map_path, class: 'link link-primary' %>
       <%= link_to 'cabin details', details_path, class: 'link link-primary' %>
-      <%= link_to 'rules', rules_path, class: 'link link-primary' %>
+      <%= link_to 'rules', {controller: 'blog', action: 'index', category: 'rule'}, class: 'link link-primary' %>
+      <%= link_to 'FAQ', {controller: 'blog', action: 'index', category: 'faq'}, class: 'link link-primary' %>
     <% if logged_in? && is_admin? %>
         <%= link_to 'admin', admin_path, class: 'link link-primary' %>
     <% end %>

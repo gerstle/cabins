@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   def require_admin
     unless is_admin?
       flash[:danger] = 'access denied'
-      redirect_to home_path
+      redirect_to controller: 'blog', action: 'index', category: 'home'
     end
   end
 end

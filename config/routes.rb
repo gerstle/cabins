@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  get 'welcome/index', as: 'home'
   get 'users/new', as: 'signup'
   get 'details/index', as: 'details'
   get 'overview/index', as: 'overview'
   get 'rules/index', as: 'rules'
   get 'map/index', as: 'map'
+  get 'blog/index' => 'blog#index', as: 'blog'
 
   get    'login'   => 'sessions#new', as: 'login'
   post   'login'   => 'sessions#create'
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'welcome#index'
+  root 'blog#index'
 
   resources :users
 
