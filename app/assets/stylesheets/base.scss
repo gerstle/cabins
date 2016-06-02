@@ -142,12 +142,10 @@ input {
 }
 
 .link-primary {
-  //background: #480b70;
   color: #bbbbbb;
 }
 
 .link-primary:hover, .header .link-primary:focus, .header .link-primary:active, .header .link-primary.active, .header .open > .dropdown-toggle.link-primary {
-  //background: #8ced28;
   background: #480b70;
   text-decoration: none;
 }
@@ -159,6 +157,31 @@ input {
 
 div.headerlinks {
   background-color: #78797e;
+
+  .selected {
+    background-color: #2E2F30;
+  }
+}
+
+div.adminlinks {
+  background-color: lightcoral;
+  margin-top: 6px;
+  padding-bottom: 5px;
+  color: black;
+
+  .link-primary {
+    color: black;
+  }
+
+  .link-primary:hover, .header .link-primary:focus, .header .link-primary:active, .header .link-primary.active, .header .open > .dropdown-toggle.link-primary {
+    background-color: #78797e;
+    text-decoration: none;
+  }
+
+  .link-primary:active, .header .link-primary.active {
+    background: #007299;
+    box-shadow: none;
+  }
 }
 
 .center {

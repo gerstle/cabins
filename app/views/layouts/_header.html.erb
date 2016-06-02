@@ -18,7 +18,10 @@
       <%= link_to 'rules', rules_path, class: 'link link-primary' %>
       <%= link_to 'FAQ', faq_path, class: 'link link-primary' %>
     <% if logged_in? && is_admin? %>
-        <%= link_to 'admin', admin_path, class: 'link link-primary' %>
+        <%= link_to 'admin', admin_path, class: 'link link-primary' + (is_admin_route? ? ' selected' : '')  %>
     <% end %>
   </div>
+  <% if is_admin? && is_admin_route? %>
+      <%= render 'layouts/admin' %>
+  <% end %>
 </div>
