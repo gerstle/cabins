@@ -15,6 +15,9 @@
       Body
     </th>
     <th>
+      Sticky?
+    </th>
+    <th>
       Actions
     </th>
   </tr>
@@ -29,7 +32,10 @@
           <%= p.title %>
         </td>
         <td>
-          <%= p.body%>
+          <%= p.body %>
+        </td>
+        <td>
+          <%= p.sticky %>
         </td>
         <td>
           <%= link_to 'edit', post_path(p) %>

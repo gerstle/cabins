@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160527064718) do
+ActiveRecord::Schema.define(version: 20160602063026) do
 
   create_table "posts", force: :cascade do |t|
     t.string   "category",   limit: 40
     t.string   "title",      limit: 255
     t.text     "body",       limit: 65535
+    t.boolean  "sticky"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
