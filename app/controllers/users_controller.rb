@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       flash[:success] = "Welcome to the FnF cabins registration system!"
-      redirect_to controller: 'blog', action: 'index', category: 'home'
+      redirect_to home_path
     else
       render 'new'
     end
