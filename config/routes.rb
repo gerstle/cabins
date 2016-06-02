@@ -7,11 +7,13 @@ Rails.application.routes.draw do
   get 'cabins/map' => 'map#index'
 
   get 'users/new', as: 'signup'
-  get 'details/index', as: 'details'
-  get 'overview/index', as: 'overview'
-  get 'rules/index', as: 'rules'
-  get 'map/index', as: 'map'
-  get 'blog/index' => 'blog#index', as: 'blog'
+  get 'details' => 'details#index', as: 'details'
+  get 'overview' => 'overview#index', as: 'overview'
+  get 'map' => 'map#index', as: 'map'
+
+  get 'home' => 'blog#home', as: 'home'
+  get 'rules' => 'blog#rules', as: 'rules'
+  get 'faq' => 'blog#faq', as: 'faq'
 
   get    'login'   => 'sessions#new', as: 'login'
   post   'login'   => 'sessions#create'
@@ -19,20 +21,22 @@ Rails.application.routes.draw do
 
   get 'admin/index', as: 'admin'
 
-  get 'admin/posts' => 'posts#index', as: 'admin_posts'
-  get 'admin/posts/new' => 'posts#new'
-  get 'posts/new' => 'posts#new', as: 'new_post'
+  get 'admin/posts/home' => 'posts#show_home', as: 'admin_home'
+  get 'admin/posts/rules' => 'posts#show_rules', as: 'admin_rules'
+  get 'admin/posts/faq' => 'posts#show_faq', as: 'admin_faq'
+
+  get 'admin/posts/home/new' => 'posts#new_home', as: 'new_home'
+  get 'admin/posts/rules/new' => 'posts#new_rule', as: 'new_rule'
+  get 'admin/posts/faq/new' => 'posts#new_faq', as: 'new_faq'
+
   post 'admin/posts' => 'posts#create', as: 'posts'
 
   get 'admin/posts/:id' => 'posts#show', as: 'edit_post'
   patch 'admin/posts/:id' => 'posts#update', as: 'post'
   delete 'admin/posts/:id' => 'posts#delete', as: 'delete_post'
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
   # You can have the root of your site routed with "root"
-  root 'blog#index'
+  root 'blog#home'
 
   resources :users
 end

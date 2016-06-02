@@ -1,5 +1,5 @@
 <div class="row">
-  <%= link_to 'home posts', {:controller => 'posts', :action => 'index', :category => 'home'}, class: 'link link-primary' %>
-  <%= link_to 'rule posts', {:controller => 'posts', :action => 'index', :category => 'rule'}, class: 'link link-primary' %>
-  <%= link_to 'FAQ posts', {:controller => 'posts', :action => 'index', :category => 'faq'}, class: 'link link-primary' %>
+  <%= link_to 'home posts', admin_home_path, class: 'link link-primary' %>
+  <%= link_to 'rule posts', admin_rules_path, class: 'link link-primary' %>
+  <%= link_to 'FAQ posts', admin_faq_path, class: 'link link-primary' %>
 </div>

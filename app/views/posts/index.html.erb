@@ -1,6 +1,6 @@
-<h2><%= params[:category] %> post management</h2>
+<h2><%= @category %> post management</h2>
 <div>
-  <h3 class="right"><%= link_to 'new', {controller: 'posts', action: 'new', category: params[:category]}, class: 'green' %></h3>
+  <h3 class="right"><%= link_to 'new', @path, class: 'green' %></h3>
 </div>
 <table class="table table-bordered table-striped">
   <thead>

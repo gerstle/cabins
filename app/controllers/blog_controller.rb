@@ -1,11 +1,18 @@
 class BlogController < ApplicationController
-  def index
-    if params[:category].present?
-      category = params[:category];
-    else
-      category = 'home'
-    end
+  def show_category(category)
+    @posts = Post.where(category: category)
+    render 'blog/index'
+  end
 
-    @posts = Post.where("category='#{category}'")
+  def home
+    show_category('home')
+  end
+
+  def rules
+    show_category('rule')
+  end
+
+  def faq
+    show_category('faq')
   end
 end

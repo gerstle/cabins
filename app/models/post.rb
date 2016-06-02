@@ -1,5 +1,7 @@
 class Post < ActiveRecord::Base
-  validates :category, presence: true, length: { maximum: 40 }
+  @allowed_categories = %w(home rule category)
+
+  validates :category, presence: true, length: { maximum: 40 }, :inclusion=> { :in => @allowed_categories }
   validates :title, presence: true, length: { maximum: 255 }
   validates :body, presence: true
 end
