@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   get 'admin/index', as: 'admin'
 
   get 'admin/posts/home' => 'posts#show_home', as: 'admin_home'
-  get 'admin/posts/rules' => 'posts#show_rules', as: 'admin_rules'
+  get 'admin/posts/rules' => 'posts#show_rule', as: 'admin_rule'
   get 'admin/posts/faq' => 'posts#show_faq', as: 'admin_faq'
 
   get 'admin/posts/home/new' => 'posts#new_home', as: 'new_home'

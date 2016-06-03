@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     show_posts
   end
 
-  def show_rules
+  def show_rule
     @category = 'rule'
     show_posts
   end
@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     new
   end
 
-  def new_rules
+  def new_rule
     @category = 'rule'
     new
   end
