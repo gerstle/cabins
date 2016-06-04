@@ -1,8 +1,28 @@
-<% provide(:title, 'Sign up') %>
-<div class="title"><h1>Sign up</h1></div>
+<% provide(:title, 'Register') %>
+<div class="row">
+  <div class="title"><h3>FnF 2016 Cabin Registration</h3></div>
+  <div class="content">
+Welcome to the Friends and Family Accommodation Registration System (a.k.a. FnF 2016)! We are currently registering people who are interested in renting a room in a cabin for this year's FnF Campout. Once you register, we will verify that you are eligible and place you into a signup tier, based on your contributions to the event. Learn about the full signup process.
+  </div>
+
+  <div class="title"><h3>Do you have to re-register if you already have a cabin sign-up account from last year?</h3></div>
+  <div class="content">
+    <strong>YES!</strong>
+  </div>
+  <div class="title"><h3>Are you Eligible for a Cabin?</h3></div>
+  <div class="content">
+    <ol>
+      <li>Did you already buy FnF Tickets under YOUR NAME?</li>
+      <li>Are you an Coordinator this year and/or have you signed up on the staffing sheet?</li>
+    </ol>
+  </div>
+
+If the answer is YES to all of these questions, you're eligible! Please fill out the form below.
+
+</div>
 
 <div class="row">
-  <div class="col-md-6 col-md-offset-3">
+  <div class="col-md-6 col-md-offset-2">
     <%= form_for(@user) do |f| %>
         <%= render 'shared/error_messages' %>
         <div class="field">
@@ -21,11 +41,16 @@
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, "Confirmation" %>
+          <%= f.label :password_confirmation, 'Confirmation' %>
           <%= f.password_field :password_confirmation, class: 'form control' %>
         </div>
 
-        <%= f.submit "Create my account", class: "btn btn-primary" %>
+        <div class="field">
+          <%= f.label :phone, 'Phone Number' %>
+          <%= f.password_field :phone, class: 'form control' %>
+        </div>
+
+        <%= f.submit "Register", class: "btn btn-primary" %>
     <% end %>
   </div>
 </div>
