@@ -1,18 +1,21 @@
 class BlogController < ApplicationController
-  def show_category(category)
-    @posts = Post.where(category: category).order(sticky: :desc, id: :asc)
+  def show_category
+    @posts = Post.where(category: @category).order(sticky: :desc, id: :asc)
     render 'blog/index'
   end
 
   def home
-    show_category('home')
+    @category = 'home'
+    show_category
   end
 
   def rules
-    show_category('rule')
+    @category = 'rule'
+    show_category
   end
 
   def faq
-    show_category('faq')
+    @category = 'faq'
+    show_category
   end
 end

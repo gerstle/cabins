@@ -66,9 +66,7 @@ label {
 
 input, textarea, select, .uneditable-input {
   color: black;
-  border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
   @include box_sizing;
 }
 
@@ -130,6 +128,7 @@ input {
 }
 
 .link {
+  border-radius: 3px;
   padding: 4px 12px;
   border: 0 none;
   font-weight: 700;
@@ -156,6 +155,7 @@ input {
 }
 
 div.headerlinks {
+  border-radius: 3px;
   background-color: #78797e;
 
   .selected {
@@ -163,7 +163,13 @@ div.headerlinks {
   }
 }
 
+div.admin {
+  border-top: 2px solid lightcoral;
+  border-bottom: 2px solid lightcoral;
+}
+
 div.adminlinks {
+  border-radius: 3px;
   background-color: lightcoral;
   margin-top: 6px;
   padding-bottom: 5px;
@@ -211,17 +217,33 @@ div.user {
 }
 
 .field {
+  margin-bottom: 15px;
+
   textarea {
     height: 200px;
   }
 
-  label.checkbox {
+  label.same-line {
     width: auto;
     margin: 4px 12px 0 0;
+    float: none;
+    clear: both;
   }
 
   input[type='checkbox'] {
     width: auto;
+  }
+
+  input[type='radio'] {
+    width: auto;
+  }
+
+  .description {
+    margin: 4px 0 15px 40px;
+  }
+
+  textarea + .description {
+    margin: 0 0 15px 0;
   }
 }
 
@@ -243,4 +265,12 @@ div.user {
   a {
     color: #8ced28;
   }
+}
+
+.status {
+  border: 2px solid;
+  border-radius: 4px;
+  margin-bottom: 20px;
+  padding: 15px;
+  margin: 6px 12px 0 12px;
 }

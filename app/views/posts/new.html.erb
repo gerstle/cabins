@@ -4,7 +4,7 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <%= form_for(@post) do |f| %>
-        <%= render 'shared/error_messages' %>
+        <%= render 'layouts/error_messages' %>
         <%= hidden_field(:post, :category) %>
       <div class="field">
         <%= f.label :title %><br>
@@ -15,7 +15,7 @@
         <%= f.text_area :body, class: 'body' %>
       </div>
       <div class="field">
-        <%= f.label :sticky, class: 'checkbox' %>
+        <%= f.label :sticky, class: 'same-line' %>
         <%= f.check_box :sticky %>
       </div>
       <div class="actions">
