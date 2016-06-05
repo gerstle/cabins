@@ -1,3 +1,8 @@
+
+<% if logged_in? && @category == 'home' %>
+    <%= render 'layouts/status' %>
+<% end %>
+
 <% @posts.each do |p| %>
     <div class="post">
       <div class="title"><h3><%= p.title %></h3></div>
