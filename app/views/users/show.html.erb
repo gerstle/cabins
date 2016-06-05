@@ -1,0 +1,66 @@
+<%= form_for(@user) do |f| %>
+  <div class="row">
+    <%= render 'shared/error_messages' %>
+  </div>
+
+  <div class="row">
+    <div class="col-md-5 col-md-offset-1">
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %>
+        <%= f.email_field :email, class: 'form control' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :phone, 'Phone Number' %>
+        <%= f.text_field :phone, class: 'form control' %>
+      </div>
+    </div>
+
+    <div class="col-md-5">
+      <div class="field">
+        <%= f.label :role, 'Your Role for this event' %>
+      </div>
+      <div class="field">
+        <%= f.radio_button :role, 'planner', class: 'form control' %>
+        <%= f.label :role, 'Planners', value: 'what', class: 'same-line' %>
+      </div>
+      <div class="field">
+        <%= f.radio_button :role, 'planner_medical', class: 'form control' %>
+        <%= f.label :role, 'Planner / Medical', value: 'qwer', class: 'same-line' %>
+      </div>
+      <div class="field">
+        <%= f.radio_button :role, 'attendee', class: 'form control' %>
+        <%= f.label :role, 'Other / Attendee', value: 'qwer', class: 'same-line' %>
+      </div>
+
+      <div class="field">
+        <%= f.label :notes, 'List specific Planner Role(s) and Medical Accommodation needed if applicable. ' %>
+        <%= f.text_area :notes, class: 'form control' %>
+      </div>
+    </div>
+  </div>
+
+  <% if is_admin? %>
+    <div class="row admin">
+      <div class="col-md-5 col-md-offset-1">
+        <div class="field">
+          <%= f.label :tier_id %>
+          <%= f.collection_select :tier_id, Tier.all, :id, :full_label, class: 'form control' %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="row">
+    <div class="col-md-2 col-md-offset-1">
+      <div class="actions">
+        <%= f.submit "Update", class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>

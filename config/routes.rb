@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'cabins/details' => 'details#index'
   get 'cabins/map' => 'map#index'
 
-  get 'users/new', as: 'signup'
   get 'details' => 'details#index', as: 'details'
   get 'overview' => 'overview#index', as: 'overview'
   get 'map' => 'map#index', as: 'map'
@@ -14,6 +13,10 @@ Rails.application.routes.draw do
   get 'home' => 'blog#home', as: 'home'
   get 'rules' => 'blog#rules', as: 'rules'
   get 'faq' => 'blog#faq', as: 'faq'
+
+
+  get 'users/new', as: 'signup'
+  post 'users' => 'users#create'
 
   get    'login'   => 'sessions#new', as: 'login'
   post   'login'   => 'sessions#create'
@@ -35,8 +38,10 @@ Rails.application.routes.draw do
   patch 'admin/posts/:id' => 'posts#update', as: 'post'
   delete 'admin/posts/:id' => 'posts#delete', as: 'delete_post'
 
+  get 'admin/registrations' => 'registrations#index', as: 'registrations'
+  get 'users/:id' => 'users#show', as: 'user'
+  patch 'users/:id' => 'users#update'
+
   # You can have the root of your site routed with "root"
   root 'blog#home'
-
-  resources :users
 end

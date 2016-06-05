@@ -92,10 +92,29 @@ posts = Post.create([
       category: 'rule', title: 'Room Rules: Issues',
       body:
           'Should you have any problems with your room, please contact Bob, the Saratoga Springs facilities guy.'
+  },
+  {
+      category: 'faq', title: 'you haz question?',
+      body:
+          'here are all the answers!'
+  },
+  {
+      category: 'faq', title: 'FAQ it',
+      body:
+          'yep'
   }
 ])
 
 users = User.create([
-   # {name: 'minty', email:'minty@inappropirates.com', password:'nopenope', password_confirmation:'nopenope', admin: true},
-   # {name: 'maximus', email:'maximus@fatboycentral.com', password:'nopenope', password_confirmation:'nopenope', admin: true}
+   {name: 'minty', email:'minty@inappropirates.com', password:'nopenope', password_confirmation:'nopenope', phone: '1111', role: 'planner', admin: true},
+   {name: 'maximus', email:'maximus@fatboycentral.com', password:'nopenope', password_confirmation:'nopenope', phone: '1111', role: 'planner', admin: true},
+   {name: 'asdf', email:'asdf@gmail.com', password:'asdfasdf', password_confirmation:'asdfasdf', phone: '1111', role: 'attendee', admin: false}
+])
+
+Tier.create([
+  {label: 'Tier 1', description: 'Secret', available: DateTime.new(2016, 7, 1, 19, 30, 0, Rational(-7,24))},
+  {label: 'Tier 2', description: 'Planners Medical', available: DateTime.new(2016, 6, 29, 19, 30, 0, Rational(-7,24))},
+  {label: 'Tier 3', description: 'Planners', available: DateTime.new(2016, 7, 1, 19, 30, 0, Rational(-7,24))},
+  {label: 'Tier 4', description: 'All', available: DateTime.new(2016, 7, 2, 19, 30, 0, Rational(-7,24))},
+  {label: 'Tier 5', description: 'Un-moderated', available: DateTime.new(2016, 7, 30, 19, 30, 0, Rational(-7,24))},
 ])

@@ -66,9 +66,7 @@ label {
 
 input, textarea, select, .uneditable-input {
   color: black;
-  border: 1px solid #bbb;
   width: 100%;
-  margin-bottom: 15px;
   @include box_sizing;
 }
 
@@ -163,6 +161,11 @@ div.headerlinks {
   }
 }
 
+div.admin {
+  border-top: 2px solid lightcoral;
+  border-bottom: 2px solid lightcoral;
+}
+
 div.adminlinks {
   background-color: lightcoral;
   margin-top: 6px;
@@ -211,17 +214,33 @@ div.user {
 }
 
 .field {
+  margin-bottom: 15px;
+
   textarea {
     height: 200px;
   }
 
-  label.checkbox {
+  label.same-line {
     width: auto;
     margin: 4px 12px 0 0;
+    float: none;
+    clear: both;
   }
 
   input[type='checkbox'] {
     width: auto;
+  }
+
+  input[type='radio'] {
+    width: auto;
+  }
+
+  .description {
+    margin: 4px 0 15px 40px;
+  }
+
+  textarea + .description {
+    margin: 0 0 15px 0;
   }
 }
 
