@@ -4,10 +4,10 @@
     <div class="user">
       <% if logged_in? %>
         <%= current_user.name %><span class="gray">&nbsp|</span>
-          <%= link_to 'profile', user_path(@current_user) %><span class="gray">&nbsp|</span>
-        <%= link_to 'Log out', logout_path, method: :delete %>
+        <%= link_to 'profile', user_path(@current_user) %><span class="gray">&nbsp|</span>
+        <%= link_to 'log out', logout_path, method: :delete %>
       <% else %>
-          <%= link_to 'login', login_path %>&nbsp;|&nbsp;<%= link_to 'register', signup_path %>
+          <%= link_to 'login', login_path %>&nbsp;|&nbsp;<%= link_to 'pre-register', signup_path %>
       <% end %>
     </div>
   </div>
