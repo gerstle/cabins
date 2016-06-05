@@ -51,7 +51,7 @@
       <div class="col-md-5 col-md-offset-1">
         <div class="field">
           <%= f.label :tier_id %>
-          <%= f.collection_select :tier_id, Tier.all, :id, :full_label, class: 'form control' %>
+          <%= f.collection_select :tier_id, Tier.all, :id, :full_label, :include_blank => true, class: 'form control' %>
         </div>
       </div>
     </div>
