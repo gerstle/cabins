@@ -13,8 +13,7 @@ class UsersController < ApplicationController
 
     if @user.save
       log_in @user
-      flash[:success] = "Welcome to the FnF cabins registration system!"
-      redirect_to home_path
+      render 'pre_registered'
     else
       render 'new'
     end
