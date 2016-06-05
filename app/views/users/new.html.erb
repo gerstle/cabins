@@ -23,7 +23,7 @@ Welcome to the Friends and Family Accommodation Registration System (a.k.a. FnF 
 <div class="row">
   <div class="col-md-6 col-md-offset-2">
     <%= form_for(@user) do |f| %>
-        <%= render 'shared/error_messages' %>
+        <%= render 'layouts/error_messages' %>
         <div class="field">
           <%= f.label :name, 'Full Name' %>
           <%= f.text_field :name, class: 'form control' %>
