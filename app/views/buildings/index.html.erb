@@ -1,0 +1,24 @@
+<h2><%= @category %> post management</h2>
+<div>
+  <h3 class="right"><%= link_to 'new', @path, class: 'green' %></h3>
+</div>
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Type</th>
+    <th>Label</th>
+    <th>Description</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @buildings.each do |b| %>
+      <tr data-item-id=<%= "#{b.id}" %> class="item">
+        <td><%= b.building_type.label %></td>
+        <td><%= b.label %></td>
+        <td><%= b.description %></td>
+        <td><%= link_to 'edit', building_path(b) %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>

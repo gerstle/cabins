@@ -42,6 +42,13 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show', as: 'user'
   patch 'users/:id' => 'users#update'
 
+  get 'admin/buildings' => 'buildings#index', as: 'buildings'
+  get 'admin/buildings/:id' => 'buildings#show', as: 'building'
+  patch 'admin/buildings/:id' => 'buildings#update'
+
+  get 'admin/accommodations/:id' => 'accommodations#show', as: 'accommodation'
+  patch 'admin/accommodations/:id' => 'accommodations#update'
+
   # You can have the root of your site routed with "root"
   root 'blog#home'
 end

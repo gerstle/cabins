@@ -4,9 +4,9 @@ class CreateAccommodations < ActiveRecord::Migration
       t.references :accommodation_type, null: false
       t.references :building, null: false
       t.boolean :air_conditioning, null: false
-      t.integer :available, null: false
       t.boolean :bathroom, null: false
       t.string :description, null: true, limit: 255
+      t.boolean :hold, null: false
       t.boolean :kitchen, null: false
       t.string :label, null: false, limit: 20
       t.integer :occupancy, null: false
