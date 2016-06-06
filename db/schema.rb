@@ -11,7 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160604234441) do
+ActiveRecord::Schema.define(version: 20160605220259) do
+
+  create_table "accommodation_types", force: :cascade do |t|
+    t.string   "description", limit: 255
+    t.string   "label",       limit: 20,  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "accommodations", force: :cascade do |t|
+    t.integer  "accommodation_type_id", limit: 4,   null: false
+    t.integer  "building_id",           limit: 4,   null: false
+    t.boolean  "air_conditioning",                  null: false
+    t.integer  "available",             limit: 4,   null: false
+    t.boolean  "bathroom",                          null: false
+    t.string   "description",           limit: 255
+    t.boolean  "kitchen",                           null: false
+    t.string   "label",                 limit: 20,  null: false
+    t.integer  "occupancy",             limit: 4,   null: false
+    t.float    "price",                 limit: 24,  null: false
+    t.integer  "quantity",              limit: 4,   null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
+  end
+
+  create_table "building_types", force: :cascade do |t|
+    t.string   "description", limit: 255
+    t.string   "label",       limit: 20,  null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+  end
+
+  create_table "buildings", force: :cascade do |t|
+    t.integer  "building_type_id", limit: 4,   null: false
+    t.string   "description",      limit: 255
+    t.string   "image",            limit: 255
+    t.string   "label",            limit: 20,  null: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
 
   create_table "posts", force: :cascade do |t|
     t.string   "category",   limit: 40
@@ -20,6 +59,17 @@ ActiveRecord::Schema.define(version: 20160604234441) do
     t.boolean  "sticky",                   default: false, null: false
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.integer  "accommodation_id",     limit: 4,  null: false
+    t.integer  "processed_by_user_id", limit: 4,  null: false
+    t.integer  "user_id",              limit: 4,  null: false
+    t.datetime "paid_date",                       null: false
+    t.float    "price",                limit: 24, null: false
+    t.integer  "quantity",             limit: 4,  null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
   end
 
   create_table "tiers", force: :cascade do |t|

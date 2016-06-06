@@ -1,5 +1,7 @@
 class User < ActiveRecord::Base
   belongs_to :tier
+  has_many :reservations, foreign_key: :user_id
+  has_many :processed_reservations, class_name: 'Reservation', foreign_key: :processed_by_user_id
 
   @allowed_roles = %w(planner planner_medical attendee)
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
