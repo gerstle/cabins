@@ -20,3 +20,7 @@
 /config/deploy/production.rb
 
 .byebug_history
+
+# Ignore private data 
+/private
+
