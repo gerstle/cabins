@@ -2,12 +2,10 @@ Rails.application.routes.draw do
   get 'sessions/new'
 
   # redirects from fnf.inappropirates.com/cabin
-  get 'cabins/overview' => 'overview#index'
   get 'cabins/details' => 'details#index'
   get 'cabins/map' => 'map#index'
 
   get 'details' => 'details#index', as: 'details'
-  get 'overview' => 'overview#index', as: 'overview'
   get 'map' => 'map#index', as: 'map'
 
   get 'home' => 'blog#home', as: 'home'
@@ -46,8 +44,10 @@ Rails.application.routes.draw do
   get 'admin/buildings/:id' => 'buildings#show', as: 'building'
   patch 'admin/buildings/:id' => 'buildings#update'
 
-  get 'admin/accommodations/:id' => 'accommodations#show', as: 'accommodation'
-  patch 'admin/accommodations/:id' => 'accommodations#update'
+  # post 'accommodations/search' => 'accommodations#search', as: 'accommodation_search'
+  get 'accommodations' => 'accommodations#index', as: 'accommodations'
+  get 'accommodations/:id' => 'accommodations#show', as: 'accommodation'
+  patch 'accommodations/:id' => 'accommodations#update'
 
   # You can have the root of your site routed with "root"
   root 'blog#home'

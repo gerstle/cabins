@@ -1,0 +1,25 @@
+<table class="table table-bordered table-striped">
+  <thead>
+  <tr>
+    <th>Type</th>
+    <th class="sortable"><%= sortable 'label' %></th>
+    <th class="sortable"><%= sortable 'description' %></th>
+    <th class="sortable"><%= sortable 'occupancy' %></th>
+    <th class="sortable"><%= sortable 'quantity' %></th>
+    <th class="sortable"><%= sortable 'price' %></th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @lodgings.each do |l| %>
+      <tr data-item-id=<%= "#{l.id}" %> class="item">
+        <td><%= l.building.building_type.label %></td>
+        <td><%= l.label %></td>
+        <td><%= l.description %></td>
+        <td><%= l.occupancy %></td>
+        <td><%= l.quantity %></td>
+        <td><%= l.price %></td>
+      </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= paginate @lodgings, remote: true %>

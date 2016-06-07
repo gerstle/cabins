@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 20160605220259) do
     t.integer  "accommodation_type_id", limit: 4,   null: false
     t.integer  "building_id",           limit: 4,   null: false
     t.boolean  "air_conditioning",                  null: false
-    t.integer  "available",             limit: 4,   null: false
     t.boolean  "bathroom",                          null: false
     t.string   "description",           limit: 255
+    t.boolean  "hold",                              null: false
     t.boolean  "kitchen",                           null: false
     t.string   "label",                 limit: 20,  null: false
     t.integer  "occupancy",             limit: 4,   null: false
