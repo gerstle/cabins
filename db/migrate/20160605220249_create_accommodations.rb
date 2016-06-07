@@ -10,7 +10,7 @@ class CreateAccommodations < ActiveRecord::Migration
       t.boolean :kitchen, null: false
       t.string :label, null: false, limit: 20
       t.integer :occupancy, null: false
-      t.float :price, null: false
+      t.decimal :price, precision: 12, scale: 2, null: false
       t.integer :quantity, null: false
       t.timestamps null: false
     end

@@ -26,22 +26,22 @@
 
       <div class="field">
         <%= f.label :occupancy %>
-        <%= f.text_field :occupancy, class: 'form control' %>
+        <%= f.number_field :occupancy, :class => 'form control' %>
       </div>
 
       <div class="field">
         <%= f.label :quantity %>
-        <%= f.text_field :quantity, class: 'form control' %>
+        <%= f.number_field :quantity, :class => 'form control' %>
       </div>
 
       <div class="field">
-        <%= f.label :price %>
-        <%= f.text_field :price, class: 'form control' %>
+        <%= f.label :price%>
+        <%= f.number_field :price, :step => 0.01, :class => 'form control' %>
       </div>
 
       <div class="field">
         <%= f.label :hold, class: 'same-line'%>
-        <%= f.check_box :price %>
+        <%= f.check_box :hold%>
         <div class="description">
           If hold is checked, a general user <strong>cannot</strong> reserve this accommodation
         </div>

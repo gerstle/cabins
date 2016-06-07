@@ -21,19 +21,19 @@ ActiveRecord::Schema.define(version: 20160607052519) do
   end
 
   create_table "accommodations", force: :cascade do |t|
-    t.integer  "accommodation_type_id", limit: 4,   null: false
-    t.integer  "building_id",           limit: 4,   null: false
-    t.boolean  "air_conditioning",                  null: false
-    t.boolean  "bathroom",                          null: false
+    t.integer  "accommodation_type_id", limit: 4,                            null: false
+    t.integer  "building_id",           limit: 4,                            null: false
+    t.boolean  "air_conditioning",                                           null: false
+    t.boolean  "bathroom",                                                   null: false
     t.string   "description",           limit: 255
-    t.boolean  "hold",                              null: false
-    t.boolean  "kitchen",                           null: false
-    t.string   "label",                 limit: 20,  null: false
-    t.integer  "occupancy",             limit: 4,   null: false
-    t.float    "price",                 limit: 24,  null: false
-    t.integer  "quantity",              limit: 4,   null: false
-    t.datetime "created_at",                        null: false
-    t.datetime "updated_at",                        null: false
+    t.boolean  "hold",                                                       null: false
+    t.boolean  "kitchen",                                                    null: false
+    t.string   "label",                 limit: 20,                           null: false
+    t.integer  "occupancy",             limit: 4,                            null: false
+    t.decimal  "price",                             precision: 12, scale: 2, null: false
+    t.integer  "quantity",              limit: 4,                            null: false
+    t.datetime "created_at",                                                 null: false
+    t.datetime "updated_at",                                                 null: false
   end
 
   create_table "building_types", force: :cascade do |t|
@@ -68,14 +68,14 @@ ActiveRecord::Schema.define(version: 20160607052519) do
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.integer  "accommodation_id",     limit: 4,  null: false
-    t.integer  "processed_by_user_id", limit: 4,  null: false
-    t.integer  "user_id",              limit: 4,  null: false
-    t.datetime "paid_date",                       null: false
-    t.float    "price",                limit: 24, null: false
-    t.integer  "quantity",             limit: 4,  null: false
-    t.datetime "created_at",                      null: false
-    t.datetime "updated_at",                      null: false
+    t.integer  "accommodation_id",     limit: 4,                          null: false
+    t.integer  "processed_by_user_id", limit: 4,                          null: false
+    t.integer  "user_id",              limit: 4,                          null: false
+    t.datetime "paid_date",                                               null: false
+    t.decimal  "price",                          precision: 12, scale: 2, null: false
+    t.integer  "quantity",             limit: 4,                          null: false
+    t.datetime "created_at",                                              null: false
+    t.datetime "updated_at",                                              null: false
   end
 
   create_table "tiers", force: :cascade do |t|

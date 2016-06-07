@@ -5,7 +5,7 @@ class AccommodationsController < ApplicationController
   before_action :logged_in_user
 
   def index
-    @lodgings = Accommodation.search(params[:search]).order(sort_column + ' ' + sort_direction).page(params[:page]).per(10)
+    @lodgings = Accommodation.search(params[:search]).order(sort_column + ' ' + sort_direction, :id).page(params[:page]).per(10)
   end
 
   # def search
