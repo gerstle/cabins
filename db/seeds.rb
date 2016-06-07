@@ -223,7 +223,7 @@ Accommodation.create(accommodation_type: bed, building: building, hold: false,
                      occupancy: 1, price: 67.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
                      label: 'Dorm C', description: '1 twin bed in a room of 10 twin beds (bunked)',
-                     occupancy: 1, price: 67.99, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 1, price: 67.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
 
 Planner.create([
   {'email': 'planner1@inappropirates.com'},
