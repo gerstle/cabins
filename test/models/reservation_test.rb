@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class OverviewControllerTest < ActionController::TestCase
+class ReservationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

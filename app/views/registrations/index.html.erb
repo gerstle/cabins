@@ -2,60 +2,29 @@
 <table class="table table-bordered table-striped">
   <thead>
   <tr>
-    <th>
-      ID
-    </th>
-    <th>
-      Name
-    </th>
-    <th>
-      Admin?
-    </th>
-    <th>
-      Selected Role
-    </th>
-    <th>
-      Approved Tier
-    </th>
-    <th>
-      Registered Date
-    </th>
-    <th>
-      Updated
-    </th>
-    <th>
-      Actions
-    </th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Admin?</th>
+    <th>Selected Role</th>
+    <th>Confirmed Planner*</th>
+    <th>Approved Tier</th>
+    <th>Registered Date</th>
+    <th>Actions</th>
   </tr>
   </thead>
   <tbody>
   <% @registrations.each do |r| %>
       <tr data-item-id=<%= "#{r.id}" %> class="item">
-        <td>
-          <%= r.id%>
-        </td>
-        <td>
-          <%= r.name %>
-        </td>
-        <td>
-          <%= r.admin %>
-        </td>
-        <td>
-          <%= r.role %>
-        </td>
-        <td>
-          <%= r.tier.full_label unless r.tier.nil? %>
-        </td>
-        <td>
-          <%= r.created_at %>
-        </td>
-        <td>
-          <%= r.updated_at %>
-        </td>
-        <td>
-          <%= link_to 'edit', user_path(r) %>
-        </td>
+        <td><%= r.name %></td>
+        <td><%= r.email%></td>
+        <td><%= r.admin %></td>
+        <td><%= r.role %></td>
+        <td><%= r.planner_found %></td>
+        <td><%= r.tier.full_label unless r.tier.nil? %></td>
+        <td><%= r.created_at %></td>
+        <td><%= link_to 'edit', user_path(r) %></td>
       </tr>
   <% end %>
   </tbody>
 </table>
+*<strong>Confirmed Planners:</strong> The email address tied to this account matches one on the planners list and the user was automatically approved into the planners tier

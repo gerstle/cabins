@@ -74,12 +74,20 @@ input {
   height: auto !important;
 }
 
+input[type=text].same-line {
+  width: 50%;
+}
+
+input.same-line {
+  width: auto;
+}
+
 .row {
   padding: 4px 4px 4px 12px;
 }
 
 .btn {
-  padding: 14px 24px;
+  padding: 4px 24px;
   border: 0 none;
   font-weight: 700;
   letter-spacing: 1px;
@@ -273,4 +281,20 @@ div.user {
   margin-bottom: 20px;
   padding: 15px;
   margin: 6px 12px 0 12px;
+}
+
+th .asc {
+  padding-right: 16px;
+  background-image: image-url("up_arrow.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  width: 100%;
+}
+
+th .desc {
+  padding-right: 16px;
+  background-image: image-url("down_arrow.png");
+  background-repeat: no-repeat;
+  background-position: right;
+  width: 100%;
 }

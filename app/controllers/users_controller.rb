@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @error = @user # tell _error_messages.html.erb to use this object for form errors
 
+    set_planner_found
     if @user.save
       log_in @user
       render 'pre_registered'
@@ -33,12 +34,15 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @error = @user # tell _error_messages.html.erb to use this object for form errors
 
+    set_planner_found
     if @user.update_attributes(user_params)
       flash.now[:success] = 'user updated'
       if is_admin?
-        redirect_to registrations_path
+        @registrations = User.all
+        render 'registrations/index'
       else
-        redirect_to home_path
+        @posts = Post.where(category: 'home').order(sticky: :desc, id: :asc)
+        render 'blog/index'
       end
     else
       render 'show'
@@ -51,15 +55,26 @@ class UsersController < ApplicationController
       params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone, :role, :notes, :tier_id)
     end
 
-    def logged_in_user
-      unless logged_in?
-        flash[:danger] = "Please log in."
-        redirect_to login_url
-      end
-    end
-
   def correct_user
     @user = User.find(params[:id])
     redirect_to(root_url) unless is_current_user?(@user) || is_admin?
+  end
+
+  def set_planner_found
+    planner = Planner.where(email: params[:user][:email].blank? ? @user.email : params[:user][:email])
+    @user.planner_found = planner.blank? ? false : true
+
+    if (@user.planner_found && params[:user][:tier_id].blank?)
+      tier = Tier.find_by(label: 'Tier 3')
+      if (@user.id.blank?)
+        @user.tier = tier unless tier.nil?
+      else
+        params[:user][:tier_id] = tier.id unless tier.nil?
+      end
+
+      if is_admin?
+        flash.now[:info] = "Planner email '#{@user.email}' recognized and automagically moved to #{tier.label}"
+      end
+    end
   end
 end
