@@ -83,9 +83,9 @@ class PostsController < ApplicationController
     show_posts
   end
 
-private
-  def post_params
-    params.require(:post).permit(:title, :body, :category, :sticky)
-  end
+  private
+    def post_params
+      params.require(:post).permit(:title, :body, :category, :sticky)
+    end
 
 end

@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'rules' => 'blog#rules', as: 'rules'
   get 'faq' => 'blog#faq', as: 'faq'
 
+  get 'accommodations' => 'accommodations#index', as: 'accommodations'
+  get 'accommodations/:id' => 'accommodations#show', as: 'accommodation'
+  patch 'accommodations/:id' => 'accommodations#update'
 
   get 'users/new', as: 'signup'
   post 'users' => 'users#create'
@@ -44,10 +47,9 @@ Rails.application.routes.draw do
   get 'admin/buildings/:id' => 'buildings#show', as: 'building'
   patch 'admin/buildings/:id' => 'buildings#update'
 
-  # post 'accommodations/search' => 'accommodations#search', as: 'accommodation_search'
-  get 'accommodations' => 'accommodations#index', as: 'accommodations'
-  get 'accommodations/:id' => 'accommodations#show', as: 'accommodation'
-  patch 'accommodations/:id' => 'accommodations#update'
+  get 'admin/tiers' => 'tiers#index', as: 'tiers'
+  get 'admin/tiers/:id' => 'tiers#show', as: 'tier'
+  patch 'admin/tiers/:id' => 'tiers#update'
 
   # You can have the root of your site routed with "root"
   root 'blog#home'
