@@ -14,11 +14,11 @@
   <div class="row headerlinks">
     <%= link_to 'home', home_path, class: 'link link-primary' %>
     <%= link_to 'map', map_path, class: 'link link-primary' %>
-    <%= link_to 'cabin details', details_path, class: 'link link-primary' %>
     <%= link_to 'rules', rules_path, class: 'link link-primary' %>
     <%= link_to 'FAQ', faq_path, class: 'link link-primary' %>
     <% if logged_in? %>
-        <%= link_to 'lodging', accommodations_path, class: 'link link-primary' %>
+        <%= link_to 'cabin details', details_path, class: 'link link-primary' %>
+        <%= link_to 'lodging Options', accommodations_path, class: 'link link-primary' %>
     <% end %>
     <% if logged_in? && is_admin? %>
         <%= link_to 'admin', admin_path, class: 'link link-primary' + (is_admin_route? ? ' selected' : '')  %>
