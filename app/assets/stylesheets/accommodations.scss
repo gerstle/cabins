@@ -1,3 +1,67 @@
 // Place all the styles related to the accommodations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.accommodation {
+  color: black;
+  border-radius: 3px;
+  background-color: #bbbbbb;
+  border: 1px solid #480b70;
+  margin-bottom: 12px;
+  padding-right: 0;
+
+  .heading {
+    padding-left: 2px;
+    padding-bottom: 0;
+
+    .buildinglabel {
+      color: #171819;
+      font-weight: bold;
+      padding-left: 0;
+    }
+
+    .cabinlabel {
+      color: #3f4041;
+      font-weight: bold;
+      font-size: 100%;
+      padding-left: 0;
+    }
+  }
+
+  .details {
+    font-size: 90%;
+    padding-top: 0;
+
+    .label {
+      margin-right: 12px;
+      font-weight: bold;
+      color: black;
+      width: 40%;
+    }
+
+    .row {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .book {
+    background-color: #78797e;
+    border-radius: 3px;
+    padding: 6px;
+    margin: 4px;
+
+    .price {
+      font-size: 125%;
+      font-weight: bold;
+      color: #480b70;
+    }
+
+    .quantity {
+    }
+
+    .btn {
+      margin: 8px 0 0 0;
+    }
+  }
+}

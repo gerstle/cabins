@@ -1,25 +1,52 @@
-<table class="table table-bordered table-striped">
-  <thead>
-  <tr>
-    <th class="sortable"><%= sortable 'building_id', 'building' %></th>
-    <th class="sortable"><%= sortable 'label' %></th>
-    <th class="sortable"><%= sortable 'description' %></th>
-    <th class="sortable"><%= sortable 'occupancy' %></th>
-    <th class="sortable"><%= sortable 'quantity' %></th>
-    <th class="sortable"><%= sortable 'price' %></th>
-  </tr>
-  </thead>
-  <tbody>
+<div class="row">
+  <div class="col-md-2 sortable right">Sort by</div>
+  <div class="col-md-2 sortable"><%= sortable 'label' %></div>
+  <div class="col-md-2 sortable"><%= sortable 'occupancy' %></div>
+  <div class="col-md-2 sortable"><%= sortable 'quantity' %></div>
+  <div class="col-md-2 sortable"><%= sortable 'price' %></div>
+  <div class="col-md-2 sortable">&nbsp;</div>
+</div>
+<div class="row">
+  <%= paginate @lodgings, remote: true %>
+</div>
+<div class="row">
   <% @lodgings.each do |l| %>
-      <tr data-item-id=<%= "#{l.id}" %> class="item">
-        <td><%= "#{l.building.label} (#{l.building.building_type.label})"%></td>
-        <td><%= l.label %></td>
-        <td><%= l.description %></td>
-        <td><%= l.occupancy %></td>
-        <td><%= l.quantity %></td>
-        <td><%= l.price %></td>
-      </tr>
+    <div class="col-md-11 col-md-offset-1 accommodation">
+      <div class="col-md-10">
+        <div class="row heading">
+          <span class="buildinglabel"><%= "#{l.building.label} (#{l.building.building_type.label})"%></span>
+          <span class="cabinlabel"><%= l.label %></span>
+        </div>
+        <div class="row details">
+          <div class="row"><%= l.description %></div>
+          <div class="row">
+            <div class="col-md-2">Occupancy:</div>
+            <div class="col-md-3"><%= l.occupancy %></div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Bathroom:</div>
+            <div class="col-md-3"><%= l.bathroom.eql?(true) ? 'yes' : 'no' %></div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Kitchen:</div>
+            <div class="col-md-3"><%= l.kitchen.eql?(true) ? 'yes' : 'no' %></div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">Air Conditioner:</div>
+            <div class="col-md-3"><%= l.air_conditioning.eql?(true) ? 'yes' : 'no' %></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-2 text-right">
+        <div class="book">
+          <div class="price"><%= number_to_currency l.price %></div>
+          <div class="quantity"><%= l.quantity %> available</div>
+          <%= conditional_link_to 'book!', accommodation_path(l), class: 'btn btn-primary' %>
+        </div>
+      </div>
+    </div>
   <% end %>
-  </tbody>
-</table>
-<%= paginate @lodgings, remote: true %>
+</div>
+<div class="row">
+  <%= paginate @lodgings, remote: true %>
+</div>

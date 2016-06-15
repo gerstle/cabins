@@ -296,20 +296,24 @@ div.user {
   margin: 6px 12px 0 12px;
 }
 
-th .asc {
-  padding-right: 16px;
-  background-image: image-url("up_arrow.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  width: 100%;
-}
+.sortable {
+  background-color: #2E2F30;
 
-th .desc {
-  padding-right: 16px;
-  background-image: image-url("down_arrow.png");
-  background-repeat: no-repeat;
-  background-position: right;
-  width: 100%;
+  .asc {
+    padding-right: 16px;
+    background-image: image-url("up_arrow.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    width: 100%;
+  }
+
+  .desc {
+    padding-right: 16px;
+    background-image: image-url("down_arrow.png");
+    background-repeat: no-repeat;
+    background-position: right;
+    width: 100%;
+  }
 }
 
 .date {
