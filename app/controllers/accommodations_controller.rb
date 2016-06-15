@@ -5,13 +5,8 @@ class AccommodationsController < ApplicationController
   before_action :logged_in_user
 
   def index
-    @lodgings = Accommodation.search(params[:search]).order(sort_column + ' ' + sort_direction, :id).page(params[:page]).per(10)
+    @lodgings = Accommodation.search(params).order(sort_column + ' ' + sort_direction, :label).page(params[:page]).per(10)
   end
-
-  # def search
-  #   wildcard_search = "%#{params[:search]}%"
-  #   @lodgings = Accommodation.where("label LIKE ? OR description LIKE ?", wildcard_search, wildcard_search)
-  # end
 
   def show
     @accommodation = Accommodation.find(params[:id])
@@ -39,7 +34,7 @@ class AccommodationsController < ApplicationController
   end
 
   def sort_column
-    Accommodation.column_names.include?(params[:sort]) ? params[:sort] : "label"
+    Accommodation.column_names.include?(params[:sort]) ? params[:sort] : "building_id"
   end
 
   def sort_direction
