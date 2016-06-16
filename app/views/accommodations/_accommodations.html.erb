@@ -12,7 +12,7 @@
     <div class="col-md-11 col-md-offset-1 accommodation">
       <div class="col-md-10">
         <div class="row heading">
-          <% if (l.building.building_type.label.eql?('Cabin')) %>
+          <% if (l.building.building_type.label.eql?('Cabin') || l.building.building_type.label.eql?('Lodge')) %>
             <span class="buildinglabel"><%= "#{l.building.label}"%></span>
             <span class="cabinlabel"><%= l.label %></span>
           <% else %>

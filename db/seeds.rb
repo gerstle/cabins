@@ -211,7 +211,7 @@ Accommodation.create(accommodation_type: not_private_room, building: building, h
                      label: 'Room C', description: '1x double futon (living room)',
                      occupancy: 2, price: 185.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 
-building = Building.create(label: 'Main Lodge', building_type: cabin)
+building = Building.create(label: 'Main Lodge', building_type: lodge)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: 'Suite', description: '1x queen + 1x twin',
                      occupancy: 3, price: 309.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
