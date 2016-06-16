@@ -1,7 +1,7 @@
 class AccommodationsController < ApplicationController
   helper_method :sort_column, :sort_direction
 
-  before_action :require_admin, except: [:index, :show]
+  before_action :require_admin, except: [:index]
   before_action :logged_in_user
 
   def index
