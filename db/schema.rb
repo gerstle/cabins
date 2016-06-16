@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160607052519) do
+ActiveRecord::Schema.define(version: 20160616044722) do
 
   create_table "accommodation_types", force: :cascade do |t|
     t.string   "description", limit: 255
@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20160607052519) do
 
   create_table "reservations", force: :cascade do |t|
     t.integer  "accommodation_id",     limit: 4,                          null: false
-    t.integer  "processed_by_user_id", limit: 4,                          null: false
+    t.integer  "processed_by_user_id", limit: 4
     t.integer  "user_id",              limit: 4,                          null: false
-    t.datetime "paid_date",                                               null: false
+    t.datetime "paid_date"
     t.decimal  "price",                          precision: 12, scale: 2, null: false
     t.integer  "quantity",             limit: 4,                          null: false
     t.datetime "created_at",                                              null: false

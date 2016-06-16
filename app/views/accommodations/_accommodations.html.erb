@@ -42,8 +42,8 @@
       <div class="col-md-2 text-right">
         <div class="book">
           <div class="price"><%= number_to_currency l.price %></div>
-          <div class="quantity"><%= l.quantity %> available</div>
-          <%= conditional_link_to 'book!', accommodation_path(l), class: 'btn btn-primary' %>
+          <div class="quantity"><%= quantity_available?(l) %> available</div>
+          <%= conditional_booking_link_to l, 'book!', accommodation_path(l), class: 'btn btn-primary' %>
         </div>
       </div>
     </div>

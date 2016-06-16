@@ -112,11 +112,10 @@ users = User.create([
 ])
 
 Tier.create([
-  {label: 'Tier 1', description: 'Secret', available: DateTime.new(2016, 7, 1, 19, 30, 0, Rational(-7,24))},
-  {label: 'Tier 2', description: 'Planners Medical', available: DateTime.new(2016, 6, 29, 19, 30, 0, Rational(-7,24))},
-  {label: 'Tier 3', description: 'Planners', available: DateTime.new(2016, 7, 1, 19, 30, 0, Rational(-7,24))},
-  {label: 'Tier 4', description: 'All', available: DateTime.new(2016, 7, 2, 19, 30, 0, Rational(-7,24))},
-  {label: 'Tier 5', description: 'Un-moderated', available: DateTime.new(2016, 7, 30, 19, 30, 0, Rational(-7,24))},
+  {label: 'Tier 0', description: 'Secret', available: DateTime.new(2016, 6, 6, 19, 30, 0, Rational(-7,24))},
+  {label: 'Tier 1', description: 'Planners Medical', available: DateTime.new(2016, 7, 5, 19, 30, 0, Rational(-7,24))},
+  {label: 'Tier 2', description: 'Planners', available: DateTime.new(2016, 7, 6, 19, 30, 0, Rational(-7,24))},
+  {label: 'Tier 3', description: 'All', available: DateTime.new(2016, 7, 7, 19, 30, 0, Rational(-7,24))},
 ])
 
 summer_cabin = BuildingType.create(label: 'Summer Cabin');

@@ -23,10 +23,19 @@ class Accommodation < ActiveRecord::Base
 
     if params[:search]
       parm = "%#{params[:search]}%"
-      rv = rv.where('accommodations.label LIKE ? OR accommodations.description LIKE ? OR b.label LIKE ? OR b.description LIKE ?',
-          parm, parm, parm, parm).joins("LEFT OUTER JOIN buildings b ON b.id=accommodations.building_id")
+      rv = rv.where('accommodations.label LIKE ? OR accommodations.description LIKE ? OR b.label LIKE ?',
+          parm, parm, parm).joins("LEFT OUTER JOIN buildings b ON b.id=accommodations.building_id")
     end
 
     rv
   end
+
+  def self.filter_holds(admin)
+    if !admin
+      return where('accommodations.hold != true')
+    end
+
+    where(nil)
+  end
+
 end
