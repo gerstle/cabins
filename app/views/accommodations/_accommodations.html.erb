@@ -6,16 +6,18 @@
   <div class="col-md-2 sortable"><%= sortable 'price' %></div>
   <div class="col-md-2 sortable">&nbsp;</div>
 </div>
-<div class="row">
-  <%= paginate @lodgings, remote: true %>
-</div>
+<%= paginate @lodgings, remote: true %>
 <div class="row">
   <% @lodgings.each do |l| %>
     <div class="col-md-11 col-md-offset-1 accommodation">
       <div class="col-md-10">
         <div class="row heading">
-          <span class="buildinglabel"><%= "#{l.building.label} (#{l.building.building_type.label})"%></span>
-          <span class="cabinlabel"><%= l.label %></span>
+          <% if (l.building.building_type.label.eql?('Cabin')) %>
+            <span class="buildinglabel"><%= "#{l.building.label}"%></span>
+            <span class="cabinlabel"><%= l.label %></span>
+          <% else %>
+              <span class="buildinglabel"><%= "#{l.label}"%></span>
+          <% end %>
         </div>
         <div class="row details">
           <div class="row"><%= l.description %></div>

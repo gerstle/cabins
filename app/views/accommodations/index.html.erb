@@ -4,32 +4,24 @@
       <div class="col-md-10">
           <%= hidden_field_tag :direction, params[:direction] %>
           <%= hidden_field_tag :sort, params[:sort] %>
-          <div class="field">
             <%= text_field_tag :search, params[:search], :class => 'same-line' %>
             <%= submit_tag "Search", :name => nil, :class => 'btn btn-primary same-line' %>
             <%= link_to "clear", accommodations_path, :class => 'clear' %>
-          </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-2">
-        <div class="field">
-          <%= check_box_tag :air_conditioning, params[:air_conditioning] %>
-          <%= label :air_conditioning, 'air conditioning', class: 'same-line' %>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="field">
-          <%= check_box_tag :kitchen, params[:kitchen] %>
-          <%= label :kitchen, 'kitchen', class: 'same-line' %>
-        </div>
-      </div>
-      <div class="col-md-2">
-        <div class="field">
-          <%= check_box_tag :bathroom , params[:bathroom] %>
-          <%= label_tag :bathroom, 'bathroom', class: 'same-line' %>
-        </div>
-      </div>
+    <div class="row indent">
+      <span class="field">
+        <%= check_box_tag :air_conditioning, params[:air_conditioning] %>
+        <%= label :air_conditioning, 'air_conditioning', 'A/C', class: 'same-line' %>
+      </span>
+      <span class="field">
+        <%= check_box_tag :kitchen, params[:kitchen] %>
+        <%= label :kitchen, 'kitchen', 'kitchen', class: 'same-line' %>
+      </span>
+      <span class="field">
+        <%= check_box_tag :bathroom , params[:bathroom] %>
+        <%= label :bathroom, 'bathroom', 'bathroom', class: 'same-line' %>
+      </span>
     </div>
   <% end %>
   <div class="row">
