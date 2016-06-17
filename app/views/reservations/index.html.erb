@@ -26,8 +26,8 @@
         <td><%= number_to_currency r.price %></td>
         <td><%= number_to_currency r.price * r.quantity %></td>
         <td><%= r.created_at.strftime("%-d %b %Y %T %Z") %></td>
-        <td><%= !r.paid_date.nil? ? r.paid_date.strftime("%-d %b %Y %T %Z") : '' %></td>
         <td><%= !r.processed_by_user.nil? ? r.processed_by_user.name : '' %></td>
+        <td><%= !r.paid_date.nil? ? r.paid_date.strftime("%-d %b %Y %T %Z") : '' %></td>
         <td>
           <% if r.paid_date.nil? %>
             <%= link_to 'mark paid', admin_paid_reservation_path(r), method: :put, data: {confirm: 'You actually received payment for this reservation?'} %><br/>
