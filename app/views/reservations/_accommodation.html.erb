@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="col-md-10 col-md-offset-1 accommodation">
+    <div class="col-md-10">
+      <div class="row heading">
+        <% if (@accommodation.building.building_type.label.eql?('Cabin') || @accommodation.building.building_type.label.eql?('Lodge')) %>
+            <span class="buildinglabel"><%= "#{@accommodation.building.label}"%></span>
+            <span class="cabinlabel"><%= @accommodation.label %></span>
+        <% else %>
+            <span class="buildinglabel"><%= "#{@accommodation.label}"%></span>
+        <% end %>
+      </div>
+      <div class="row details">
+        <div class="row"><%= @accommodation.description %></div>
+        <div class="row">
+          <div class="col-md-2">Occupancy:</div>
+          <div class="col-md-3"><%= @accommodation.occupancy %></div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">Bathroom:</div>
+          <div class="col-md-3"><%= @accommodation.bathroom.eql?(true) ? 'yes' : 'no' %></div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">Kitchen:</div>
+          <div class="col-md-3"><%= @accommodation.kitchen.eql?(true) ? 'yes' : 'no' %></div>
+        </div>
+        <div class="row">
+          <div class="col-md-2">Air Conditioner:</div>
+          <div class="col-md-3"><%= @accommodation.air_conditioning.eql?(true) ? 'yes' : 'no' %></div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2 text-right">
+      <div class="book">
+        <div class="price"><%= number_to_currency @accommodation.price %></div>
+      </div>
+    </div>
+  </div>
+</div>

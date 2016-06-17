@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="title"><h2>You're NOT Done Yet!</h2></div>
+  <div class="content">
+  Greetings !<br/><br/>
+  Thank you for selecting your accommodations. Please review the details of your reservation request below. We will reserve your lodging until July 13th. Please follow the payment instructions below to finalize your reservation. Once we receive your payment, we will send you a confirming email. Should we not receive payment by the deadline, FnF will cancel your reservation to make the lodging available to other participants.
+  </div>
+</div>
+<%= render 'accommodation' %>
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <%= form_for(@reservation) do |f| %>
+      <%= render 'layouts/error_messages' %>
+      <%= hidden_field(:reservation, :accommodation_id) %>
+      <% if @quantity_available > 1 %>
+        <div class="field">
+          <%= f.label :quantity %><br>
+          <%= f.number_field :quantity, value: 1, min: 1, max: @quantity_available %>
+        </div>
+      <% else %>
+        <%= hidden_field(:reservation, :quantity) %>
+      <% end %>
+      <div class="center"><h3>Note that we must receive your payment by July 13th to keep your reservation.</h3></div>
+      <%= f.submit 'Confirm Reservation', data: { confirm: 'You sure you wanna "sleep" in this bed?' }, class: 'btn btn-primary' %>
+    <% end %>
+  </div>
+</div>

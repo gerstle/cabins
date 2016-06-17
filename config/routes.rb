@@ -16,6 +16,10 @@ Rails.application.routes.draw do
   get 'accommodations/:id' => 'accommodations#show', as: 'accommodation'
   patch 'accommodations/:id' => 'accommodations#update'
 
+  get 'reservations/:accommodation_id' => 'reservations#new', as: 'new_reservation'
+  get 'reservations/:id' => 'reservations#show', as: 'edit_reservation'
+  post 'reservations' => 'reservations#create', as: 'reservations'
+
   get 'users/new', as: 'signup'
   post 'users' => 'users#create'
 
@@ -50,6 +54,10 @@ Rails.application.routes.draw do
   get 'admin/tiers' => 'tiers#index', as: 'tiers'
   get 'admin/tiers/:id' => 'tiers#show', as: 'tier'
   patch 'admin/tiers/:id' => 'tiers#update'
+
+  get 'admin/reservations' => 'reservations#index', as: 'admin_reservations'
+  put 'admin/reservations/:id' => 'reservations#paid', as: 'admin_paid_reservation'
+  delete 'admin/reservations/:id' => 'reservations#delete', as: 'admin_delete_reservation'
 
   # You can have the root of your site routed with "root"
   root 'blog#home'

@@ -183,6 +183,12 @@ div.adminlinks {
   padding-bottom: 5px;
   color: black;
 
+  .link {
+    letter-spacing: 0;
+    padding: 4px 6px;
+    font-size: 85%;
+  }
+
   .link-primary {
     color: black;
   }
