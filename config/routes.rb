@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  root 'blog#home'
+
+  get 'password_resets/new'
+  get 'password_resets/edit'
+
   get 'sessions/new'
 
   # redirects from fnf.inappropirates.com/cabin
@@ -59,6 +64,5 @@ Rails.application.routes.draw do
   put 'admin/reservations/:id' => 'reservations#paid', as: 'admin_paid_reservation'
   delete 'admin/reservations/:id' => 'reservations#delete', as: 'admin_delete_reservation'
 
-  # You can have the root of your site routed with "root"
-  root 'blog#home'
+  resources :password_resets, only: [:new, :create, :edit, :update]
 end

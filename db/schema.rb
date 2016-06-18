@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160616044722) do
+ActiveRecord::Schema.define(version: 20160618185457) do
 
   create_table "accommodation_types", force: :cascade do |t|
     t.string   "description", limit: 255
@@ -98,6 +98,8 @@ ActiveRecord::Schema.define(version: 20160616044722) do
     t.integer  "tier_id",         limit: 4
     t.datetime "created_at",                                    null: false
     t.datetime "updated_at",                                    null: false
+    t.string   "reset_digest",    limit: 255
+    t.datetime "reset_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
