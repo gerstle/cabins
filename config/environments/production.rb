@@ -73,6 +73,8 @@ Rails.application.configure do
       :port     => 25,
       :domain   => 'cabins.inappropirates.com',
   }
+  host = 'cabins.inappropirates.com'
+  config.action_mailer.default_url_options = { host: host }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
