@@ -1,6 +1,21 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 accommodation">
     <div class="col-md-10">
+      <% if @reservation.user %>
+        <div class="row heading">
+            <span class="buildinglabel"><%= @reservation.user.name %></span>
+        </div>
+        <div class="row details">
+          <div class="row">
+            <div class="col-md-2">email:</div>
+            <div class="col-md-3"><%= @reservation.user.email %></div>
+          </div>
+          <div class="row">
+            <div class="col-md-2">phone:</div>
+            <div class="col-md-3"><%= @reservation.user.phone %></div>
+          </div>
+        </div>
+      <% end %>
       <div class="row heading">
         <% if (@accommodation.building.building_type.label.eql?('Cabin') || @accommodation.building.building_type.label.eql?('Lodge')) %>
             <span class="buildinglabel"><%= "#{@accommodation.building.label}"%></span>
@@ -28,6 +43,16 @@
           <div class="col-md-3"><%= @accommodation.air_conditioning.eql?(true) ? 'yes' : 'no' %></div>
         </div>
       </div>
+      <% if @reservation.id %>
+        <div class="row heading">
+          <span class="buildinglabel">Quantity</span>
+        </div>
+        <div class="row details">
+          <div class="row">
+            <div class="col-md-3"><%= @reservation.quantity %></div>
+          </div>
+        </div>
+      <% end %>
     </div>
     <div class="col-md-2 text-right">
       <div class="book">

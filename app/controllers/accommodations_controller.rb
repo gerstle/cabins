@@ -6,9 +6,7 @@ class AccommodationsController < ApplicationController
 
   def index
 
-    @lodgings = Accommodation.search(params)
-                    .joins('LEFT OUTER JOIN (SELECT accommodation_id, COUNT(*) AS reserved_count FROM reservations GROUP BY accommodation_id) r ON r.accommodation_id=accommodations.id')
-                    .where('accommodations.quantity - IFNULL(r.reserved_count, 0) > 0').filter_holds(is_admin?).order(sort_column + ' ' + sort_direction, :label).page(params[:page]).per(10)
+    @lodgings = Accommodation.search(params).order(sort_column + ' ' + sort_direction, :label).page(params[:page]).per(10)
 
     @lodgings
   end

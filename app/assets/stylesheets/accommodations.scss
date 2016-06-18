@@ -10,6 +10,11 @@
   margin-bottom: 12px;
   padding-right: 0;
 
+  div.slim {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
   .heading {
     padding-left: 2px;
     padding-bottom: 0;
@@ -46,7 +51,7 @@
   }
 
   .book {
-    background-color: #78797e;
+    background-color: #8f96a0;
     border-radius: 3px;
     padding: 6px;
     margin: 4px;
@@ -63,5 +68,21 @@
     .btn {
       margin: 8px 0 0 0;
     }
+  }
+
+  .reservation {
+    background-color: #9fa0a5;
+    border-radius: 3px;
+    padding: 6px;
+    margin: 4px;
+  }
+
+  .reservation .title {
+    color: black;
+    border-bottom: none;
+  }
+
+  .reservation .roomies {
+
   }
 }

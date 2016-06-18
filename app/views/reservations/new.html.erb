@@ -11,10 +11,16 @@
     <%= form_for(@reservation) do |f| %>
       <%= render 'layouts/error_messages' %>
       <%= hidden_field(:reservation, :accommodation_id) %>
+      <% if is_admin? %>
+          <div class="field">
+            <%= f.label :user_id %><br>
+            <%= f.collection_select :user_id, User.all, :id, :name %>
+          </div>
+      <% end %>
       <% if @quantity_available > 1 %>
         <div class="field">
-          <%= f.label :quantity %><br>
-          <%= f.number_field :quantity, value: 1, min: 1, max: @quantity_available %>
+          <%= f.label "#{:quantity} (limit 2)" %><br>
+          <%= f.number_field :quantity, value: 1, min: 1, max: 2 %>
         </div>
       <% else %>
         <%= hidden_field(:reservation, :quantity) %>

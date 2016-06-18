@@ -6,7 +6,7 @@ module ApplicationHelper
     link_to title, params.merge(:sort => column, :direction => direction, :page => nil), :remote => true, :class => css_class
   end
 
-  def has_reservation
+  def user_has_reservation
     Reservation.find_by_user_id(current_user.id).nil? ? false : true
   end
 end

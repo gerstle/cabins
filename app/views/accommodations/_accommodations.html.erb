@@ -8,8 +8,8 @@
 <%= paginate @lodgings, remote: true %>
 <div class="row">
   <% @lodgings.each do |l| %>
-    <div class="col-md-11 col-md-offset-1 accommodation">
-      <div class="col-md-10">
+    <div class="col-md-8 col-md-offset-1 accommodation">
+      <div class="col-md-6">
         <div class="row heading">
           <% if (l.building.building_type.label.eql?('Cabin') || l.building.building_type.label.eql?('Lodge')) %>
             <span class="buildinglabel"><%= "#{l.building.label}"%></span>
@@ -21,24 +21,34 @@
         <div class="row details">
           <div class="row"><%= l.description %></div>
           <div class="row">
-            <div class="col-md-2">Occupancy:</div>
+            <div class="col-md-3 right">Occupancy:</div>
             <div class="col-md-3"><%= l.occupancy %></div>
           </div>
           <div class="row">
-            <div class="col-md-2">Bathroom:</div>
+            <div class="col-md-3 right">A/C:</div>
+            <div class="col-md-3"><%= l.air_conditioning.eql?(true) ? 'yes' : 'no' %></div>
+          </div>
+          <div class="row">
+            <div class="col-md-3 right">Bathroom:</div>
             <div class="col-md-3"><%= l.bathroom.eql?(true) ? 'yes' : 'no' %></div>
           </div>
           <div class="row">
-            <div class="col-md-2">Kitchen:</div>
+            <div class="col-md-3 right">Kitchen:</div>
             <div class="col-md-3"><%= l.kitchen.eql?(true) ? 'yes' : 'no' %></div>
-          </div>
-          <div class="row">
-            <div class="col-md-2">Air Conditioner:</div>
-            <div class="col-md-3"><%= l.air_conditioning.eql?(true) ? 'yes' : 'no' %></div>
           </div>
         </div>
       </div>
-      <div class="col-md-2 text-right">
+      <div class="col-md-3 slim">
+        <% if l.reservation.exists? %>
+          <div class="reservation">
+            <div class="title">Already in this room</div>
+            <% l.reservation.each do |r| %>
+              <div class="roommies"><%= r.user.name %></div>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-md-3 text-right slim">
         <div class="book">
           <div class="price"><%= number_to_currency l.price %></div>
           <div class="quantity"><%= quantity_available?(l) %> available</div>

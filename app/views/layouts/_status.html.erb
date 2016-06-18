@@ -1,5 +1,5 @@
 <div class="row">
-  <% if !has_reservation %>
+  <% if !user_has_reservation %>
     <div class="status alert-info">
       <% if !current_user.tier.nil? %>
           <% if current_user.tier.available <= DateTime.now %>

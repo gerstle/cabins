@@ -4,7 +4,7 @@ class ReservationsController < ApplicationController
   def new
     existing_reservation = Reservation.find_by_user_id(current_user.id)
 
-    if (!existing_reservation.nil?)
+    if (!is_admin? && !existing_reservation.nil?)
       flash.now[:danger] = 'What are you doing, you already have a reservation!'
       @user = User.find(current_user.id)
       @error = @user
@@ -25,7 +25,7 @@ class ReservationsController < ApplicationController
   def create
     existing_reservation = Reservation.find_by_user_id(current_user.id)
 
-    if (!existing_reservation.nil?)
+    if (!is_admin? && !existing_reservation.nil?)
       flash.now[:danger] = 'What are you doing, you already have a reservation!'
       @user = User.find(current_user.id)
       @error = @user
@@ -34,7 +34,12 @@ class ReservationsController < ApplicationController
     end
 
     @reservation = Reservation.new(reservation_params)
-    @reservation.user = current_user
+
+    if (is_admin? && params[:reservation][:user_id])
+      @reservation.user = User.find(params[:reservation][:user_id])
+    else
+      @reservation.user = current_user
+    end
     @reservation.price = @reservation.accommodation.price
     @accommodation = @reservation.accommodation
     @error = @reservation # tell _error_messages.html.erb to use this object for form errors
