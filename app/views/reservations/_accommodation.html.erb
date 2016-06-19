@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-10 col-md-offset-1 accommodation">
-    <div class="col-md-10">
+    <div class="col-md-9">
       <% if @reservation.user %>
         <div class="row heading">
             <span class="buildinglabel"><%= @reservation.user.name %></span>
@@ -52,11 +52,24 @@
             <div class="col-md-3"><%= @reservation.quantity %></div>
           </div>
         </div>
+          <div class="row heading">
+            <span class="buildinglabel">Price per</span>
+          </div>
+          <div class="row details">
+            <div class="row">
+              <div class="col-md-3"><%= number_to_currency @reservation.accommodation.price %></div>
+            </div>
+          </div>
       <% end %>
     </div>
-    <div class="col-md-2 text-right">
+    <div class="col-md-3 text-right">
       <div class="book">
-        <div class="price"><%= number_to_currency @accommodation.price %></div>
+        <div class="price">
+          <% if @reservation.id %>
+            total:
+          <% end %>
+          <span id="totalPrice"><%= number_to_currency @reservation.quantity * @accommodation.price %></span>
+        </div>
       </div>
     </div>
   </div>

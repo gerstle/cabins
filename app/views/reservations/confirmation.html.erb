@@ -50,7 +50,7 @@
         <div class="field">
           <%= label_tag 'Payment Option 2 - Snail Check' %>
           <div>
-            <p>Please make your payment of $220 payable to CFAEA by check or money order, and send it to the following address:</p>
+            <p>Please make your payment of <%= number_to_currency @reservation.price %> payable to CFAEA by check or money order, and send it to the following address:</p>
             <blockquote>
               <p>CFAEA
               c/o Jessica Allard<br/>

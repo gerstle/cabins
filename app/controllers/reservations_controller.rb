@@ -69,7 +69,7 @@ class ReservationsController < ApplicationController
   end
 
   def cancel
-    query = Reservation.where('id=? AND confirmed_time IS NULL')
+    query = Reservation.where('id=? AND confirmed_time IS NULL', params[:id])
     if (!is_admin?)
       query.where('user_id=?', current_user.id)
     end
@@ -79,20 +79,6 @@ class ReservationsController < ApplicationController
       @reservation.first().destroy
     end
     redirect_to accommodations_path
-  end
-
-  helper_method :accommodation_name
-  def accommodation_name(accommodation)
-    if (accommodation.building.building_type.label.eql?('Cabin') || accommodation.building.building_type.label.eql?('Lodge'))
-      return "#{accommodation.building.label} #{accommodation.label}"
-    end
-
-    accommodation.label
-  end
-
-  helper_method :sku
-  def sku(reservation)
-    "#{reservation.id}-#{reservation.accommodation.building.id}-#{reservation.accommodation.id}-#{reservation.user_id}"
   end
 
   # ADMIN -----------------------------------
