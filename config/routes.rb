@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   patch 'accommodations/:id' => 'accommodations#update'
 
   post 'reserve/:accommodation_id' => 'reservations#create', as: 'reserve'
-  patch 'reservations/:id/confirm' => 'reservations#confirm', as: 'reservation'
+  patch 'reservations/:id/confirmation' => 'reservations#confirmation', as: 'reservation'
   put 'reservations/:id/cancel' => 'reservations#cancel'
   get 'reservations/:id' => 'reservations#show', as: 'edit_reservation'
 

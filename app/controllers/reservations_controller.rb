@@ -42,7 +42,7 @@ class ReservationsController < ApplicationController
     end
   end
 
-  def confirm
+  def confirmation
     @reservation = Reservation.find_by(:id => params[:id])
     if (!@reservation)
       redirect_to(accommodations_path, {:flash => {:danger => 'Sorry, your reservation expired because you did not confirm it within 10 minutes.'}})
