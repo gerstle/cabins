@@ -69,9 +69,14 @@ class ReservationsController < ApplicationController
   end
 
   def cancel
-    @reservation = Reservation.find_by(:id => params[:id], :user_id => current_user.id)
+    query = Reservation.where('id=? AND confirmed_time IS NULL')
+    if (!is_admin?)
+      query.where('user_id=?', current_user.id)
+    end
+
+    @reservation = query
     if (@reservation)
-      @reservation.destroy
+      @reservation.first().destroy
     end
     redirect_to accommodations_path
   end

@@ -1,11 +1,13 @@
-<div class="row">
-  <div class="col-md-2 sortable right">Sort by</div>
-  <div class="col-md-2 sortable"><%= sortable 'label' %></div>
-  <div class="col-md-2 sortable"><%= sortable 'occupancy' %></div>
-  <div class="col-md-2 sortable"><%= sortable 'price' %></div>
-  <div class="col-md-2 sortable">&nbsp;</div>
-</div>
-<%= paginate @lodgings, remote: true %>
+<% if !@lodgings.blank? %>
+  <div class="row">
+    <div class="col-md-2 sortable right">Sort by</div>
+    <div class="col-md-2 sortable"><%= sortable 'label' %></div>
+    <div class="col-md-2 sortable"><%= sortable 'occupancy' %></div>
+    <div class="col-md-2 sortable"><%= sortable 'price' %></div>
+    <div class="col-md-2 sortable">&nbsp;</div>
+  </div>
+  <%= paginate @lodgings, remote: true %>
+<% end %>
 <div class="row">
   <% @lodgings.each do |l| %>
     <div class="col-md-8 col-md-offset-1 accommodation">
@@ -60,6 +62,9 @@
         </div>
       <% end %>
     </div>
+  <% end %>
+  <% if @lodgings.blank? %>
+    No results
   <% end %>
 </div>
 <div class="row">
