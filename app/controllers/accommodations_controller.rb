@@ -3,12 +3,10 @@ class AccommodationsController < ApplicationController
 
   before_action :require_admin, except: [:index]
   before_action :logged_in_user
+  before_action :purge_expired_reservations
 
   def index
-
     @lodgings = Accommodation.search(params).order(sort_column + ' ' + sort_direction, :label).page(params[:page]).per(10)
-
-    @lodgings
   end
 
   def show

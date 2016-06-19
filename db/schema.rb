@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618185457) do
+ActiveRecord::Schema.define(version: 20160618232714) do
 
   create_table "accommodation_types", force: :cascade do |t|
     t.string   "description", limit: 255
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 20160618185457) do
     t.integer  "quantity",             limit: 4,                          null: false
     t.datetime "created_at",                                              null: false
     t.datetime "updated_at",                                              null: false
+    t.datetime "confirmed_time"
   end
 
   create_table "tiers", force: :cascade do |t|

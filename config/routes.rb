@@ -21,9 +21,9 @@ Rails.application.routes.draw do
   get 'accommodations/:id' => 'accommodations#show', as: 'accommodation'
   patch 'accommodations/:id' => 'accommodations#update'
 
-  get 'reservations/:accommodation_id' => 'reservations#new', as: 'new_reservation'
+  post 'reserve/:accommodation_id' => 'reservations#create', as: 'reserve'
+  patch 'reservations/:id' => 'reservations#confirm', as: 'reservation'
   get 'reservations/:id' => 'reservations#show', as: 'edit_reservation'
-  post 'reservations' => 'reservations#create', as: 'reservations'
 
   get 'users/new', as: 'signup'
   post 'users' => 'users#create'

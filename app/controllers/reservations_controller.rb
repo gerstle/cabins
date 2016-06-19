@@ -1,30 +1,15 @@
 class ReservationsController < ApplicationController
   before_action :require_admin,   only: [:index, :update, :delete]
+  before_action :purge_expired_reservations
 
   def new
-    existing_reservation = Reservation.find_by_user_id(current_user.id)
-
-    if (!is_admin? && !existing_reservation.nil?)
-      flash.now[:danger] = 'What are you doing, you already have a reservation!'
-      @user = User.find(current_user.id)
-      @error = @user
-      render 'users/show'
-      return
-    end
-
     @reservation = Reservation.new
-    @accommodation = Accommodation.find(params[:accommodation_id])
-    @quantity_available = quantity_available?(@accommodation)
-
-    @reservation.quantity = 1
-    @reservation.accommodation_id = @accommodation.id
-
     @error = @reservation
   end
 
   def create
+    # check that they don't already have a reservation
     existing_reservation = Reservation.find_by_user_id(current_user.id)
-
     if (!is_admin? && !existing_reservation.nil?)
       flash.now[:danger] = 'What are you doing, you already have a reservation!'
       @user = User.find(current_user.id)
@@ -33,19 +18,50 @@ class ReservationsController < ApplicationController
       return
     end
 
-    @reservation = Reservation.new(reservation_params)
+    # create the initial reservation record
+    @reservation = Reservation.new
+    @reservation.quantity = 1
+    @reservation.user = current_user
+    @error = @reservation
+
+    # check that the accommodation is still available
+    @accommodation = Accommodation.find(params[:accommodation_id])
+    @quantity_available = quantity_available?(@accommodation)
+
+    if (@quantity_available == 0)
+      redirect_to(accommodations_path, {:flash => {:danger => 'Sorry, looks like someone grabbed that one out from under you'}})
+      return
+    end
+
+    @reservation.accommodation = @accommodation
+    @reservation.price = @accommodation.price
+    if @reservation.save
+      render 'reservations/new'
+    else
+      redirect_to(accommodations_path, {:flash => {:danger => 'An unexpected error occurred.'}})
+    end
+  end
+
+  def confirm
+    @reservation = Reservation.find_by(:id => params[:id])
+    if (!@reservation)
+      redirect_to(accommodations_path, {:flash => {:danger => 'Sorry, your reservation expired because you did not confirm it within 10 minutes.'}})
+      return
+    end
+    @error = @reservation
 
     if (is_admin? && params[:reservation][:user_id])
       @reservation.user = User.find(params[:reservation][:user_id])
     else
       @reservation.user = current_user
     end
-    @reservation.price = @reservation.accommodation.price
+    @reservation.quantity = params[:reservation][:quantity]
+    @reservation.price = @reservation.accommodation.price * @reservation.quantity
     @accommodation = @reservation.accommodation
     @error = @reservation # tell _error_messages.html.erb to use this object for form errors
+    @reservation.confirmed_time = DateTime.now
 
     if @reservation.save
-      flash.now[:success] = 'reservation successful!'
       render 'confirmation'
     else
       new
