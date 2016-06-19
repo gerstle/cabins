@@ -5,8 +5,8 @@
 .accommodation {
   color: black;
   border-radius: 3px;
-  background-color: #bbbbbb;
-  border: 1px solid #480b70;
+  background-color: #f5db90;
+  border: 1px solid #f1b44a;
   margin-bottom: 12px;
   padding-right: 0;
 
@@ -52,7 +52,7 @@
   }
 
   .book {
-    background-color: #8f96a0;
+    background-color: #641c1f;
     border-radius: 3px;
     padding: 6px;
     margin: 4px;
@@ -60,7 +60,7 @@
     .price {
       font-size: 125%;
       font-weight: bold;
-      color: #480b70;
+      color: #f1b44a;
     }
 
     .quantity {
@@ -72,14 +72,13 @@
   }
 
   .reservation {
-    background-color: #9fa0a5;
+    background-color: #641c1f;
     border-radius: 3px;
     padding: 6px;
     margin: 4px;
   }
 
   .reservation .title {
-    color: black;
     border-bottom: none;
   }
 

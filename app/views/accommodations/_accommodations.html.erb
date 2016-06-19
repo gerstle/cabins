@@ -16,6 +16,9 @@
           <% if (l.building.building_type.label.eql?('Cabin') || l.building.building_type.label.eql?('Lodge')) %>
             <span class="buildinglabel"><%= "#{l.building.label}"%></span>
             <span class="cabinlabel"><%= l.label %></span>
+            <% if (!l.building.image.nil?) %>
+              (<a href="<%= l.building.image %>" target="_blank">building diagram</a>)
+            <% end %>
           <% else %>
               <span class="buildinglabel"><%= "#{l.label}"%></span>
           <% end %>
