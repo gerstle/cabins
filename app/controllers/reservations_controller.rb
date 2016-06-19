@@ -68,6 +68,14 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def cancel
+    @reservation = Reservation.find_by(:id => params[:id], :user_id => current_user.id)
+    if (@reservation)
+      @reservation.destroy
+    end
+    redirect_to accommodations_path
+  end
+
   helper_method :accommodation_name
   def accommodation_name(accommodation)
     if (accommodation.building.building_type.label.eql?('Cabin') || accommodation.building.building_type.label.eql?('Lodge'))

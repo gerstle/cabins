@@ -26,7 +26,12 @@
         <%= hidden_field(:reservation, :quantity) %>
       <% end %>
       <div class="center"><h3>Note that we must receive your payment by July 13th to keep your reservation.</h3></div>
-      <%= f.submit 'Confirm Reservation', data: { confirm: 'You sure you wanna "sleep" in this bed?' }, class: 'btn btn-primary' %>
+      <div class="col-md-5 col-md-offset-1">
+        <%= f.submit 'Confirm Reservation', data: { confirm: 'You sure you wanna "sleep" in this bed?' }, class: 'btn btn-primary' %>
+      </div>
     <% end %>
+    <div class="col-md-5">
+      <%= button_to 'Cancel', {:controller => 'reservations', :action => "cancel", :id => @reservation.id }, :method => :put, class: 'btn btn-primary'  %>
+    </div>
   </div>
 </div>
