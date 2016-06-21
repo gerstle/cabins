@@ -218,10 +218,10 @@ Accommodation.create(accommodation_type: bed, building: building, hold: false,
                      label: 'Dorm A', description: '1 twin bed in a room of 10 twin beds (bunked)',
                      occupancy: 1, price: 67.0, quantity: 10, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
-                     label: 'Dorm B', description: '1 twin bed in a room of 10 twin beds (bunked)',
+                     label: 'Dorm B', description: '1 twin bed in a room of 8 twin beds (bunked)',
                      occupancy: 1, price: 67.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
-                     label: 'Dorm C', description: '1 twin bed in a room of 10 twin beds (bunked)',
+                     label: 'Dorm C', description: '1 twin bed in a room of 8 twin beds (bunked)',
                      occupancy: 1, price: 67.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
 
 Planner.create([
