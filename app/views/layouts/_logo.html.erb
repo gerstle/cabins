@@ -1,7 +1,9 @@
-<table class="logo">
-  <tr>
-    <td class="left"></td>
-    <td class="gearhead"><%= image_tag '2016_cabin_R1V3.jpg'  %></td>
-    <td class="right"></td>
-  </tr>
-</table>
+<% if !mobile_device? %>
+  <table class="logo">
+    <tr>
+      <td class="left"></td>
+      <td class="gearhead"><%= image_tag '2016_cabin_R1V3.jpg'  %></td>
+      <td class="right"></td>
+    </tr>
+  </table>
+<% end %>

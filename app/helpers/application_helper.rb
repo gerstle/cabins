@@ -9,4 +9,12 @@ module ApplicationHelper
   def user_has_reservation
     Reservation.find_by_user_id(current_user.id).nil? ? false : true
   end
+
+  def mobile_device?
+   if session[:mobile_param]
+     session[:mobile_param] == "1"
+   else
+     request.user_agent =~ /Mobile|webOS/
+   end
+  end
 end
