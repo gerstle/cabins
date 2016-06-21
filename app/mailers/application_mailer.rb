@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "fnfcabins@gmail.com"
+  default from: "info@cabins.inappropirates.com"
   layout 'mailer'
 end
