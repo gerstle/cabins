@@ -3,7 +3,7 @@
 <% if !@user.reservations.blank? %>
   <div class="row">
     <div class="col-md-12">
-      <div class="title">Your current reservation<%= (@user.reservations && @user.reservations.count) > 1 ? 's' : '' %></div>
+      <div class="title">Current reservation<%= (@user.reservations && @user.reservations.count) > 1 ? 's' : '' %></div>
       <div class="content">
         <% @user.reservations.each do |r| %>
           <div class="row">
@@ -106,12 +106,12 @@
         <div class="col-md-5 col-md-offset-1">
           <div class="field">
             <%= f.label :name %><br>
-            <%= f.text_field :name %>
+            <%= f.text_field :name, :maxlength => 60 %>
           </div>
 
           <div class="field">
             <%= f.label :email %>
-            <%= f.email_field :email, class: 'form control' %>
+            <%= f.email_field :email, :maxlength => 255, class: 'form control' %>
           </div>
 
           <div class="field">

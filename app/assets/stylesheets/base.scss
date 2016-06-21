@@ -10,7 +10,7 @@ body {
   color: #fbef83;
 }
 
-a {
+a, a:hover, a:focus {
   color: #83dddc;
 }
 
@@ -342,8 +342,4 @@ div.user {
 
 .indent {
   margin-left: 0;
-}
-
-.loud {
-  color: #23527c;
 }

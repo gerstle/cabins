@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160618232714) do
+ActiveRecord::Schema.define(version: 20160621014823) do
 
   create_table "accommodation_types", force: :cascade do |t|
     t.string   "description", limit: 255
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 20160618232714) do
     t.string   "description",           limit: 255
     t.boolean  "hold",                                                       null: false
     t.boolean  "kitchen",                                                    null: false
-    t.string   "label",                 limit: 20,                           null: false
+    t.string   "label",                 limit: 40,                           null: false
     t.integer  "occupancy",             limit: 4,                            null: false
     t.decimal  "price",                             precision: 12, scale: 2, null: false
     t.integer  "quantity",              limit: 4,                            null: false
@@ -47,7 +47,7 @@ ActiveRecord::Schema.define(version: 20160618232714) do
     t.integer  "building_type_id", limit: 4,   null: false
     t.string   "description",      limit: 255
     t.string   "image",            limit: 255
-    t.string   "label",            limit: 20,  null: false
+    t.string   "label",            limit: 40,  null: false
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
   end
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20160618232714) do
   end
 
   create_table "tiers", force: :cascade do |t|
-    t.string   "label",       limit: 20,  null: false
+    t.string   "label",       limit: 40,  null: false
     t.string   "description", limit: 255, null: false
     t.datetime "available",               null: false
     t.datetime "created_at",              null: false
