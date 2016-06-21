@@ -8,4 +8,10 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.password_reset(user)
   end
 
+  def pre_registration
+    user = User.first
+    user.reset_token = User.new_token
+    UserMailer.pre_registration(user)
+  end
+
 end

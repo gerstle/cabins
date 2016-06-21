@@ -14,6 +14,7 @@ class UsersController < ApplicationController
     set_planner_found
     if @user.save
       log_in @user
+      @user.send_pre_registration_email
       render 'pre_registered'
     else
       render 'new'
