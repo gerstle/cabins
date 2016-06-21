@@ -14,4 +14,10 @@ class UserMailerPreview < ActionMailer::Preview
     UserMailer.pre_registration(user)
   end
 
+  def tier_approved
+    user = User.first
+    user.reset_token = User.new_token
+    UserMailer.tier_approved(user)
+  end
+
 end

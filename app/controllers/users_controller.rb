@@ -33,11 +33,17 @@ class UsersController < ApplicationController
     end
 
     @user = User.find(params[:id])
+    before_tier = @user.tier_id
     @error = @user # tell _error_messages.html.erb to use this object for form errors
 
     set_planner_found
     if @user.update_attributes(user_params)
       flash.now[:success] = 'user updated'
+
+      if (before_tier.nil? && !@user.tier_id.nil?)
+        @user.send_tier_approved_email
+      end
+
       if is_admin?
         @registrations = User.all
         render 'registrations/index'

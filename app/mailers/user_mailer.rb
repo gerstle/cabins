@@ -9,4 +9,9 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: 'Welcome to FnF 2016 Cabins'
   end
+
+  def tier_approved(user)
+    @user = user
+    mail to: user.email, subject: '2016 FnF Cabins and Lodging Tier Assignment'
+  end
 end
