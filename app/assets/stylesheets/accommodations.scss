@@ -41,7 +41,6 @@
     .label {
       margin-right: 12px;
       font-weight: bold;
-      color: black;
       width: 40%;
     }
 
@@ -52,6 +51,7 @@
   }
 
   .book {
+    color: #f5db90;
     background-color: #641c1f;
     border-radius: 3px;
     padding: 6px;
@@ -82,7 +82,7 @@
     border-bottom: none;
   }
 
-  .reservation .roomies {
-
+  .roommies {
+    color: #f5db90;
   }
 }
