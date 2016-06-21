@@ -25,12 +25,26 @@
               <span class="buildinglabel"><%= "#{l.label}"%></span>
           <% end %>
           </p>
-          <p>
-          <%= l.description %><br/>
-          Occupancy: <%= l.occupancy %><br/>
-          A/C: <%= l.air_conditioning.eql?(true) ? 'yes' : 'no' %><br/>
-          Bathroom: <%= l.bathroom.eql?(true) ? 'yes' : 'no' %><br/>
-          Kitchen: <%= l.kitchen.eql?(true) ? 'yes' : 'no' %><br/>
+          <p class='details'>
+            <%= l.description %>
+            <table class='details'>
+              <tr>
+                <td class='header'>Occupancy:</td>
+                <td class='details'><%= l.occupancy %></td>
+              </tr>
+              <tr>
+                <td class='header'>A/C:</td>
+                <td class='details'><%= l.air_conditioning.eql?(true) ? 'yes' : 'no' %></td>
+              </tr>
+              <tr>
+                <td class='header'>bathroom:</td>
+                <td class='details'><%= l.bathroom.eql?(true) ? 'yes' : 'no' %></td>
+              </tr>
+              <tr>
+                <td class='header'>kitchen:</td>
+                <td class='details'><%= l.kitchen.eql?(true) ? 'yes' : 'no' %></td>
+              </tr>
+            </table>
           </p>
       </td>
       <td>

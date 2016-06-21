@@ -13,6 +13,17 @@ table.accommodation {
 
   td {
       background-color: #f5db90;
+      .details {
+        margin-left: 6px;
+      }
+  }
+
+  td.header {
+    width: 20%;
+  }
+
+  td.details {
+    padding-left: 6px;
   }
 
   .accommodationhighlight {
@@ -21,32 +32,29 @@ table.accommodation {
     float: right;
   }
 
-    .buildinglabel {
+  .buildinglabel {
     color: #171819;
     font-weight: bold;
-    padding-left: 0;
-    }
+    padding-left: 4px;
+  }
 
-    .cabinlabel {
+  .cabinlabel {
     color: #3f4041;
     font-weight: bold;
     font-size: 100%;
     padding-left: 0;
-    }
+  }
 
-    font-size: 90%;
-    padding-top: 0;
-
-    .label {
+  .label {
       margin-right: 12px;
       font-weight: bold;
       width: 40%;
-    }
+  }
 
-    .row {
+  .row {
       padding-top: 0;
       padding-bottom: 0;
-    }
+  }
 
   .book {
     color: #f5db90;
