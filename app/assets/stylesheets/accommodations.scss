@@ -2,14 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-table.accommodation {
+.confirmation .accommodation {
   color: black;
+  margin-bottom: 12px;
+  padding-right: 0;
   border-radius: 3px;
   border: 1px solid #f1b44a;
+  background-color: #f5db90;
+  width: 90%
+}
+
+.accommodation {
+  color: black;
   margin-bottom: 12px;
   padding-right: 0;
   width: 100%;
 
+  tr {
+  }
 
   td {
       background-color: #f5db90;

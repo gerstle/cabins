@@ -15,7 +15,9 @@
 <div class="row">
   <strong>NOTE:</strong> This form will automatically expire in 10 minutes, you must confirm your reservation before then
 </div>
-<%= render 'accommodation' %>
+<div class="confirmation">
+  <%= render 'accommodation' %>
+</div>
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
     <%= form_for(@reservation) do |f| %>
@@ -29,8 +31,8 @@
       <% end %>
       <% if @quantity_available > 1 %>
         <div class="field">
-          <%= f.label "#{:quantity} (limit 2)" %><br>
-          <%= f.number_field :quantity, value: 1, min: 1, max: 2, onchange: "$('#totalPrice').text('$' + ($('#reservation_quantity')[0].valueAsNumber * #{@reservation.accommodation.price}).toFixed(2));" %>
+          <%= f.label "#{:quantity} (limit 4)" %><br>
+          <%= f.number_field :quantity, value: 1, min: 1, max: (@quantity_available > 4 ? 4 : @quantity_available), onchange: "$('#totalPrice').text('$' + ($('#reservation_quantity')[0].valueAsNumber * #{@reservation.accommodation.price}).toFixed(2));" %>
         </div>
       <% else %>
         <%= hidden_field(:reservation, :quantity) %>
