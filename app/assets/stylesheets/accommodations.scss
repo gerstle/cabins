@@ -2,13 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.accommodation {
+table.accommodation {
   color: black;
   border-radius: 3px;
-  background-color: #f5db90;
   border: 1px solid #f1b44a;
   margin-bottom: 12px;
   padding-right: 0;
+  width: 100%;
+
+
+  td {
+      background-color: #f5db90;
+  }
 
   .accommodationhighlight {
     padding-left: 0;
@@ -16,25 +21,19 @@
     float: right;
   }
 
-  .heading {
-    padding-left: 2px;
-    padding-bottom: 0;
-
     .buildinglabel {
-      color: #171819;
-      font-weight: bold;
-      padding-left: 0;
+    color: #171819;
+    font-weight: bold;
+    padding-left: 0;
     }
 
     .cabinlabel {
-      color: #3f4041;
-      font-weight: bold;
-      font-size: 100%;
-      padding-left: 0;
+    color: #3f4041;
+    font-weight: bold;
+    font-size: 100%;
+    padding-left: 0;
     }
-  }
 
-  .details {
     font-size: 90%;
     padding-top: 0;
 
@@ -48,7 +47,6 @@
       padding-top: 0;
       padding-bottom: 0;
     }
-  }
 
   .book {
     color: #f5db90;
