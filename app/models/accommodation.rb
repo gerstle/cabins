@@ -38,4 +38,12 @@ class Accommodation < ActiveRecord::Base
     where(nil)
   end
 
+  def get_label
+    if (self.building.building_type.label.eql?('Cabin') || self.building.building_type.label.eql?('Lodge'))
+      return "#{self.building.label} #{self.label}"
+    end
+
+    self.label
+  end
+
 end

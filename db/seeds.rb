@@ -228,3 +228,8 @@ Planner.create([
   {'email': 'planner1@inappropirates.com'},
   {'email': 'planner2@inappropirates.com'}
 ])
+
+Reservation.create([
+    {accommodation_id: 1, user_id: 1, price: 185.00, quantity: 1},
+    {accommodation_id: 2, user_id: 2, price: 185.00, quantity: 1}
+])

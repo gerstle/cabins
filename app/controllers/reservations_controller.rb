@@ -62,6 +62,7 @@ class ReservationsController < ApplicationController
     @reservation.confirmed_time = DateTime.now
 
     if @reservation.save
+      @reservation.send_booking_confirmation_email
       render 'confirmation'
     else
       new
@@ -103,6 +104,7 @@ class ReservationsController < ApplicationController
     if @reservation.update(paid_date: DateTime.now(), processed_by_user_id: current_user.id)
       flash.now[:success] = "reservation #{@reservation.id} marked as paid"
       index
+      @reservation.send_paid_confirmation_email
       render 'reservations/index'
     else
       render 'reservations/index'
