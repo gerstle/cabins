@@ -72,7 +72,7 @@ class UsersController < ApplicationController
     @user.planner_found = planner.blank? ? false : true
 
     if (@user.planner_found && params[:user][:tier_id].blank?)
-      tier = Tier.find_by(label: 'Tier 3')
+      tier = Tier.find_by(label: 'Tier 2')
       if (@user.id.blank?)
         @user.tier = tier unless tier.nil?
       else
