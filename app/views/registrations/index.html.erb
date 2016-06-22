@@ -10,6 +10,7 @@
     <th>Selected Role</th>
     <th>Confirmed Planner*</th>
     <th>Approved Tier</th>
+    <th>Tier Approved email Date</th>
     <th>Registered Date</th>
     <th>Actions</th>
   </tr>
@@ -23,8 +24,12 @@
         <td><%= r.role %></td>
         <td><%= r.planner_found %></td>
         <td><%= r.tier.full_label unless r.tier.nil? %></td>
+        <td><%= r.tier_approved_email %></td>
         <td><%= r.created_at %></td>
-        <td><%= link_to 'edit', user_path(r) %></td>
+        <td>
+          <%= link_to 'edit', user_path(r) %>
+          <%= link_to 'send&nbsp;tier&nbsp;email'.html_safe, tier_approved_path(r), :method => :patch %>
+        </td>
       </tr>
   <% end %>
   </tbody>

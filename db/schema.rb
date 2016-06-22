@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160621014823) do
+ActiveRecord::Schema.define(version: 20160622005253) do
 
   create_table "accommodation_types", force: :cascade do |t|
     t.string   "description", limit: 255
@@ -88,19 +88,20 @@ ActiveRecord::Schema.define(version: 20160621014823) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name",            limit: 60,                    null: false
-    t.string   "email",           limit: 255,                   null: false
-    t.boolean  "admin",                         default: false, null: false
-    t.text     "notes",           limit: 65535
-    t.string   "password_digest", limit: 255
-    t.string   "phone",           limit: 16,                    null: false
-    t.boolean  "planner_found",                 default: false, null: false
-    t.string   "role",            limit: 20,                    null: false
-    t.integer  "tier_id",         limit: 4
-    t.datetime "created_at",                                    null: false
-    t.datetime "updated_at",                                    null: false
-    t.string   "reset_digest",    limit: 255
+    t.string   "name",                limit: 60,                    null: false
+    t.string   "email",               limit: 255,                   null: false
+    t.boolean  "admin",                             default: false, null: false
+    t.text     "notes",               limit: 65535
+    t.string   "password_digest",     limit: 255
+    t.string   "phone",               limit: 16,                    null: false
+    t.boolean  "planner_found",                     default: false, null: false
+    t.string   "role",                limit: 20,                    null: false
+    t.integer  "tier_id",             limit: 4
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
+    t.string   "reset_digest",        limit: 255
     t.datetime "reset_sent_at"
+    t.datetime "tier_approved_email"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

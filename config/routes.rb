@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   get 'admin/registrations' => 'registrations#index', as: 'registrations'
   get 'users/:id' => 'users#show', as: 'user'
   patch 'users/:id' => 'users#update'
+  patch 'users/:id/tier_approved' => 'users#tier_approved', as: 'tier_approved'
 
   get 'admin/buildings' => 'buildings#index', as: 'buildings'
   get 'admin/buildings/:id' => 'buildings#show', as: 'building'

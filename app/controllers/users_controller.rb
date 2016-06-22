@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show, :update]
   before_action :correct_user,   only: [:show, :update]
+  before_action :require_admin,   only: [:tier_approved]
 
   def new
     @user = User.new
@@ -39,11 +40,6 @@ class UsersController < ApplicationController
     set_planner_found
     if @user.update_attributes(user_params)
       flash.now[:success] = 'user updated'
-
-      if (before_tier.nil? && !@user.tier_id.nil?)
-        @user.send_tier_approved_email
-      end
-
       if is_admin?
         @registrations = User.all
         render 'registrations/index'
@@ -54,6 +50,21 @@ class UsersController < ApplicationController
     else
       render 'show'
     end
+  end
+
+  def tier_approved
+    @user = User.find(params[:id])
+    if (!@user.tier.nil?)
+      @user.send_tier_approved_email
+      @user.tier_approved_email = DateTime.now
+      @user.save
+      flash.now[:success] = 'tier approval email sent'
+    else
+      flash.now[:danger] = 'please set the tier first'
+    end
+
+    @registrations = User.all
+    render 'registrations/index'
   end
 
   private
