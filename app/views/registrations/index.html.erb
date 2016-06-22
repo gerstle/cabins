@@ -28,7 +28,7 @@
         <td><%= r.created_at %></td>
         <td>
           <%= link_to 'edit', user_path(r) %>
-          <%= link_to 'send&nbsp;tier&nbsp;email'.html_safe, tier_approved_path(r), :method => :patch %>
+          <%= link_to 'send&nbsp;tier&nbsp;email'.html_safe, tier_approved_path(r), :method => :patch, data: { confirm: 'Are you sure you want to send the tier approved email?' } %>
         </td>
       </tr>
   <% end %>
