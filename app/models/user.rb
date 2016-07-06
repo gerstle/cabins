@@ -63,6 +63,11 @@ class User < ActiveRecord::Base
     BCrypt::Password.new(digest).is_password?(token)
   end
 
+  def has_confirmed_reservations?
+     reservations = Reservation.where('confirmed_time IS NOT NULL AND user_id=?', self.id)
+     !reservations.empty?
+  end
+
   private
     def strip_whitespace
       self.name = self.name.strip unless self.name.nil?
