@@ -85,7 +85,7 @@ class ReservationsController < ApplicationController
   # ADMIN -----------------------------------
 
   def index
-    @reservations = Reservation.all()
+    @reservations = Reservation.where('confirmed_time IS NOT NULL')
   end
 
   def delete
