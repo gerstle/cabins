@@ -30,7 +30,8 @@ class AccommodationsController < ApplicationController
 
   def accommodation_params
     params.require(:accommodation).permit(:accommodation_type, :air_conditioning, :hold, :bathroom,
-                                          :description, :kitchen, :label, :occupancy, :price, :quantity
+                                          :description, :kitchen, :label, :occupancy, :price, :quantity,
+                                          :column
     ) end
 
   def sort_column
