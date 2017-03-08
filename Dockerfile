@@ -14,12 +14,12 @@ FROM ruby:2.3-slim
 # The Docker hub is the standard place for you to find official
 # Docker images. Think of it like GitHub but for Docker images.
 
-MAINTAINER Nick Janetakis <nick.janetakis@gmail.com>
+MAINTAINER Casey Gerstle <gerstle@gmail.com>
 # It is good practice to set a maintainer for all of your Docker
 # images. It's not necessary but it's a good habit.
 
 RUN apt-get update && apt-get install -qq -y --no-install-recommends \
-      build-essential nodejs libpq-dev libmysqlclient-dev
+      build-essential nodejs libmysqlclient-dev
 # Ensure that our apt package list is updated and install a few
 # packages to ensure that we can compile assets (nodejs) and
 # communicate with PostgreSQL (libpq-dev).
@@ -81,7 +81,7 @@ COPY . .
 # this is how the unix command cp (copy) works. It stands for the
 # current directory.
 
-RUN bundle exec rake RAILS_ENV=production DATABASE_URL=mysql2://user:pass@127.0.0.1/dbname ACTION_CABLE_ALLOWED_REQUEST_ORIGINS=foo,bar SECRET_TOKEN=dummytoken assets:precompile
+RUN bundle exec rake RAILS_ENV=development DATABASE_URL=mysql2://user:pass@127.0.0.1/dbname ACTION_CABLE_ALLOWED_REQUEST_ORIGINS=foo,bar SECRET_TOKEN=dummytoken assets:precompile
 # Provide a dummy DATABASE_URL and more to Rails so it can pre-compile
 # assets. The values do not need to be real, just valid syntax.
 #
