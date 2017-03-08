@@ -6,8 +6,8 @@
 }
 
 body {
-  background-color: #441819;
-  color: #fbef83;
+  background-color: #e9ebee;
+  color: #000000;
 }
 
 a, a:hover, a:focus {
@@ -36,7 +36,7 @@ a, a:hover, a:focus {
 
 .footer {
   text-align: center;
-  color: #f9e9ae;
+  color: #282828;
   padding: 4px;
 }
 
@@ -235,18 +235,23 @@ div.user {
 }
 
 .post {
-
 }
 
 .title {
   font-weight: bold;
-  color: #f1b44a;
-  border-bottom: 1px solid #23527c;
-  padding: 0;
+  color: #f1f1f1;
+  padding: 4px;
+  background: #ccc;
+
+  h3 {
+    margin: 0;
+  }
 }
 
 .content {
   margin: 6px;
+  background-color: #FFFFFF;
+  padding: 2px 2px 2px 10px;
 }
 
 .field {
