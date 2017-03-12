@@ -1,6 +1,6 @@
 <div class="row">
-  <div class="col-md-10"></div>
-  <div class="col-md-2 right">
+  <div class="col-md-8"></div>
+  <div class="col-md-4 right">
     <div class="user">
       <% if logged_in? %>
         <%= current_user.name %><span class="gray">&nbsp|</span>
@@ -13,22 +13,20 @@
   </div>
 </div>
 <div class="row headerlinks">
-    <div class="col-md-1"></div>
-    <div class="col-md-10">
-      <%= link_to 'home', home_path, class: 'link link-primary' %>
-      <%= link_to 'map', map_path, class: 'link link-primary' %>
-      <%= link_to 'rules', rules_path, class: 'link link-primary' %>
-      <%= link_to 'FAQ', faq_path, class: 'link link-primary' %>
-      <% if logged_in? %>
-          <%= link_to 'cabin details', details_path, class: 'link link-primary' %>
-          <%= link_to 'lodging Options', accommodations_path, class: 'link link-primary' %>
-      <% end %>
-      <% if logged_in? && is_admin? %>
-          <%= link_to 'admin', admin_path, class: 'link link-primary' + (is_admin_route? ? ' selected' : '')  %>
-      <% end %>
-    </div>
-    <% if is_admin? && is_admin_route? %>
-        <%= render 'layouts/admin' %>
+  <div class="col-md-12">
+    <%= link_to 'home', home_path, class: 'link link-primary' + (is_current_page?('home') ? ' selected' : '') %>
+    <%= link_to 'map', map_path, class: 'link link-primary' + (is_current_page?('map') ? ' selected' : '') %>
+    <%= link_to 'rules', rules_path, class: 'link link-primary' + (is_current_page?('rules') ? ' selected' : '') %>
+    <%= link_to 'FAQ', faq_path, class: 'link link-primary' + (is_current_page?('faq') ? ' selected' : '') %>
+    <% if logged_in? %>
+        <%= link_to 'cabin details', details_path, class: 'link link-primary' + (is_current_page?('details') ? ' selected' : '') %>
+        <%= link_to 'lodging Options', accommodations_path, class: 'link link-primary' + (is_current_page?('accommodations') ? ' selected' : '') %>
+    <% end %>
+    <% if logged_in? && is_admin? %>
+        <%= link_to 'admin', admin_path, class: 'link link-primary' + (is_admin_route? ? ' selected' : '')  %>
     <% end %>
   </div>
 </div>
+<% if is_admin? && is_admin_route? %>
+  <%= render 'layouts/admin' %>
+<% end %>

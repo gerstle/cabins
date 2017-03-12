@@ -47,4 +47,9 @@ module ApplicationHelper
      request.user_agent =~ /Mobile|webOS/
    end
   end
+
+  def is_current_page?(page)
+    request.env['PATH_INFO'].starts_with?('/' + page)
+  end
+
 end

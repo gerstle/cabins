@@ -11,19 +11,22 @@ body {
 }
 
 a, a:hover, a:focus {
-  color: #83dddc;
+  color: #29333a;
 }
 
-.logo {
+img.logo {
+  position: relative;
+  left: -59px;
+  top: -32px;
+}
+
+div.logo {
   background-color: #70E481;
   border-radius: 2px;
+  margin-top: 20px;
 
   .gearhead {
-    height: 180px;
-    background-image: image-url("big_gearhead.png");
-    background-repeat: no-repeat;
-    background-attachment: inherit;
-    background-position: -20px -10px;
+    height: 167px;
   }
 }
 
@@ -34,8 +37,9 @@ a, a:hover, a:focus {
 
 .footer {
   text-align: center;
-  color: #282828;
+  color: #29333a;
   padding: 4px;
+  opacity: 0.65;
 }
 
 main {
@@ -108,7 +112,7 @@ input.same-line {
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
   color: #23527c;
-  background: #f1b44a;
+  background: #70E481;
 }
 
 .btn-primary:active, .btn-primary.active {
@@ -157,7 +161,7 @@ input.same-line {
 }
 
 .link-primary:hover, .header .link-primary:focus, .header .link-primary:active, .header .link-primary.active, .header .open > .dropdown-toggle.link-primary {
-  background: #f1b44a;
+  background: #70E481;
   text-decoration: none;
 }
 
@@ -167,11 +171,12 @@ input.same-line {
 }
 
 div.headerlinks {
-  border-radius: 3px;
+  border-radius: 2px;
   background-color: #2d94b5;
 
   .selected {
-    background-color: #2E2F30;
+    background: #70E481;
+    opacity: .4;
   }
 }
 
@@ -181,7 +186,7 @@ div.admin {
 }
 
 div.adminlinks {
-  border-radius: 3px;
+  border-radius: 2px;
   background-color: lightcoral;
   margin-top: 6px;
   padding-bottom: 5px;
@@ -229,12 +234,12 @@ div.adminlinks {
   margin-top: 20px;
 }
 
-div.user {
+.user {
 }
 
 .post {
   background: #fff;
-  border-radius: 2px;
+  border-radius: 5px;
   border: 1px solid #ddd;
   margin: 4px 0 12px 0;
 }
@@ -244,8 +249,8 @@ div.user {
   font-weight: bold;
   padding: 4px;
 
-  h1 {
-    margin: 4px 0 2px 0;
+  h2 {
+    margin: 4px 0 2px 4px;
   }
 }
 
@@ -289,7 +294,7 @@ div.user {
 
 .table-striped {
   > thead > tr {
-    background-color: #2E2F30;
+    background-color: #dedfe0;
   }
 
   > tbody {

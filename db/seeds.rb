@@ -10,112 +10,145 @@ posts = Post.create([
   {
     category: 'home', title: 'Greetings FnFers!',
     body:
-      'Welcome to the FnF 2016 Cabin Reservation App<br/><br/>'\
-      'Using FnF 2016 Cabins you can register for lodging at the FnF Summer Campout, receive notification of lodging '\
-      'registration times, review and reserve specific rooms at the Saratoga Springs resort, and receive confirmation '\
-      'of your reservation and payment. To use FnF 2016 Cabins, please review the lodging reservation instructions '\
-      'below and lodging policy details, and click <strong><a href="/users/new">here to register</a></strong>.'
+      'Welcome to the FnF 2017 Cabin Reservation App<br/><br/>'\
+      'This app will help you pre-register for lodging at the FnF Summer Campout, receive notification of lodging registration times, review and reserve specific rooms at the Saratoga Springs resort, and receive confirmation of your reservation and payment. To start using FnF 2016 cabins, please review the lodging reservation instructions below and FAQ. Click here to register.<strong><a href="/users/new">here to register</a></strong>.'
   },
   {
-    category: 'home', title: 'Using FnF 2016 Cabins',
+    category: 'home', title: 'Pre-registration',
     body:
-      '<p>On the next page, FnF 2016 Cabins will prompt you for contact information and details about your participation '\
-      'in this year\'s summer campout. We will be assigning people to signup tiers based on the following</p>'\
-      '<p><strong>Coordinators & Planners:</strong> People on the planners mailing list.</p>'\
-      '<p><strong>Planner Medical:</strong> Planners with reasonable medical need for a room, or late term pregnant / post-partum mothers</p>'\
-      '<p><strong>Other / Attendee:</strong> People who have tickets already but don\'t fit into one of the other categories.</p>'\
-      '<p>Once you complete the registration process, FnF 2016 Cabins admins will send you a follow-up email that '\
-      'confirms your eligibility and provides you with dates during which the system will be available to you to '\
-      'register for the lodging of your choice at Saratoga Springs.</p>'
+      'On the next page, FnF 2016 Cabins will prompt you for contact information and details about your participation in this year\'s summer camp out. We will be assigning people to tiers based on the following</p><p><strong>Coordinators &amp; Planners:</strong> People on the planners mailing list.</p><p><strong>Planner Medical:</strong> Planners with reasonable medical need for a room.</p><p><strong>Other / Attendee:</strong> People who have tickets already but don't fit into one of the other categories.</p><p>Once you complete the pre-registration process, FnF 2016 Cabins admins will send you a confirmation email with your date to register for the lodging of your choice at Saratoga Springs.</p>'
   },
   {
-      category: 'home', title: 'Register',
+      category: 'home', title: 'Registration',
       body:
-        '<p>During the registration period, log onto the FnF 2016 Cabins lodging registration page '\
-        '(you will receive the URL in email). Please review the available lodging and select from the available options.'\
-        'Please note that you will be able to register for exactly one room*, and NO MORE than one room. '\
-        'Once you select a room, FnF 2016 Cabins will reserve that room in your name until the payment deadline '\
-        '(1 week), during which time you must send your payment, or we will release your reservation.</p>'\
-        '<p>Upon receipt of payment, FnF 2016 Cabins will send you a confirmation of your reservation. '\
-        'Please note that some of the rooms have space for as many as 6 people**, so you can organize a '\
-        'group and split up the room however you wish. Once you have registered and paid for a room, any room '\
-        'changes or cost sharing are your responsibility. <strong>Please note</strong>, you will also be responsible '\
-        'for any damages that may occur and removal of all trash. '\
-        '<strong>FnF campout is a pack in and pack out event and this applies to the cabins as well.</strong>'\
-        '<p style="font-style: italic; font-size: smaller;">* The notable exception: In the Main Cabin, you may register'\
-        'for individual beds in dormitory-style rooms. These rooms have multiple twin bunk beds for which you can register for more than one.'\
-        '<br/><br/>** Assuming 2 people to a double or queen bed and 1 person to a twin.</p>'
+        '<p>During the registration period, log into the FnF 2016 Cabins lodging registration page and select the lodging options tab.Please note that you will be able to register for exactly one room*, and NO MORE than one room. Once you select a room, FnF 2016 Cabins will reserve that room in your name until the payment deadline (July 18th), during which time you must send your payment or we will release your reservation.</p><p>Please note that some of the rooms have space for as many as 6 people**, so you can organize a group and split up the room however you wish. Once you have registered and paid for a room, any room changes or cost sharing are your responsibility. <strong>Please note</strong>: you will also be responsible for any damages that may occur and removal of all trash. <strong>FnF campout is a pack in and pack out event and this applies to the cabins as well.</strong><p style="font-style: italic; font-size: smaller;">* The notable exception: In the Main Cabin, you may registerfor individual beds in dormitory-style rooms. These rooms have multiple twin bunk beds for which you can register for more than one.<br/><br/>** Assuming 2 people to a double or queen bed and 1 person to a twin.</p>'
   },
   {
     category: 'home', title: 'Pay',
     body:
-        '<p>Once you have reserved your lodging through FnF 2016 Cabins, you will receive a confirmation email with '\
-        'details on where to send your payment by check or money order.</p>'\
-        'Please note that your pre-paid registration only lasts for one week. If we have not received your payment '\
-        'within that time, FnF 2016 Cabins will cancel your reservation and make your lodging preference available for other participants.</p>'\
-        'Once we receive payment, FnF 2016 Cabins will send you an email confirming your paid reservation. Should you '\
-        'have any questions about the FnF lodging policy, please review the policy and if you still have questions, contact Jessica Allard</p>'\
-        '<p>Happy camping!</p>'
+        '<p>Once you have reserved your lodging through FnF 2016 Cabins, you will receive a confirmation email. Please check the FAQ for payment options other than the PayPal button at check-out.</p>Please note that your pre-paid registration only lasts until July 18th. If we have not received your payment within that time, FnF 2016 Cabins will cancel your reservation and make your lodging preference available for other participants.</p>Once we receive payment, FnF 2016 Cabins will send you an email confirming your paid reservation.</p><p>Should you have any questions about the FnF lodging policy, please contact fnfcabins@gmail.com.'
   },
+
   {
     category: 'rule', title: 'ATTENTION: FnF Campout is a PACK IN/PACK OUT Event.',
     body:
-      '<p>FnF Campout is a PACK IN/PACK OUT Event.</p>'\
-      '<p>Please take all your Trash/Recyclables including what is in the trash can when you leave.</p>'
+      'Please take all your Trash/Recyclables including what is in the trash can when you leave.'
   },
   {
       category: 'rule', title: 'Room Rules: Smoking',
       body:
-          'Smoking (of any kind) is strictly prohibited (that means don\'t do it). Saratoga Springs only permits '\
-          'smoking in designated smoking areas (see map or ask). <strong>This is especially important this year.</strong>'
+          'Smoking (of any kind) is strictly prohibited (that means don't do it). Saratoga Springs only permits smoking in designated smoking areas (see map or ask). <strong>This is especially important this year.</strong>'
   },
   {
       category: 'rule', title: 'Room Rules: Bathrooms',
       body:
-          'The bathroom facilities are for your use only. This is a critical restriction as the septic system will not '\
-          'handle more than what the limited number of renters can produce. <strong>Please ask your friends to make '\
-          'use of the ample portable and public facilities.</strong>'
+          'The bathroom facilities are for your use only. This is a critical restriction as the septic system will not handle more than what the limited number of renters can produce. <strong>Please ask your friends to make use of the ample portable and public facilities.</strong>'
   },
   {
       category: 'rule', title: 'Room Rules: Leave it as you found it',
       body:
-          'Please leave the room as you found it. Move furniture back where it was when you arrived. You are '\
-          'responsible for any damages or excessive dirtiness.'
+          'Please leave the room as you found it. Move furniture back where it was when you arrived. You are responsible for any damages or excessive dirtiness.'
   },
   {
       category: 'rule', title: 'Room Rules: Trash',
       body:
-          'Remove <strong>ALL<strong> trash from room. FnF is a pack in/pack out event and this includes the trash '\
-          'and recyclables in the trash cans in the rooms.'
+          'Remove <strong>ALL<strong> trash from room. FnF is a pack in/pack out event and this includes the trash and recyclables in the trash cans in the rooms.'
   },
   {
       category: 'rule', title: 'Room Rules: Issues',
       body:
-          'Should you have any problems with your room, please contact Bob, the Saratoga Springs facilities guy.'
+          'Should you have any problems with your room, please contact the Saratoga Springs staff.'
   },
   {
-      category: 'faq', title: 'you haz question?',
+      category: 'faq', title: 'Are you eligible?',
       body:
-          'here are all the answers!'
+          'You are eligible to register for a cabin if you have a ticket secured <strong>and</strong> are either a coordinator or will be working one or more shifts at the event.'
   },
   {
-      category: 'faq', title: 'FAQ it',
+      category: 'faq', title: 'When can I pre-register for a cabin?',
       body:
-          'yep'
+          'The pre-registration page will open June 20.  You\'ll need to enter your name, email address, and phone number, create a password, and verify your selected registration tier - i.e, your role at the campout or the accommodations needed for medical priority. This pre-registration step does not guarantee you a cabin; it just allows us to validate your eligibility before we open the signup sheet to each tier.'
+  },
+  {
+      category: 'faq', title: 'Do I need to pre-register if I pre-registered last year?',
+      body:
+          'Yes. You must pre-register again this year, even if you signed up for an account last year. Your account does not roll over and your role at FnF camp out may have changed.'
+  },
+  {
+      category: 'faq', title: 'What are the different tiers for the cabin reservation system?',
+      body:
+          'Tier 1) Planner Medical – People on planner\'s list with a reasonable medical need for accommodation.  This includes medical conditions, injuries, disabilities, and women in the third trimester of pregnancy. This tier is decided on a case-by-case basis, at our discretion.<br/><br/>Tier 2) Planners and Coordinators - People on the FnF planners mailing list.<br/><br/>Tier 3) Other/Attendee - Anyone else who has tickets to the event.'
+  },
+  {
+      category: 'faq', title: 'Can I reserve a cabin/room if I haven\'t pre-registered?',
+      body:
+          'No. You must pre-register and get placed in a tier before you can sign-up for a cabin.'
+  },
+  {
+      category: 'faq', title: 'When does cabin registration begin?',
+      body:
+          'The tier you have been placed in determines when you can sign up.<br/><br/>
+
+Tier 1 - Tuesday, July 5th @ 7:30pm<br/><br/>
+Tier 2 - Wednesday, July 6th @7:30pm<br/><br/>
+Tier 3 – Thursday, July 7th @7:30pm<br/><br/>
+
+Once your tier is open, you will be able to sign in using the same email address and password you pre-registered with and choose to reserve an available room. The Registration app will allow you to choose a specific room from among those that have not yet been registered.'
+  },
+  {
+      category: 'faq', title: 'When do you need payment for the cabin?',
+      body:
+          'If we have not received your payment by July 18th, we will send you a notification that your payment is late. At that time, only Paypal payments will be accepted. In the event that we still have not received payment, we will cancel your room reservation, allowing someone else to register for it. SEND YOUR PAYMENT ON TIME'
+  },
+  {
+      category: 'faq', title: 'I forgot to pay for my cabin/room when I reserved it. How can I pay after the fact?',
+      body:
+          'You can pay in two ways:<br/><br/>
+1.  Pay via Paypal: Send $ to paypal@cfaea.org. Be sure to select "Send money to friends or family" and write your cabin/room number in the comments<br/><br/>
+2.  Pay via check: Make your payment to CFAEA by check and send it to the following address:<br/><br/>
+CFAEA<br/><br/>
+c/o Jessica Allard<br/><br/>
+2806 Kingsland Ave<br/><br/>
+Oakland, CA 94619<br/><br/>
+Additionally, please include the cabin/room number in the notes on the check.'
+  },
+  {
+      category: 'faq', title: 'How do I find my cabin when I arrive at Saratoga Springs?',
+      body:
+          'We will have a map with the cabin assignments at the Gate so you can refer to it once you arrive on site. Each cabin will also have a list of the names of the people who reserved the rooms within.'
+  },
+  {
+      category: 'faq', title: 'I am planning on coming early to the camp out and/or staying late, can I use my cabin during this time?',
+      body:
+          'Yes. You will have access to the cabin for the full time that you are at the campout.'
+  },
+  {
+      category: 'faq', title: 'There are trashcans and recycle bins in the cabin. Can I leave my trash/recycling behind in the can?',
+      body:
+          '<strong>NO!</strong> You will be responsible for removing <strong>ALL</strong> trash from your cabin/room. The camp out is a pack in/pack out event and this applies to the cabins.'
+  },
+  {
+      category: 'faq', title: 'I didn\'t receive a confirmation email. Am I registered?',
+      body:
+          'Check your SPAM folder and email us at fnfcabins@gmail.com for confirmation.'
+  },
+  {
+      category: 'faq', title: 'If I am staying in a cabin/dorm room, do I need to bring linens?',
+      body:
+          'Saratoga Springs only supplies a sheet over the mattress. We strongly encourage you to bring your own linens, blankets and whatever else makes you feel cozy while you sleep.'
   }
 ])
 
 users = User.create([
    {name: 'minty', email:'minty@inappropirates.com', password:'nopenope', password_confirmation:'nopenope', phone: '1111', role: 'planner', admin: true},
-   {name: 'maximus', email:'maximus@fatboycentral.com', password:'nopenope', password_confirmation:'nopenope', phone: '1111', role: 'planner', admin: true},
    {name: 'asdf', email:'asdf@gmail.com', password:'asdfasdf', password_confirmation:'asdfasdf', phone: '1111', role: 'attendee', admin: false}
 ])
 
 Tier.create([
-  {label: 'Tier 0', description: 'Secret', available: DateTime.new(2016, 6, 6, 19, 30, 0, Rational(-7,24))},
-  {label: 'Tier 1', description: 'Planners Medical', available: DateTime.new(2016, 7, 5, 19, 30, 0, Rational(-7,24))},
-  {label: 'Tier 2', description: 'Planners', available: DateTime.new(2016, 7, 6, 19, 30, 0, Rational(-7,24))},
-  {label: 'Tier 3', description: 'All', available: DateTime.new(2016, 7, 7, 19, 30, 0, Rational(-7,24))},
+  {label: 'Tier 0', description: 'Secret', available: DateTime.new(2017, 6, 6, 19, 30, 0, '-07:00')},
+  {label: 'Tier 1', description: 'Planners Medical', available: DateTime.new(2017, 7, 5, 19, 30, 0, '-07:00')},
+  {label: 'Tier 2', description: 'Planners', available: DateTime.new(2017, 7, 6, 19, 30, 0, '-07:00')},
+  {label: 'Tier 3', description: 'All', available: DateTime.new(2017, 7, 7, 19, 30, 0, '-07:00')},
 ])
 
 summer_cabin = BuildingType.create(label: 'Summer Cabin');
@@ -212,24 +245,20 @@ Accommodation.create(accommodation_type: not_private_room, building: building, h
 
 building = Building.create(label: 'Main Lodge', building_type: lodge)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                     label: 'Suite', description: '1x queen + 1x twin',
+                     label: 'Main Lodge Master Bedroom MLB', description: '1x queen + 1x twin',
                      occupancy: 3, price: 309.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
-                     label: 'Dorm A', description: '1 twin bed in a room of 10 twin beds (bunked)',
+                     label: 'Main Lodge A - Quiet Dorm', description: '1 twin bed in a room of 10 twin beds (bunked)',
                      occupancy: 1, price: 67.0, quantity: 10, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
-                     label: 'Dorm B', description: '1 twin bed in a room of 8 twin beds (bunked)',
+                     label: 'Main Lodge C - Dorm', description: '1 twin bed in a room of 8 twin beds (bunked)',
                      occupancy: 1, price: 67.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
-                     label: 'Dorm C', description: '1 twin bed in a room of 8 twin beds (bunked)',
+                     label: 'Main Lodge D - Dorm', description: '1 twin bed in a room of 8 twin beds (bunked)',
                      occupancy: 1, price: 67.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
 
 Planner.create([
-  {'email': 'planner1@inappropirates.com'},
-  {'email': 'planner2@inappropirates.com'}
 ])
 
 Reservation.create([
-    {accommodation_id: 1, user_id: 1, price: 185.00, quantity: 1},
-    {accommodation_id: 2, user_id: 2, price: 185.00, quantity: 1}
 ])
