@@ -8,7 +8,7 @@
   padding-right: 0;
   border-radius: 3px;
   border: 1px solid #f1b44a;
-  background-color: #f5db90;
+  background-color: #dedfe0;
   width: 90%
 }
 
@@ -26,7 +26,8 @@
   }
 
   td {
-      background-color: #f5db90;
+      background-color: #dedfe0;
+      border: 1px solid #ddd;
       .details {
         margin-left: 6px;
       }
@@ -71,8 +72,7 @@
   }
 
   .book {
-    color: #f5db90;
-    background-color: #641c1f;
+    background-color: #778491;
     border-radius: 3px;
     padding: 6px;
     margin: 4px;
@@ -80,7 +80,7 @@
     .price {
       font-size: 125%;
       font-weight: bold;
-      color: #f1b44a;
+      color: #70E481;
     }
 
     .quantity {

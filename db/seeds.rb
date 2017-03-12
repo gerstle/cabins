@@ -16,7 +16,7 @@ posts = Post.create([
   {
     category: 'home', title: 'Pre-registration',
     body:
-      'On the next page, FnF 2016 Cabins will prompt you for contact information and details about your participation in this year\'s summer camp out. We will be assigning people to tiers based on the following</p><p><strong>Coordinators &amp; Planners:</strong> People on the planners mailing list.</p><p><strong>Planner Medical:</strong> Planners with reasonable medical need for a room.</p><p><strong>Other / Attendee:</strong> People who have tickets already but don't fit into one of the other categories.</p><p>Once you complete the pre-registration process, FnF 2016 Cabins admins will send you a confirmation email with your date to register for the lodging of your choice at Saratoga Springs.</p>'
+      'On the next page, FnF 2016 Cabins will prompt you for contact information and details about your participation in this year\'s summer camp out. We will be assigning people to tiers based on the following</p><p><strong>Coordinators &amp; Planners:</strong> People on the planners mailing list.</p><p><strong>Planner Medical:</strong> Planners with reasonable medical need for a room.</p><p><strong>Other / Attendee:</strong> People who have tickets already but don\'t fit into one of the other categories.</p><p>Once you complete the pre-registration process, FnF 2016 Cabins admins will send you a confirmation email with your date to register for the lodging of your choice at Saratoga Springs.</p>'
   },
   {
       category: 'home', title: 'Registration',
@@ -37,7 +37,7 @@ posts = Post.create([
   {
       category: 'rule', title: 'Room Rules: Smoking',
       body:
-          'Smoking (of any kind) is strictly prohibited (that means don't do it). Saratoga Springs only permits smoking in designated smoking areas (see map or ask). <strong>This is especially important this year.</strong>'
+          'Smoking (of any kind) is strictly prohibited (that means don\'t do it). Saratoga Springs only permits smoking in designated smoking areas (see map or ask). <strong>This is especially important this year.</strong>'
   },
   {
       category: 'rule', title: 'Room Rules: Bathrooms',
