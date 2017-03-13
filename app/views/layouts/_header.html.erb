@@ -13,18 +13,31 @@
   </div>
 </div>
 <div class="row headerlinks">
-  <div class="col-md-12">
+  <div class="col-md-1">
     <%= link_to 'home', home_path, class: 'link link-primary' + (is_current_page?('home') ? ' selected' : '') %>
+  </div>
+  <div class="col-md-1">
     <%= link_to 'map', map_path, class: 'link link-primary' + (is_current_page?('map') ? ' selected' : '') %>
+  </div>
+  <div class="col-md-1">
     <%= link_to 'rules', rules_path, class: 'link link-primary' + (is_current_page?('rules') ? ' selected' : '') %>
+  </div>
+  <div class="col-md-1">
     <%= link_to 'FAQ', faq_path, class: 'link link-primary' + (is_current_page?('faq') ? ' selected' : '') %>
-    <% if logged_in? %>
-        <%= link_to 'cabin details', details_path, class: 'link link-primary' + (is_current_page?('details') ? ' selected' : '') %>
-        <%= link_to 'lodging Options', accommodations_path, class: 'link link-primary' + (is_current_page?('accommodations') ? ' selected' : '') %>
-    <% end %>
-    <% if logged_in? && is_admin? %>
-        <%= link_to 'admin', admin_path, class: 'link link-primary' + (is_admin_route? ? ' selected' : '')  %>
-    <% end %>
+  </div>
+  <% if logged_in? %>
+    <div class="col-md-2">
+      <%= link_to 'cabin details', details_path, class: 'link link-primary' + (is_current_page?('details') ? ' selected' : '') %>
+    </div>
+    <div class="col-md-2">
+      <%= link_to 'lodging Options', accommodations_path, class: 'link link-primary' + (is_current_page?('accommodations') ? ' selected' : '') %>
+    </div>
+  <% end %>
+  <% if logged_in? && is_admin? %>
+    <div class="col-md-1">
+      <%= link_to 'admin', admin_path, class: 'link link-primary' + (is_admin_route? ? ' selected' : '')  %>
+    </div>
+  <% end %>
   </div>
 </div>
 <% if is_admin? && is_admin_route? %>

@@ -38,7 +38,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       render 'reservations/new'
     else
-      redirect_to(accommodations_path, {:flash => {:danger => 'An unexpected error occurred.'}})
+      redirect_to(accommodations_path, {:flash => {:danger => 'An unexpected error occurred: ' + @reservation.errors.messages.inspect }})
     end
   end
 

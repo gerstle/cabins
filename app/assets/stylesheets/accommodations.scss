@@ -7,9 +7,9 @@
   margin-bottom: 12px;
   padding-right: 0;
   border-radius: 3px;
-  border: 1px solid #f1b44a;
-  background-color: #dedfe0;
-  width: 90%
+  border: 1px solid #ddd;
+  width: 90%;
+  background-color: #fff;
 }
 
 .accommodation {
@@ -26,8 +26,7 @@
   }
 
   td {
-      background-color: #dedfe0;
-      border: 1px solid #ddd;
+      background-color: #fff;
       .details {
         margin-left: 6px;
       }
@@ -72,7 +71,6 @@
   }
 
   .book {
-    background-color: #778491;
     border-radius: 3px;
     padding: 6px;
     margin: 4px;
@@ -80,7 +78,6 @@
     .price {
       font-size: 125%;
       font-weight: bold;
-      color: #70E481;
     }
 
     .quantity {
@@ -92,7 +89,6 @@
   }
 
   .reservation {
-    background-color: #641c1f;
     border-radius: 3px;
     padding: 6px;
     margin: 4px;
@@ -103,6 +99,7 @@
   }
 
   .roommies {
-    color: #f5db90;
+    color: #007299;
+    text-align: right;
   }
 }
