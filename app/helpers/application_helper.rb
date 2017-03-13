@@ -48,8 +48,12 @@ module ApplicationHelper
    end
   end
 
-  def is_current_page?(page)
-    request.env['PATH_INFO'].starts_with?('/' + page)
+  def get_nav_class(page)
+    if request.env['PATH_INFO'].starts_with?('/' + page)
+      'active'
+    else
+      ''
+    end
   end
 
 end

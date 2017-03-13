@@ -1,45 +1,64 @@
-<div class="row">
-  <div class="col-md-8"></div>
-  <div class="col-md-4 right">
-    <div class="user">
-      <% if logged_in? %>
-        <%= current_user.name %><span class="gray">&nbsp|</span>
-        <%= link_to 'profile', user_path(@current_user) %><span class="gray">&nbsp|</span>
-        <%= link_to 'log out', logout_path, method: :delete %>
-      <% else %>
-          <%= link_to 'login', login_path %>&nbsp;|&nbsp;<%= link_to 'register', signup_path %>
-      <% end %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%= link_to 'FnF Cabins', home_path, class: 'navbar-brand' %>
     </div>
-  </div>
-</div>
-<div class="row headerlinks">
-  <div class="col-md-1">
-    <%= link_to 'home', home_path, class: 'link link-primary' + (is_current_page?('home') ? ' selected' : '') %>
-  </div>
-  <div class="col-md-1">
-    <%= link_to 'map', map_path, class: 'link link-primary' + (is_current_page?('map') ? ' selected' : '') %>
-  </div>
-  <div class="col-md-1">
-    <%= link_to 'rules', rules_path, class: 'link link-primary' + (is_current_page?('rules') ? ' selected' : '') %>
-  </div>
-  <div class="col-md-1">
-    <%= link_to 'FAQ', faq_path, class: 'link link-primary' + (is_current_page?('faq') ? ' selected' : '') %>
-  </div>
-  <% if logged_in? %>
-    <div class="col-md-2">
-      <%= link_to 'cabin details', details_path, class: 'link link-primary' + (is_current_page?('details') ? ' selected' : '') %>
-    </div>
-    <div class="col-md-2">
-      <%= link_to 'lodging Options', accommodations_path, class: 'link link-primary' + (is_current_page?('accommodations') ? ' selected' : '') %>
-    </div>
-  <% end %>
-  <% if logged_in? && is_admin? %>
-    <div class="col-md-1">
-      <%= link_to 'admin', admin_path, class: 'link link-primary' + (is_admin_route? ? ' selected' : '')  %>
-    </div>
-  <% end %>
-  </div>
-</div>
-<% if is_admin? && is_admin_route? %>
-  <%= render 'layouts/admin' %>
-<% end %>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="<%= get_nav_class('rules') %>"><%= link_to 'rules', rules_path %></li>
+        <li class="<%= get_nav_class('faq') %>"><%= link_to 'FAQ', faq_path %></li>
+        <li class="<%= get_nav_class('accommodations') %>"><%= link_to 'book!', accommodations_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">cabin info <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'map', map_path %></li>
+            <% if logged_in? %>
+              <li><%= link_to 'cabin details', details_path %></li>
+            <% end %>
+          </ul>
+        </li>
+        <% if logged_in? && is_admin? %>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">administrative <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><%= link_to 'users', registrations_path %></li>
+              <li><%= link_to 'reservations', admin_reservations_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to 'home posts', admin_home_path %></li>
+              <li><%= link_to 'rule posts', admin_rule_path %></li>
+              <li><%= link_to 'FAQ posts', admin_faq_path %></li>
+              <li role="separator" class="divider"></li>
+              <li><%= link_to 'buildings', buildings_path %></li>
+              <li><%= link_to 'tiers', tiers_path %></li>
+            </ul>
+          </li>
+        <% end %>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <%= logged_in? ? current_user.name : 'login' %> <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <% if logged_in? %>
+              <li><%= link_to 'profile', user_path(@current_user) %></li>
+              <li><%= link_to 'log out', logout_path, method: :delete %></li>
+            <% else %>
+              <li><%= link_to 'login', login_path %></li>
+              <li><%= link_to 'register', signup_path %></li>
+            <% end %>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

@@ -30,11 +30,6 @@ div.logo {
   }
 }
 
-
-.header {
-  padding: 0;
-}
-
 .footer {
   text-align: center;
   color: #29333a;
@@ -152,7 +147,7 @@ input.same-line {
   text-transform: uppercase;
 }
 
-.link:focus, .header .link:active:focus, .header .link.active:focus {
+.link:focus {
   outline: 0 none;
 }
 
@@ -160,57 +155,14 @@ input.same-line {
   opacity: 0.74;
 }
 
-.link-primary:hover, .header .link-primary:focus, .header .link-primary:active, .header .link-primary.active, .header .open > .dropdown-toggle.link-primary {
+.link-primary:hover, .link-primary:focus {
   background: #70E481;
   text-decoration: none;
 }
 
-.link-primary:active, .header .link-primary.active {
+.link-primary:active, .link-primary.active {
   background: #007299;
   box-shadow: none;
-}
-
-div.headerlinks {
-  border-radius: 2px;
-  background-color: #2d94b5;
-
-  .selected {
-    background: #70E481;
-    opacity: .4;
-  }
-}
-
-div.admin {
-  border-top: 2px solid lightcoral;
-  border-bottom: 2px solid lightcoral;
-}
-
-div.adminlinks {
-  border-radius: 2px;
-  background-color: lightcoral;
-  margin-top: 6px;
-  padding-bottom: 5px;
-  color: black;
-
-  .link {
-    letter-spacing: 0;
-    padding: 4px 6px;
-    font-size: 85%;
-  }
-
-  .link-primary {
-    color: black;
-  }
-
-  .link-primary:hover, .header .link-primary:focus, .header .link-primary:active, .header .link-primary.active, .header .open > .dropdown-toggle.link-primary {
-    background-color: #78797e;
-    text-decoration: none;
-  }
-
-  .link-primary:active, .header .link-primary.active {
-    background: #007299;
-    box-shadow: none;
-  }
 }
 
 .center {
@@ -358,4 +310,10 @@ div.adminlinks {
 
 .indent {
   margin-left: 0;
+}
+
+
+/* --------------------- nav bar ---------------------- */
+.navbar {
+  margin-top: 12px;
 }
