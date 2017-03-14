@@ -59,35 +59,6 @@ main {
   @include box_sizing;
 }
 
-/* forms */
-label {
-  width: 100%;
-  float: left;
-  clear: left;
-}
-
-input, textarea, select, .uneditable-input {
-  color: black;
-  width: 100%;
-  @include box_sizing;
-}
-
-input {
-  height: auto !important;
-}
-
-input[type=text].same-line {
-  width: 50%;
-}
-
-input.same-line {
-  width: auto;
-}
-
-.row {
-  padding: 4px 4px 4px 12px;
-}
-
 .btn {
   padding: 4px 24px;
   border: 0 none;
@@ -270,7 +241,6 @@ input.same-line {
   border-radius: 4px;
   margin-bottom: 20px;
   padding: 15px;
-  margin: 6px 12px 0 12px;
 
   a {
     color: darkblue;

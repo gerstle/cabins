@@ -2,104 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.confirmation .accommodation {
-  color: black;
-  margin-bottom: 12px;
-  padding-right: 0;
-  border-radius: 3px;
-  border: 1px solid #ddd;
-  width: 90%;
-  background-color: #fff;
+.contentcolumn {
+  border-left: 2px solid gray;
 }
 
-.accommodation {
-  color: black;
-  margin-bottom: 12px;
-  padding-right: 0;
+input[type=text] {
   width: 100%;
-
-  a {
-    color: darkblue;
-  }
-
-  tr {
-  }
-
-  td {
-      background-color: #fff;
-      .details {
-        margin-left: 6px;
-      }
-  }
-
-  td.header {
-    width: 20%;
-  }
-
-  td.details {
-    padding-left: 6px;
-  }
-
-  .accommodationhighlight {
-    padding-left: 0;
-    padding-right: 0;
-    float: right;
-  }
-
-  .buildinglabel {
-    color: #171819;
-    font-weight: bold;
-    padding-left: 4px;
-  }
-
-  .cabinlabel {
-    color: #3f4041;
-    font-weight: bold;
-    font-size: 100%;
-    padding-left: 0;
-  }
-
-  .label {
-      margin-right: 12px;
-      font-weight: bold;
-      width: 40%;
-  }
-
-  .row {
-      padding-top: 0;
-      padding-bottom: 0;
-  }
-
-  .book {
-    border-radius: 3px;
-    padding: 6px;
-    margin: 4px;
-
-    .price {
-      font-size: 125%;
-      font-weight: bold;
-    }
-
-    .quantity {
-    }
-
-    .btn {
-      margin: 8px 0 0 0;
-    }
-  }
-
-  .reservation {
-    border-radius: 3px;
-    padding: 6px;
-    margin: 4px;
-  }
-
-  .reservation .title {
-    border-bottom: none;
-  }
-
-  .roommies {
-    color: #007299;
-    text-align: right;
-  }
 }
