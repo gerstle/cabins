@@ -16,8 +16,8 @@ a, a:hover, a:focus {
 
 img.logo {
   position: relative;
-  left: -59px;
-  top: -32px;
+  left: -46px;
+  top: -27px;
 }
 
 div.logo {
@@ -57,33 +57,6 @@ main {
   border: 1px solid #f9e9ae;
   background-color: rgba(22, 22, 22, 0.93);
   @include box_sizing;
-}
-
-.btn {
-  padding: 4px 24px;
-  border: 0 none;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
-
-.btn:focus, .btn:active:focus, .btn.active:focus {
-  outline: 0 none;
-}
-
-.btn-primary {
-  background: #007299;
-  color: #29333a;
-}
-
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
-  color: #23527c;
-  background: #70E481;
-}
-
-.btn-primary:active, .btn-primary.active {
-  background: #007299;
-  box-shadow: none;
 }
 
 #error_explanation {
@@ -285,5 +258,5 @@ main {
 
 /* --------------------- nav bar ---------------------- */
 .navbar {
-  margin-top: 12px;
+  margin-top: 28px;
 }

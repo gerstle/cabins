@@ -1,16 +1,50 @@
-<% if !@lodgings.blank? %>
-  <div class="row">
-    <div class="col-md-1 sortable right">Sort by</div>
-    <div class="col-md-2 sortable"><%= sortable 'label' %></div>
-    <div class="col-md-2 sortable"><%= sortable 'occupancy' %></div>
-    <div class="col-md-2 sortable"><%= sortable 'price' %></div>
-    <div class="col-md-5 sortable">&nbsp;</div>
-  </div>
-  <%= paginate @lodgings, remote: true %>
-<% end %>
+<% @lodgings.each do |l| %>
+  <div class="row lodging">
+    <div class="col-xs-8 col-sm-6">
+      <h4>
+        <% if (l.building.building_type.label.eql?('Cabin') || l.building.building_type.label.eql?('Lodge')) %>
+          <%= "#{l.building.label}" + " : " + l.label %>
+        <% else %>
+          <%= "#{l.label}" %>
+        <% end %>
+      </h4>
+      <%= l.description %>
+    </div>
+    <div class="hidden-xs col-sm-3">
+      <ul>
+        <li>Occupancy: <%= l.occupancy %></li>
+        <li>A/C: <%= l.air_conditioning.eql?(true) ? 'yes' : 'no' %></li>
+        <li>Bathroom: <%= l.bathroom.eql?(true) ? 'yes' : 'no' %></li>
+        <li>Kitchen: <%= l.kitchen.eql?(true) ? 'yes' : 'no' %></li>
+      </ul>
+    </div>
+    <div class="col-xs-4 col-sm-3">
+      <% if (quantity_available?(l) > 0) %>
+        <div class="text-right accommodationhighlight">
+          <div class="book">
+            <div class="price"><%= number_to_currency l.price %></div>
+            <div class="quantity hidden-xs"><%= quantity_available?(l) %> available</div>
+            <% if can_book(l) %>
+                <%= button_to 'book!', {:controller => 'reservations', :action => "create", :accommodation_id => l.id }, :method => :post, class: 'btn btn-default'  %>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+      <% if l.reservation.exists? %>
+        <div class="accommodationhighlight">
+          <div class="reservation">
+            <div class="title">Already in this room</div>
+            <% l.reservation.each do |r| %>
+              <div class="roommies"><%= r.user.name %></div>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
 
-<div class="col-md-12 accommodation">
-  <% @lodgings.each do |l| %>
+  </div> <!-- end loging row -->
+
+<!--
     <table class='accommodation'>
         <tr>
           <td>
@@ -72,11 +106,14 @@
     </td>
     </tr>
   </table>
-  <% end %>
-  <% if @lodgings.blank? %>
-    No results
-  <% end %>
-</div>
+  -->
+<% end %>
+<% if @lodgings.blank? %>
+  No results
+<% end %>
+
 <div class="row">
-  <%= paginate @lodgings, remote: true %>
+  <div class="col-md-12">
+    <%= paginate @lodgings, remote: true %>
+  </div>
 </div>

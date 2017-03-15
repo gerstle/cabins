@@ -1,52 +1,89 @@
-
 <% if logged_in? %>
     <%= render 'layouts/status' %>
 <% end %>
 
 <div class="row">
-  <%= form_tag accommodations_path, :remote => true, :method => 'get', :id => 'accommodations_search' do %>
-    <div class="col-md-6 col-md-offset-2">
-      <%= hidden_field_tag :direction, params[:direction] %>
-      <%= hidden_field_tag :sort, params[:sort] %>
-      <%= text_field_tag :search, params[:search] %>
-    </div>
-    <div class="col-md-4">
-      <%= submit_tag "Search", :name => nil, :class => 'btn btn-primary same-line' %>
-      <%= link_to "clear", accommodations_path, :class => 'clear' %>
-    </div>
-  <% end %>
 </div><!-- end search field row-->
 
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#search-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">search options</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-text visible-xs-block">Search Options</p>
+    </div><!-- end navbar header -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="search-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li>
+          <%= form_tag accommodations_path, :class => "navbar-form navbar-farleft", :remote => true, :method => 'get', :id => 'accommodations_search' do %>
+            <div class="form-group">
+              <%= text_field_tag :search, params[:search] %>
+            </div>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            filters
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <%= check_box_tag :available, params[:available] %>
+              <%= label :available, 'available', 'available', class: '' %>
+            </li>
+            <li>
+              <%= check_box_tag :air_conditioning, params[:air_conditioning] %>
+              <%= label :air_conditioning, 'air_conditioning', 'a/c', class: '' %>
+            </li>
+            <li>
+              <%= check_box_tag :kitchen, params[:kitchen] %>
+              <%= label :kitchen, 'kitchen', 'kitchen', class: '' %>
+            </li>
+            <li>
+              <%= check_box_tag :bathroom, params[:bathroom] %>
+              <%= label :bathroom, 'bathroom', 'bathroom', class: '' %>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li class="navbar-stuff">
+            <div class="form-group">
+              <%= hidden_field_tag :direction, params[:direction] %>
+              <%= hidden_field_tag :sort, params[:sort] %>
+              <%= submit_tag "Search", :name => nil, :class => 'btn btn-primary same-line' %>
+            </div>
+          <% end %>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            sort...
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= sortable 'label', 'a-z', 'asc' %></li>
+            <li><%= sortable 'label', 'z-a', 'desc' %></li>
+            <li><%= sortable 'occupancy', 'low to high', 'asc' %></li>
+            <li><%= sortable 'occupancy', 'high to low', 'desc' %></li>
+            <li><%= sortable 'price', 'low to high', 'asc' %></li>
+            <li><%= sortable 'price', 'hight to low', 'desc' %></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav><!-- end search nav -->
+
 <div class="row">
-
-  <div class="col-md-2 leftcolumn">
-    <div class="row">
-      <div class="col-md-12">
-        <%= form_tag accommodations_path, :remote => true, :method => 'get', :id => 'accommodations_search' do %>
-          Refine by
-          <div class="form-group">
-            <%= check_box_tag :available, params[:available] %>
-            <%= label :available, 'available', 'avaialble', class: '' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :air_conditioning, params[:air_conditioning] %>
-            <%= label :air_conditioning, 'air_conditioning', 'a/c', class: '' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :kitchen, params[:kitchen] %>
-            <%= label :kitchen, 'kitchen', 'kitchen', class: '' %>
-          </div>
-          <div class="form-group">
-            <%= check_box_tag :bathroom, params[:bathroom] %>
-            <%= label :bathroom, 'bathroom', 'bathroom', class: '' %>
-          </div>
-        <% end %>
-      </div>
-    </div><!-- end left column row -->
-  </div><!-- end left column -->
-
-  <div class="col-md-10">
-<%= render 'accommodations' %>
-  </div><!-- end content -->
-
-</div><!-- end leftcolumn and results row-->
+  <div id="accommodations" class="col-md-12 contentcolumn">
+    <%= render 'accommodations' %>
+  </div><!-- end content column-->
+</div><!-- end content row-->

@@ -8,4 +8,9 @@ module AccommodationsHelper
 
     true
   end
+
+  def sortable(column, help_text, direction)
+    title ||= column + ": " + help_text
+    link_to title, params.permit(:sort, :direction).merge(:sort => column, :direction => direction, :page => nil), :remote => true
+  end
 end

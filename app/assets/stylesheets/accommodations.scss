@@ -2,10 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.leftcolumn {
+}
+
 .contentcolumn {
-  border-left: 2px solid gray;
 }
 
 input[type=text] {
   width: 100%;
+}
+
+.navbar-stuff {
+    margin-top: 6px;
+}
+
+.navbar-farleft{
+    margin-left: 0px;
+    padding-left: 0px;
+}
+
+
+// --- accommodations content ------------------------------
+
+.lodging {
+    padding-top: 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #def3e2;
+
+    ul {
+        padding-left: 4px;
+    }
 }
