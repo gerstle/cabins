@@ -92,7 +92,7 @@ class ReservationsController < ApplicationController
   def delete
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    flash.now[:success] = "reservation #{@reservation.id} deleted"
+    flash[:success] = "reservation #{@reservation.id} deleted"
 
     index
     redirect_to admin_reservations_path
@@ -103,7 +103,7 @@ class ReservationsController < ApplicationController
     @error = @reservation# tell _error_messages.html.erb to use this object for form errors
 
     if @reservation.update(paid_date: DateTime.now(), processed_by_user_id: current_user.id)
-      flash.now[:success] = "reservation #{@reservation.id} marked as paid"
+      flash[:success] = "reservation #{@reservation.id} marked as paid"
       index
       @reservation.send_paid_confirmation_email
       redirect_to admin_reservations_path

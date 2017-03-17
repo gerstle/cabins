@@ -188,27 +188,6 @@ main {
   }
 }
 
-.table-striped {
-  > thead > tr {
-    background-color: #dedfe0;
-  }
-
-  > tbody {
-    color: black;
-    > tr:nth-of-type(2n+1) {
-      background-color: #eeeeee;
-    }
-
-    > tr {
-      background-color: #acadae;
-    }
-  }
-
-  a {
-    color: #23527c;
-  }
-}
-
 .status {
   border: 2px solid;
   border-radius: 4px;

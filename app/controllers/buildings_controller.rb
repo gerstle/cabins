@@ -15,7 +15,7 @@ class BuildingsController < ApplicationController
     @error = @building # tell _error_messages.html.erb to use this object for form errors
 
     if @building.update_attributes(building_params)
-      flash.now[:success] = 'building updated'
+      flash[:success] = 'building updated'
       redirect_to buildings_path
     else
       render 'show'

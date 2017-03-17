@@ -19,7 +19,7 @@ class AccommodationsController < ApplicationController
     @error = @accommodation # tell _error_messages.html.erb to use this object for form errors
 
     if @accommodation.update_attributes(accommodation_params)
-      flash.now[:success] = 'accommodation updated'
+      flash[:success] = 'accommodation updated'
       redirect_to building_path(@accommodation.building)
     else
       render 'show'
