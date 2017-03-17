@@ -79,6 +79,7 @@ class ReservationsController < ApplicationController
     if (@reservation)
       @reservation.first().destroy
     end
+
     redirect_to accommodations_path
   end
 
@@ -94,7 +95,7 @@ class ReservationsController < ApplicationController
     flash.now[:success] = "reservation #{@reservation.id} deleted"
 
     index
-    render 'reservations/index'
+    redirect_to admin_reservations_path
   end
 
   def paid
@@ -105,9 +106,9 @@ class ReservationsController < ApplicationController
       flash.now[:success] = "reservation #{@reservation.id} marked as paid"
       index
       @reservation.send_paid_confirmation_email
-      render 'reservations/index'
+      redirect_to admin_reservations_path
     else
-      render 'reservations/index'
+      redirect_to admin_reservations_path
     end
   end
 

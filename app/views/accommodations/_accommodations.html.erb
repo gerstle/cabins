@@ -25,7 +25,7 @@
             <div class="price"><%= number_to_currency l.price %></div>
             <div class="quantity hidden-xs"><%= quantity_available?(l) %> available</div>
             <% if can_book(l) %>
-                <%= button_to 'book!', {:controller => 'reservations', :action => "create", :accommodation_id => l.id }, :method => :post, class: 'btn btn-default'  %>
+                <%= button_to 'book!', {:controller => 'reservations', :action => "create", :accommodation_id => l.id }, :method => :post, class: 'btn btn-primary'  %>
             <% end %>
           </div>
         </div>
@@ -33,7 +33,7 @@
       <% if l.reservation.exists? %>
         <div class="accommodationhighlight">
           <div class="reservation">
-            <div class="title">Already in this room</div>
+            <h4>Already in this room</h4>
             <% l.reservation.each do |r| %>
               <div class="roommies"><%= r.user.name %></div>
             <% end %>
@@ -44,69 +44,6 @@
 
   </div> <!-- end loging row -->
 
-<!--
-    <table class='accommodation'>
-        <tr>
-          <td>
-            <p>
-          <% if (l.building.building_type.label.eql?('Cabin') || l.building.building_type.label.eql?('Lodge')) %>
-            <span class="buildinglabel"><%= "#{l.building.label}"%></span>
-            <span class="cabinlabel"><%= l.label %></span>
-            <% if (!l.building.image.nil?) %>
-              (<a href="<%= l.building.image %>" target="_blank">building diagram</a>)
-            <% end %>
-          <% else %>
-              <span class="buildinglabel"><%= "#{l.label}"%></span>
-          <% end %>
-          </p>
-          <p class='details'>
-            <%= l.description %>
-            <table class='details'>
-              <tr>
-                <td class='header'>Occupancy:</td>
-                <td class='details'><%= l.occupancy %></td>
-              </tr>
-              <tr>
-                <td class='header'>A/C:</td>
-                <td class='details'><%= l.air_conditioning.eql?(true) ? 'yes' : 'no' %></td>
-              </tr>
-              <tr>
-                <td class='header'>bathroom:</td>
-                <td class='details'><%= l.bathroom.eql?(true) ? 'yes' : 'no' %></td>
-              </tr>
-              <tr>
-                <td class='header'>kitchen:</td>
-                <td class='details'><%= l.kitchen.eql?(true) ? 'yes' : 'no' %></td>
-              </tr>
-            </table>
-          </p>
-      </td>
-      <td>
-      <% if (quantity_available?(l) > 0) %>
-        <div class="text-right accommodationhighlight">
-          <div class="book">
-            <div class="price"><%= number_to_currency l.price %></div>
-            <div class="quantity"><%= quantity_available?(l) %> available</div>
-            <% if can_book(l) %>
-                <%= button_to 'book!', {:controller => 'reservations', :action => "create", :accommodation_id => l.id }, :method => :post, class: 'btn btn-primary'  %>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-      <% if l.reservation.exists? %>
-        <div class="accommodationhighlight">
-          <div class="reservation">
-            <div class="title">Already in this room</div>
-            <% l.reservation.each do |r| %>
-              <div class="roommies"><%= r.user.name %></div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
-    </td>
-    </tr>
-  </table>
-  -->
 <% end %>
 <% if @lodgings.blank? %>
   No results
