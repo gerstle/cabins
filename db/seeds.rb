@@ -52,7 +52,7 @@ posts = Post.create([
   {
       category: 'rule', title: 'Room Rules: Trash',
       body:
-          'Remove <strong>ALL<strong> trash from room. FnF is a pack in/pack out event and this includes the trash and recyclables in the trash cans in the rooms.'
+          'Remove <strong>ALL</strong> trash from room. FnF is a pack in/pack out event and this includes the trash and recyclables in the trash cans in the rooms.'
   },
   {
       category: 'rule', title: 'Room Rules: Issues',
