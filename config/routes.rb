@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   get 'sessions/new'
 
-  # redirects from fnf.inappropirates.com/cabin
   get 'cabins/details' => 'details#index'
   get 'cabins/map' => 'map#index'
 
