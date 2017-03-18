@@ -16,7 +16,8 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       @user.send_pre_registration_email
-      render 'pre_registered'
+      flash[:success] = 'Thank you for pre-registering!'
+      redirect_to home_path
     else
       render 'new'
     end

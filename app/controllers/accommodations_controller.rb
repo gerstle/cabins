@@ -6,7 +6,8 @@ class AccommodationsController < ApplicationController
   before_action :purge_expired_reservations
 
   def index
-    @lodgings = Accommodation.search(params).order(sort_column + ' ' + sort_direction, :label).page(params[:page]).per(10)
+    logger.info("params: #{params.inspect}")
+    @lodgings = Accommodation.search(params, is_admin?).order(sort).page(params[:page]).per(10)
   end
 
   def show
@@ -31,11 +32,15 @@ class AccommodationsController < ApplicationController
   def accommodation_params
     params.require(:accommodation).permit(:accommodation_type, :air_conditioning, :hold, :bathroom,
                                           :description, :kitchen, :label, :occupancy, :price, :quantity,
-                                          :column
+                                          :column, :available
     ) end
 
-  def sort_column
-    Accommodation.column_names.include?(params[:sort]) ? params[:sort] : "building_id"
+  def sort
+    if (Accommodation.column_names.include?(params[:sort]) && %w[asc desc].include?(params[:direction]))
+      "#{params[:sort]} #{params[:direction]}, label"
+    else
+      :label
+    end
   end
 
   def sort_direction

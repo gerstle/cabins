@@ -25,6 +25,10 @@ input[type=text] {
     padding-left: 0px;
 }
 
+.dropdown-menu > li > a.selected {
+    font-weight: bold;
+}
+
 
 // --- accommodations content ------------------------------
 
@@ -35,5 +39,9 @@ input[type=text] {
 
     ul {
         padding-left: 4px;
+    }
+
+    ul.indent {
+        padding-left: 20px;
     }
 }

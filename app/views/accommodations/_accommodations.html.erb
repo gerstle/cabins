@@ -1,13 +1,9 @@
 <% @lodgings.each do |l| %>
   <div class="row lodging">
     <div class="col-xs-8 col-sm-6">
-      <h4>
-        <% if (l.building.building_type.label.eql?('Cabin') || l.building.building_type.label.eql?('Lodge')) %>
-          <%= "#{l.building.label}" + " : " + l.label %>
-        <% else %>
-          <%= "#{l.label}" %>
-        <% end %>
-      </h4>
+      <h4><strong>
+        <%= "#{l.label}" %>
+      </strong></h4>
       <%= l.description %>
     </div>
     <div class="hidden-xs col-sm-3">
@@ -19,6 +15,11 @@
       </ul>
     </div>
     <div class="col-xs-4 col-sm-3">
+      <% if (l.hold) %>
+        <div class="text-right accommodationhighlight">
+        <strong>reserved by management</strong>
+        </div>
+      <% end %>
       <% if (quantity_available?(l) > 0) %>
         <div class="text-right accommodationhighlight">
           <div class="book">
@@ -30,13 +31,17 @@
           </div>
         </div>
       <% end %>
+
+
       <% if l.reservation.exists? %>
         <div class="accommodationhighlight">
           <div class="reservation">
-            <h4>Already in this room</h4>
+            <strong>Already in this room</strong>
+            <ul class="indent">
             <% l.reservation.each do |r| %>
-              <div class="roommies"><%= r.user.name %></div>
+              <li><%= r.user.name %></li>
             <% end %>
+            </ul>
           </div>
         </div>
       <% end %>
@@ -46,7 +51,7 @@
 
 <% end %>
 <% if @lodgings.blank? %>
-  No results
+  You better pack a tent!
 <% end %>
 
 <div class="row">

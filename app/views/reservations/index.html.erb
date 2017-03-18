@@ -1,5 +1,5 @@
 <div class="titlewrapper">
-  <div class="admintitle"><h2>reservation management</h2></div>
+  <div class="admintitle"><h3>reservation management</h3></div>
 </div>
 <table class="table table-hover table-condensed">
   <thead>
@@ -21,7 +21,7 @@
       <tr data-item-id=<%= "#{r.id}" %> class="item">
         <td><%= r.id %></td>
         <td><%= r.user.name %></td>
-        <td><%= accommodation_name(r.accommodation) %></td>
+        <td><%= r.accommodation.label %></td>
         <td><%= r.quantity %></td>
         <td><%= number_to_currency r.accommodation.price %></td>
         <td><%= number_to_currency r.price %></td>

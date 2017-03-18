@@ -11,6 +11,6 @@ module AccommodationsHelper
 
   def sortable(column, help_text, direction)
     title ||= column + ": " + help_text
-    link_to title, params.permit(:sort, :direction).merge(:sort => column, :direction => direction, :page => nil), :remote => true
+    "<a data-sortable='true' data-column='#{column}' data-direction='#{direction}'>#{title}</a>".html_safe
   end
 end

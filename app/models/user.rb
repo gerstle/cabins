@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  belongs_to :tier
+  belongs_to :tier, optional: true
   has_many :reservations, foreign_key: :user_id
   has_many :processed_reservations, class_name: 'Reservation', foreign_key: :processed_by_user_id
   attr_accessor :reset_token
@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 
   before_validation { self.phone = phone.gsub(/[^0-9]/, '') }
   before_save { self.email = email.downcase }
-  before_save 'strip_whitespace'
+  before_save :strip_whitespace
 
   validates :name, presence: true, length: { maximum: 60 }
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: { case_sensitive: false }

@@ -26,12 +26,7 @@
                   </div>
                 <% end %>
                 <div class="row heading">
-                  <% if (r.accommodation.building.building_type.label.eql?('Cabin') || r.accommodation.building.building_type.label.eql?('Lodge')) %>
-                      <span class="buildinglabel"><%= "#{r.accommodation.building.label}"%></span>
-                      <span class="cabinlabel"><%= r.accommodation.label %></span>
-                  <% else %>
-                      <span class="buildinglabel"><%= "#{r.accommodation.label}"%></span>
-                  <% end %>
+                  <span class="buildinglabel"><%= "#{r.accommodation.label}"%></span>
                 </div>
                 <div class="row details">
                   <div class="row"><%= r.accommodation.description %></div>
@@ -69,7 +64,7 @@
                             <!-- <input type="hidden" name="business" value="FCNX9KTXRNJ7S"> --> <!-- TEST -->
                             <input type="hidden" name="business" value="ZJJPT64U2437J">
                             <input type="hidden" name="lc" value="US">
-                            <input type="hidden" name="item_name" value="<%= accommodation_name(r.accommodation) %>">
+                            <input type="hidden" name="item_name" value="<%= r.accommodation.label %>">
                             <input type="hidden" name="item_number" value="SKU: <%= sku(r) %>">
                             <input type="hidden" name="amount" value="<%= r.price %>">
                             <input type="hidden" name="currency_code" value="USD">
