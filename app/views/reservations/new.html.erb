@@ -7,43 +7,63 @@
     </script>
 <% end %>
 <div class="row">
-  <div class="title"><h2>You're NOT Done Yet!</h2></div>
-  <div class="content">
-  Please review the details of your reservation request below. We will reserve your lodging until July 18th. Please follow the payment instructions below to finalize your reservation. Once we receive your payment, we will send you a confirming email. Should we not receive payment by the deadline, FnF will cancel your reservation to make the lodging available to other participants.
+  <div class="col-md-12 post">
+    <div class="title"><h3><strong>You're NOT Done Yet!</strong></h3></div>
+    <div class="content">
+    Please review the details of your reservation request below. We will reserve your lodging until July 18th. Please follow the payment instructions below to finalize your reservation. Once we receive your payment, we will send you a confirming email. Should we not receive payment by the deadline, FnF will cancel your reservation to make the lodging available to other participants.
+    </div>
   </div>
 </div>
 <div class="row">
-  <strong>NOTE:</strong> This form will automatically expire in 10 minutes, you must confirm your reservation before then
+  <div class="col-md-10 col-md-offset-1">
+    <strong>NOTE:</strong> This form will automatically expire in 10 minutes, you must confirm your reservation before then
+  </div>
 </div>
-<div class="confirmation">
-  <%= render 'accommodation' %>
-</div>
+
+<%= render 'accommodation' %>
+
+<%= form_for(@reservation) do |f| %>
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
-    <%= form_for(@reservation) do |f| %>
-      <%= render 'layouts/error_messages' %>
-      <%= hidden_field(:reservation, :accommodation_id) %>
-      <% if is_admin? %>
-          <div class="field">
-            <%= f.label :user_id %><br>
-            <%= f.collection_select :user_id, User.all, :id, :name %>
-          </div>
-      <% end %>
-      <% if @quantity_available > 1 %>
-        <div class="field">
-          <%= f.label "#{:quantity} (limit 4)" %><br>
-          <%= f.number_field :quantity, value: 1, min: 1, max: (@quantity_available > 4 ? 4 : @quantity_available), onchange: "$('#totalPrice').text('$' + ($('#reservation_quantity')[0].valueAsNumber * #{@reservation.accommodation.price}).toFixed(2));" %>
-        </div>
-      <% else %>
-        <%= hidden_field(:reservation, :quantity) %>
-      <% end %>
-      <div class="center"><h3>Note that we must receive your payment by July 18th to keep your reservation.</h3></div>
-      <div class="col-md-5 col-md-offset-1">
-        <%= f.submit 'Confirm Reservation', data: { confirm: 'You sure you wanna "sleep" in this bed?' }, class: 'btn btn-primary', :onclick => "buttonClicked = true;" %>
-      </div>
-    <% end %>
-    <div class="col-md-5">
-      <%= button_to 'Cancel', {:controller => 'reservations', :action => "cancel", :id => @reservation.id }, :method => :put, class: 'btn btn-primary', :onclick => "buttonClicked = true;"  %>
+    <%= render 'layouts/error_messages' %>
+    <%= hidden_field(:reservation, :accommodation_id) %>
+  </div>
+</div>
+
+<% if is_admin? %>
+  <div class="row">
+    <div class="col-md-11 col-md-offset-1">
+      <h4>[ADMINS ONLY] Select a user to use for this reservation:</h4>
+      <%= f.collection_select :user_id, User.all, :id, :name %>
     </div>
+  </div>
+<% end %>
+
+<div class="row">
+  <div class="col-md-10 col-md-offset-1">
+    <% if @quantity_available > 1 %>
+      <div class="field">
+        <%= f.label "#{:quantity} (limit 4)" %><br>
+        <%= f.number_field :quantity, value: 1, min: 1, max: (@quantity_available > 4 ? 4 : @quantity_available), onchange: "$('#totalPrice').text('$' + ($('#reservation_quantity')[0].valueAsNumber * #{@reservation.accommodation.price}).toFixed(2));" %>
+      </div>
+    <% else %>
+      <%= hidden_field(:reservation, :quantity) %>
+    <% end %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 post">
+    <div class="title text-center"><strong>Note that we must receive your payment by July 18th to keep your reservation.</strong></div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6 text-right">
+    <%= f.submit 'Confirm', data: { confirm: 'You sure you wanna "sleep" in this bed?' }, class: 'btn btn-primary', :onclick => "buttonClicked = true;" %>
+  </div>
+  <% end %>
+  <div class="col-xs-6">
+    <%= button_to 'Cancel', {:controller => 'reservations', :action => "cancel", :id => @reservation.id }, :method => :put, class: 'btn btn-primary', :onclick => "buttonClicked = true;"  %>
   </div>
 </div>

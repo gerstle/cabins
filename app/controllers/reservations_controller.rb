@@ -38,7 +38,7 @@ class ReservationsController < ApplicationController
     if @reservation.save
       render 'reservations/new'
     else
-      redirect_to(accommodations_path, {:flash => {:danger => 'An unexpected error occurred.'}})
+      redirect_to(accommodations_path, {:flash => {:danger => 'An unexpected error occurred: ' + @reservation.errors.messages.inspect }})
     end
   end
 
@@ -79,6 +79,7 @@ class ReservationsController < ApplicationController
     if (@reservation)
       @reservation.first().destroy
     end
+
     redirect_to accommodations_path
   end
 
@@ -91,10 +92,10 @@ class ReservationsController < ApplicationController
   def delete
     @reservation = Reservation.find(params[:id])
     @reservation.destroy
-    flash.now[:success] = "reservation #{@reservation.id} deleted"
+    flash[:success] = "reservation #{@reservation.id} deleted"
 
     index
-    render 'reservations/index'
+    redirect_to admin_reservations_path
   end
 
   def paid
@@ -102,12 +103,12 @@ class ReservationsController < ApplicationController
     @error = @reservation# tell _error_messages.html.erb to use this object for form errors
 
     if @reservation.update(paid_date: DateTime.now(), processed_by_user_id: current_user.id)
-      flash.now[:success] = "reservation #{@reservation.id} marked as paid"
+      flash[:success] = "reservation #{@reservation.id} marked as paid"
       index
       @reservation.send_paid_confirmation_email
-      render 'reservations/index'
+      redirect_to admin_reservations_path
     else
-      render 'reservations/index'
+      redirect_to admin_reservations_path
     end
   end
 

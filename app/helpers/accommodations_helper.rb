@@ -8,4 +8,9 @@ module AccommodationsHelper
 
     true
   end
+
+  def sortable(column, help_text, direction)
+    title ||= column + ": " + help_text
+    "<a data-sortable='true' data-column='#{column}' data-direction='#{direction}'>#{title}</a>".html_safe
+  end
 end

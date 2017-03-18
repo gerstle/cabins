@@ -15,9 +15,9 @@ class TiersController < ApplicationController
     @error = @tier # tell _error_messages.html.erb to use this object for form errors
 
     if @tier.update_attributes(tier_params)
-      flash.now[:success] = 'tier updated'
+      flash[:success] = 'tier updated'
       index
-      render 'index'
+      redirect_to tiers_path
     else
       render 'show'
     end

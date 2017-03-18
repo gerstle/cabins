@@ -2,107 +2,46 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.confirmation .accommodation {
-  color: black;
-  margin-bottom: 12px;
-  padding-right: 0;
-  border-radius: 3px;
-  border: 1px solid #f1b44a;
-  background-color: #f5db90;
-  width: 90%
+.leftcolumn {
 }
 
-.accommodation {
-  color: black;
-  margin-bottom: 12px;
-  padding-right: 0;
+.contentcolumn {
+}
+
+input[type=text] {
   width: 100%;
+}
 
-  a {
-    color: darkblue;
-  }
+.navbar-indent {
+    margin-left: 8px;
+}
 
-  tr {
-  }
+.navbar-stuff {
+    margin-top: 8px;
+}
 
-  td {
-      background-color: #f5db90;
-      .details {
-        margin-left: 6px;
-      }
-  }
+.navbar-farleft{
+    margin-left: 0px;
+    padding-left: 0px;
+}
 
-  td.header {
-    width: 20%;
-  }
-
-  td.details {
-    padding-left: 6px;
-  }
-
-  .accommodationhighlight {
-    padding-left: 0;
-    padding-right: 0;
-    float: right;
-  }
-
-  .buildinglabel {
-    color: #171819;
+.dropdown-menu > li > a.selected {
     font-weight: bold;
-    padding-left: 4px;
-  }
+}
 
-  .cabinlabel {
-    color: #3f4041;
-    font-weight: bold;
-    font-size: 100%;
-    padding-left: 0;
-  }
 
-  .label {
-      margin-right: 12px;
-      font-weight: bold;
-      width: 40%;
-  }
+// --- accommodations content ------------------------------
 
-  .row {
-      padding-top: 0;
-      padding-bottom: 0;
-  }
+.lodging {
+    padding-top: 6px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #def3e2;
 
-  .book {
-    color: #f5db90;
-    background-color: #641c1f;
-    border-radius: 3px;
-    padding: 6px;
-    margin: 4px;
-
-    .price {
-      font-size: 125%;
-      font-weight: bold;
-      color: #f1b44a;
+    ul {
+        padding-left: 4px;
     }
 
-    .quantity {
+    ul.indent {
+        padding-left: 20px;
     }
-
-    .btn {
-      margin: 8px 0 0 0;
-    }
-  }
-
-  .reservation {
-    background-color: #641c1f;
-    border-radius: 3px;
-    padding: 6px;
-    margin: 4px;
-  }
-
-  .reservation .title {
-    border-bottom: none;
-  }
-
-  .roommies {
-    color: #f5db90;
-  }
 }

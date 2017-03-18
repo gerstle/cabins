@@ -40,15 +40,6 @@ class ApplicationController < ActionController::Base
     0
   end
 
-  helper_method :accommodation_name
-  def accommodation_name(accommodation)
-    if (accommodation.building.building_type.label.eql?('Cabin') || accommodation.building.building_type.label.eql?('Lodge'))
-      return "#{accommodation.building.label} #{accommodation.label}"
-    end
-
-    accommodation.label
-  end
-
   helper_method :sku
   def sku(reservation)
     "#{reservation.id}-#{reservation.accommodation.building.id}-#{reservation.accommodation.id}-#{reservation.user_id}"

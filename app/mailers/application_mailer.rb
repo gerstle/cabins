@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "info@cabins.inappropirates.com"
+  default from: ENV['ACTION_MAILER_DEFAULT_FROM']
   layout 'mailer'
 end

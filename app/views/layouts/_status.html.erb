@@ -1,6 +1,6 @@
-<div class="row">
-  <% if !user_has_reservation %>
-    <div class="status alert-info">
+<% if !user_has_reservation %>
+  <div class="row">
+    <div class="col-md-8 col-md-offset-2 status alert-info">
       <% if !current_user.tier.nil? %>
           <% if current_user.tier.available <= DateTime.now %>
               <div><strong>You can book now!</strong></div>
@@ -11,8 +11,8 @@
           <% end %>
       <% else %>
         <div><strong>You are pre-registered and waiting approval!</strong></div>
-        <div>Your pre-registration has not yet been processed. Please contact <a href="mailto:fnfcabins@gmail.com">fnfcabins@gmail.com</a> if you think an error has occurred. In the meantime, feel free to browse the lodgings, but you won't be able to reserve until your tier opens up.</div>
+        <div>Your pre-registration has not yet been processed. Please contact <a href="mailto:fnfreservations@gmail.com">fnfreservations@gmail.com</a> if you think an error has occurred. In the meantime, feel free to browse the lodgings, but you won't be able to reserve until your tier opens up.</div>
       <% end %>
     </div>
-  <% end %>
-</div>
+  </div> <!-- end status row -->
+<% end %>

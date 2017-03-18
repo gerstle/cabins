@@ -16,7 +16,8 @@ class UsersController < ApplicationController
     if @user.save
       log_in @user
       @user.send_pre_registration_email
-      render 'pre_registered'
+      flash[:success] = 'Thank you for pre-registering!'
+      redirect_to home_path
     else
       render 'new'
     end
@@ -39,10 +40,10 @@ class UsersController < ApplicationController
 
     set_planner_found
     if @user.update_attributes(user_params)
-      flash.now[:success] = 'user updated'
+      flash[:success] = 'user updated'
       if is_admin?
         @registrations = User.all
-        render 'registrations/index'
+        redirect_to registrations_path
       else
         @posts = Post.where(category: 'home').order(sticky: :desc, id: :asc)
         render 'blog/index'
