@@ -26,7 +26,7 @@ posts = Post.create([
   {
     category: 'home', title: 'Pay',
     body:
-        '<p>Once you have reserved your lodging through FnF 2016 Cabins, you will receive a confirmation email. Please check the FAQ for payment options other than the PayPal button at check-out.</p>Please note that your pre-paid registration only lasts until July 18th. If we have not received your payment within that time, FnF 2016 Cabins will cancel your reservation and make your lodging preference available for other participants.</p>Once we receive payment, FnF 2016 Cabins will send you an email confirming your paid reservation.</p><p>Should you have any questions about the FnF lodging policy, please contact fnfcabins@gmail.com.'
+        '<p>Once you have reserved your lodging through FnF 2016 Cabins, you will receive a confirmation email. Please check the FAQ for payment options other than the PayPal button at check-out.</p>Please note that your pre-paid registration only lasts until July 18th. If we have not received your payment within that time, FnF 2016 Cabins will cancel your reservation and make your lodging preference available for other participants.</p>Once we receive payment, FnF 2016 Cabins will send you an email confirming your paid reservation.</p><p>Should you have any questions about the FnF lodging policy, please contact fnfreservations@gmail.com.'
   },
 
   {
@@ -130,7 +130,7 @@ Additionally, please include the cabin/room number in the notes on the check.'
   {
       category: 'faq', title: 'I didn\'t receive a confirmation email. Am I registered?',
       body:
-          'Check your SPAM folder and email us at fnfcabins@gmail.com for confirmation.'
+          'Check your SPAM folder and email us at fnfreservations@gmail.com for confirmation.'
   },
   {
       category: 'faq', title: 'If I am staying in a cabin/dorm room, do I need to bring linens?',
