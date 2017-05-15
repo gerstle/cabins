@@ -68,6 +68,17 @@ class User < ActiveRecord::Base
      !reservations.empty?
   end
 
+  def self.search(params)
+    rv = where(nil)
+
+    if params[:search]
+      parm = "%#{params[:search]}%"
+      rv = rv.where('users.name LIKE ?', parm)
+    end
+
+    rv
+  end
+
   private
     def strip_whitespace
       self.name = self.name.strip unless self.name.nil?
