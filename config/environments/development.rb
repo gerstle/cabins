@@ -1,4 +1,6 @@
 Rails.application.configure do
+  config.public_file_server.enabled = true
+
   config.middleware.insert(0, Rack::Deflater)
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
