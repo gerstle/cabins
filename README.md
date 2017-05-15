@@ -5,6 +5,8 @@ California Foundation for the Advancement of Electronic Arts cabins reservations
 # local dev
 1. install docker & docker-compose: https://docs.docker.com/compose/install/
 2. run `docker-compose -f ./docker-compose-local.yml up` (builds and links to current directory for live editing)
+3. docker-compose exec --user "$(id -u):$(id -g)" application rake db:reset
+4. docker-compose exec --user "$(id -u):$(id -g)" application rake db:migrate
 
 # image build & publish
 1. git tag -a -m "release 1.1.0" 1.1.0
