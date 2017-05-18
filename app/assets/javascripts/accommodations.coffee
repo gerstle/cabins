@@ -4,6 +4,7 @@
 
 $ ->
   $("a[data-sortable]").click ->
+    console.log('sorting by ' + $(this).data("column") + ' ' + $(this).data("direction"))
     $("a[data-sortable]").removeClass("selected")
     $(this).addClass("selected")
 

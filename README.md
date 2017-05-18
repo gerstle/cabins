@@ -4,9 +4,12 @@ California Foundation for the Advancement of Electronic Arts cabins reservations
 
 # local dev
 1. install docker & docker-compose: https://docs.docker.com/compose/install/
-2. run `docker-compose -f ./docker-compose-local.yml up` (builds and links to current directory for live editing)
-3. docker-compose exec --user "$(id -u):$(id -g)" application rake db:reset
-4. docker-compose exec --user "$(id -u):$(id -g)" application rake db:migrate
+2. To set the environment variable in the docker-compose file, create a `.env` file w/ ```MYSQL_ROOT_PASSWORD=<YOUR MYSQL PASSWORD>```
+3. `mv example.cabins.env cabins.env` & replace all the `XXXXXX`'s with your values
+4. run `docker-compose -f ./docker-compose-local.yml build`
+5. run `docker-compose -f ./docker-compose-local.yml up`
+6. docker-compose exec --user "$(id -u):$(id -g)" application rake db:reset
+7. docker-compose exec --user "$(id -u):$(id -g)" application rake db:migrate
 
 # image build & publish
 1. git tag -a -m "release 1.1.0" 1.1.0
@@ -25,3 +28,7 @@ California Foundation for the Advancement of Electronic Arts cabins reservations
 5. docker image pull gerstle/cabins
 6. docker-compose up -d [application]
 7. docker-compose logs -f -t
+
+# email previews
+http://localhost/rails/mailers/user_mailer/
+http://localhost/rails/mailers/reservation_mailer/

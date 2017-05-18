@@ -1,0 +1,8 @@
+FROM httpd:2.4
+
+RUN apt-get update && apt-get install -qq -y --no-install-recommends vim
+
+COPY ./public/ /usr/local/apache2/htdocs/
+
+COPY ./config/httpd.conf /usr/local/apache2/conf/httpd.conf
+COPY ./config/httpd-vhosts.conf /usr/local/apache2/conf/extra/httpd-vhosts.conf

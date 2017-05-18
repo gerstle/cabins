@@ -1,14 +1,9 @@
----
-
-development: &default
-  adapter: redis
-  url: <%= ENV['ACTION_CABLE_BACKEND_URL'] %>
+development:
+  adapter: async
 
 test:
-  <<: *default
-
-staging:
-  <<: *default
+  adapter: async
 
 production:
-  <<: *default
+  adapter: redis
+  url: redis://localhost:6379/1
