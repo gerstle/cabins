@@ -23,5 +23,5 @@ California Foundation for the Advancement of Electronic Arts cabins reservations
 3. docker-machine env cabins-dev
 4. eval $(docker-machine env cabins-dev)
 5. docker image pull gerstle/cabins
-6. docker-compose up -d
+6. docker-compose up -d [application]
 7. docker-compose logs -f -t
