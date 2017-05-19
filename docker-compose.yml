@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+  mysql:
+    image: 'mysql:5.6'
+    environment:
+      MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASSWORD}'
+    ports:
+      - '3306:3306'
+    volumes:
+      - mysql:/var/lib/mysql
+
+  app:
+    image: 'gerstle/cabins:latest'
+    depends_on:
+      - 'mysql'
+    expose:
+      - '3000'
+    env_file:
+      - 'cabins.env'
+
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile-httpd
+    links:
+      - app
+    ports:
+      - '80:80'
+
+volumes:
+  mysql:

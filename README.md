@@ -8,8 +8,8 @@ California Foundation for the Advancement of Electronic Arts cabins reservations
 3. `mv example.cabins.env cabins.env` & replace all the `XXXXXX`'s with your values
 4. run `docker-compose -f ./docker-compose-local.yml build`
 5. run `docker-compose -f ./docker-compose-local.yml up`
-6. docker-compose exec --user "$(id -u):$(id -g)" application rake db:reset
-7. docker-compose exec --user "$(id -u):$(id -g)" application rake db:migrate
+6. docker-compose exec --user "$(id -u):$(id -g)" app rake db:reset
+7. docker-compose exec --user "$(id -u):$(id -g)" app rake db:migrate
 
 # image build & publish
 1. git tag -a -m "release 1.1.0" 1.1.0
