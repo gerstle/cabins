@@ -8,17 +8,19 @@ California Foundation for the Advancement of Electronic Arts cabins reservations
 3. `mv example.cabins.env cabins.env` & replace all the `XXXXXX`'s with your values
 4. run `docker-compose -f ./docker-compose-local.yml build`
 5. run `docker-compose -f ./docker-compose-local.yml up`
-6. docker-compose exec --user "$(id -u):$(id -g)" app rake db:reset
-7. docker-compose exec --user "$(id -u):$(id -g)" app rake db:migrate
+6. open separate terminal
+7. `docker-compose exec --user "$(id -u):$(id -g)" app rake db:reset`
+8. `docker-compose exec --user "$(id -u):$(id -g)" app rake db:migrate`
 
 # image build & publish
 1. git tag -a -m "release 1.1.0" 1.1.0
-2. docker build -t cabins .
-3. docker image ls
-4. docker tag <image hash> gerstle/cabins:latest
-5. docker tag <image hash> gerstle/cabins:1.1.0
-6. docker login
-7. docker push gerstle/cabins
+2. `rm -rf public/assets; RAILS_ENV=production bundle exec rake assets:precompile`
+3. docker build -t cabins .
+4. docker image ls
+5. docker tag <image hash> gerstle/cabins:latest
+6. docker tag <image hash> gerstle/cabins:1.1.0
+7. docker login
+8. docker push gerstle/cabins
 
 # simple ec2 instance deployment
 1. docker-machine create --driver amazonec2 --amazonec2-region us-west-1 --amazonec2-instance-type t2.micro --amazonec2-zone "b" cabins-dev
@@ -26,8 +28,13 @@ California Foundation for the Advancement of Electronic Arts cabins reservations
 3. docker-machine env cabins-dev
 4. eval $(docker-machine env cabins-dev)
 5. docker image pull gerstle/cabins
-6. docker-compose up -d [application]
-7. docker-compose logs -f -t
+6. docker-compose build (needed for web)
+7. docker-compose up -d
+8. docker-compose logs -f -t
+
+for prod...
+1. update cabins.env for prod settings
+2. ssh in and `bundle exec rake assets:precompile` ... probably a way to do this in the dockerfile or something
 
 # email previews
 http://localhost/rails/mailers/user_mailer/
