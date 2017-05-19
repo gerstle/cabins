@@ -7,11 +7,11 @@ class UserMailer < ApplicationMailer
 
   def pre_registration(user)
     @user = user
-    mail to: user.email, subject: 'Welcome to FnF 2016 Cabins'
+    mail to: user.email, subject: "Welcome to FnF #{Time.new.year} Cabins"
   end
 
   def tier_approved(user)
     @user = user
-    mail to: user.email, subject: '2016 FnF Cabins and Lodging Tier Assignment'
+    mail to: user.email, subject: "#{Time.new.year} FnF Cabins and Lodging Tier Assignment"
   end
 end
