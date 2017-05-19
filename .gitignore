@@ -20,4 +20,4 @@
 /vendor/bundle
 /public/assets/*
 .env
-cabins.env
+cabins*.env
