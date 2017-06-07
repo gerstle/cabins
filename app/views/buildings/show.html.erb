@@ -1,10 +1,6 @@
-<div class="row">
-  <h3>Editing building '<%= @building.label %>'</h3>
-</div>
+<h3>Editing building '<%= @building.label %>'</h3>
 
-  <div class="row">
-    <%= render 'layouts/error_messages' %>
-  </div>
+<%= render 'layouts/error_messages' %>
 
 <%= form_for(@building) do |f| %>
   <div class="row">
@@ -35,38 +31,39 @@
     </div>
   </div>
 <% end %>
-
-<div class="row">
-  <div class="col-md-11 col-md-offset-1">
-    <div class="post">
-      <div class="title"><h3>Accommodations for '<%= @building.label %>'</h3></div>
-    </div>
-
-    <table class="table table-hover table-condensed">
-      <thead>
-      <tr>
-        <th>Label</th>
-        <th>Description</th>
-        <th>Type</th>
-        <th>Occupancy</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Actions</th>
-      </tr>
-      </thead>
-      <tbody>
-        <% @building.accommodations.each do |a| %>
-          <tr data-item-id=<%= "#{a.id}" %> class="item">
-            <td><%= a.label %></td>
-            <td><%= a.description %></td>
-            <td><%= a.accommodation_type.label %></td>
-            <td><%= a.occupancy %></td>
-            <td><%= a.quantity %></td>
-            <td><%= a.price %></td>
-            <td><%= link_to 'edit', accommodation_path(a) %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
+<br />
+<div class="post">
+  <div class="title"><h3 class="title">Accommodations for '<%= @building.building_type %> <%= @building.label %>'</h3></div>
 </div>
+<table class="table table-hover table-condensed">
+  <thead>
+  <tr>
+    <th>Label</th>
+    <th>Description</th>
+    <th>Type</th>
+    <th>A/C</th>
+    <th>Bathroom</th>
+    <th>Kitchen</th>
+    <th>Occupancy</th>
+    <th>Quantity</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+    <% @building.accommodations.each do |a| %>
+      <tr data-item-id=<%= "#{a.id}" %> class="item">
+        <td><%= a.label %></td>
+        <td><%= a.description %></td>
+        <td><%= a.accommodation_type.label %></td>
+        <td><%= a.air_conditioning ? 'yes' : 'no' %></td>
+        <td><%= a.bathroom ? 'yes' : 'no' %></td>
+        <td><%= a.kitchen ? 'yes' : 'no' %></td>
+        <td><%= a.occupancy %></td>
+        <td><%= a.quantity %></td>
+        <td><%= a.price %></td>
+        <td><%= link_to 'edit', accommodation_path(a) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
