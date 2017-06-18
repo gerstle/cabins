@@ -4,7 +4,7 @@
       <% if !current_user.tier.nil? %>
           <% if current_user.tier.available <= DateTime.now %>
               <div><strong>You can book now!</strong></div>
-              <div>You are approved and your tier's booking window has been opened, get on it! (select <%= link_to 'Lodging Options', accommodations_path %> above)</div>
+              <div>You are approved and your tier's booking window has been opened, get on it! (select <%= link_to 'book!', accommodations_path %> above)</div>
           <% else %>
             <div><strong>Your pre-registration has been approved!</strong></div>
             <div>Your pre-registration has been processed and you will be able to book accommodations starting on <strong><%= current_user.tier.available.strftime("%a %-d %b %Y %T %Z") %>. In the meantime, feel free to browse the lodgings, but you won't be able to reserve.</strong></div>

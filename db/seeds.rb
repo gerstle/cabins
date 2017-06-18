@@ -140,10 +140,9 @@ Additionally, please include the cabin/room number in the notes on the check.'
   }
 ])
 
-users = User.create([
-   {name: 'minty', email:'minty@inappropirates.com', password:'nopenope', password_confirmation:'nopenope', phone: '1111', role: 'planner', admin: true},
-   {name: 'asdf', email:'asdf@gmail.com', password:'asdfasdf', password_confirmation:'asdfasdf', phone: '1111', role: 'attendee', admin: false}
-])
+user_minty = User.create(name: 'minty', email:'minty@inappropirates.com', password:'nopenope', password_confirmation:'nopenope', phone: '1111', role: 'planner', admin: true);
+user_asdf = User.create(name: 'asdf', email:'asdf@gmail.com', password:'asdfasdf', password_confirmation:'asdfasdf', phone: '1111', role: 'attendee', admin: false);
+# user_caseytest = User.create(name: 'caseytest', email:'gerstle+test@gmail.com', password:'asdfasdf', password_confirmation:'asdfasdf', phone: '1111', role: 'attendee', admin: false);
 
 Tier.create([
   {label: 'Tier 0', description: 'Secret', available: DateTime.new(year, 6, 6, 19, 30, 0, '-07:00')},
@@ -191,7 +190,7 @@ Accommodation.create(accommodation_type: private_room, building: building, hold:
 
 
 building = Building.create(label: 'Cabin 1', building_type: cabin)
-Accommodation.create(accommodation_type: private_room, building: building, hold: false,
+accommodation_c1a = Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: "#{building.label} - Room A", description: '2x twin (can be joined for 1x queen)',
                      occupancy: 2, price: 330.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
@@ -205,10 +204,10 @@ Accommodation.create(accommodation_type: private_room, building: building, hold:
                      occupancy: 3, price: 330.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 
 building = Building.create(label: 'Cabin 2', 'description': 'Reserved for Radiant Atmospheres', building_type: cabin)
-Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
+accommodation_c2a = Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
                      label: "#{building.label} - Room A", description: 'Front of cabin. 2x queen (bunked)',
                      occupancy: 4, price: 370.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
-Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
+accommodation_c2b = Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
                      label: "#{building.label} - Room B", description: 'Front of cabin. 2x queen (bunked) + 1x double (futon)',
                      occupancy: 6, price: 500.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
@@ -269,6 +268,9 @@ Planner.create([
 ])
 
 Reservation.create([
+#   {accommodation: accommodation_c1a, user: user_minty, price: accommodation_c1a.price, quantity: 1, confirmed_time: Time.new},
+#   {accommodation: accommodation_c2a, user: user_asdf, price: accommodation_c2a.price, quantity: 1, confirmed_time: Time.new},
+#   {accommodation: accommodation_c2b, user: user_caseytest, price: accommodation_c2b.price, quantity: 1, confirmed_time: Time.new},
 ])
 
 PaymentType.create(label: 'PayPal');

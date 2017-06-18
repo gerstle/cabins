@@ -86,7 +86,23 @@ class ReservationsController < ApplicationController
   # ADMIN -----------------------------------
 
   def index
-    @reservations = Reservation.where('confirmed_time IS NOT NULL')
+    @reservations = Reservation.search(params).order(sort).page(params[:page])
+  end
+
+  def sort
+    if ("user".eql?(params[:sort]))
+      "u.name #{params[:direction]}, id"
+    elsif ("accommodation".eql?(params[:sort]))
+      "a.label #{params[:direction]}, id"
+    elsif (Reservation.column_names.include?(params[:sort]) && %w[asc desc].include?(params[:direction]))
+      "#{params[:sort]} #{params[:direction]}, id"
+    else
+      :id
+    end
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
 
   def delete

@@ -1,44 +1,68 @@
-<div class="titlewrapper">
-  <div class="admintitle"><h3>reservation management</h3></div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>reservation management</h3>
+  </div>
 </div>
-<table class="table table-hover table-condensed">
-  <thead>
-  <tr>
-    <th>ID</th>
-    <th>User</th>
-    <th>Accommodation</th>
-    <th>Quantity</th>
-    <th>Price</th>
-    <th>Total Price</th>
-    <th>Reservation Date</th>
-    <th>Payment Received</th>
-    <th>Payment Method</th>
-    <th>Payment received by</th>
-    <th>Payment received on</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @reservations.each do |r| %>
-      <tr data-item-id=<%= "#{r.id}" %> class="item">
-        <td><%= r.id %></td>
-        <td><%= r.user.name %></td>
-        <td><%= r.accommodation.label %></td>
-        <td><%= r.quantity %></td>
-        <td><%= number_to_currency r.accommodation.price %></td>
-        <td><%= number_to_currency r.price %></td>
-        <td><%= r.created_at.strftime("%-d %b %Y %T %Z") %></td>
-        <td><%= number_to_currency r.payment_amount %></td>
-        <td><%= !r.payment_type.nil? ? r.payment_type.label : '' %></td>
-        <td><%= !r.processed_by_user.nil? ? r.processed_by_user.name : '' %></td>
-        <td><%= !r.paid_date.nil? ? r.paid_date.strftime("%-d %b %Y %T %Z") : '' %></td>
-        <td>
-          <% if r.paid_date.nil? %>
-            <%= link_to 'record&nbsp;payment'.html_safe, admin_payment_reservation_path(r) %><br/>
-          <% end %>
-          <%= link_to 'delete', admin_delete_reservation_path(r), method: :delete, data: {confirm: 'Kinda harsh to swipe someone\'s bed, are you sure you want to delete this reservation?'} %>
-        </td>
-      </tr>
-  <% end %>
-  </tbody>
-</table>
+
+<%= form_tag admin_reservations_path, :class => "navbar-farleft", :remote => true, :method => 'get', :id => 'reservations_search' do %>
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#search-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">search options</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <p class="navbar-text visible-xs-block navbar-indent">Search Options</p>
+    </div><!-- end navbar header -->
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="search-navbar-collapse-1">
+
+      <ul class="nav navbar-nav">
+        <li>
+            <div class="navbar-stuff">
+              <%= text_field_tag :search, params[:search] %>
+            </div>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav">
+        <li class="navbar-stuff">
+            <%= hidden_field_tag :direction, params[:direction] %>
+            <%= hidden_field_tag :sort, params[:sort] %>
+            <%= submit_tag "Search", :name => nil, :class => 'btn btn-primary same-line' %>
+        </li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            sort...
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= sortable 'user', 'a-z', 'asc' %></li>
+            <li><%= sortable 'user', 'z-a', 'desc' %></li>
+            <li><%= sortable 'accommodation', 'a-z', 'asc' %></li>
+            <li><%= sortable 'accommodation', 'z-a', 'desc' %></li>
+            <li><%= sortable 'quantity', 'asc', 'asc' %></li>
+            <li><%= sortable 'quantity', 'desc', 'desc' %></li>
+            <li><%= sortable 'price', 'asc', 'asc' %></li>
+            <li><%= sortable 'price', 'desc', 'desc' %></li>
+            <li><%= sortable 'paid_date', 'asc', 'asc' %></li>
+            <li><%= sortable 'paid_date', 'desc', 'desc' %></li>
+          </ul>
+        </li>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav><!-- end search nav -->
+<% end %>
+
+<div class="row">
+  <div id="reservations" class="col-md-12 contentcolumn">
+    <%= render 'reservations'%>
+  </div><!-- end content column-->
+</div><!-- end content row-->

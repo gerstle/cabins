@@ -11,4 +11,17 @@ class Reservation < ActiveRecord::Base
   def send_paid_confirmation_email
     ReservationMailer.paid_confirmation(self).deliver_now
   end
+
+  def self.search(params)
+    rv = where('confirmed_time IS NOT NULL')
+          .joins("LEFT OUTER JOIN users u ON u.id=reservations.user_id")
+          .joins("LEFT OUTER JOIN accommodations a ON a.id=reservations.accommodation_id")
+
+    if params[:search]
+      parm = "%#{params[:search]}%"
+      rv = rv.where('u.name LIKE ? OR u.email LIKE ? OR a.label LIKE ?', parm, parm, parm)
+    end
+
+    rv
+  end
 end
