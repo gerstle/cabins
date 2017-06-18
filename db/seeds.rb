@@ -22,12 +22,12 @@ posts = Post.create([
   {
       category: 'home', title: 'Registration',
       body:
-        "<p>During the registration period, log into the FnF #{year} Cabins lodging registration page and select the lodging options tab.Please note that you will be able to register for exactly one room*, and NO MORE than one room. Once you select a room, FnF #{year} Cabins will reserve that room in your name until the payment deadline (July 18th), during which time you must send your payment or we will release your reservation.</p><p>Please note that some of the rooms have space for as many as 6 people**, so you can organize a group and split up the room however you wish. Once you have registered and paid for a room, any room changes or cost sharing are your responsibility. <strong>Please note</strong>: you will also be responsible for any damages that may occur and removal of all trash. <strong>FnF campout is a pack in and pack out event and this applies to the cabins as well.</strong><p style=\"font-style: italic; font-size: smaller;\">* The notable exception: In the Main Cabin, you may registerfor individual beds in dormitory-style rooms. These rooms have multiple twin bunk beds for which you can register for more than one.<br/><br/>** Assuming 2 people to a double or queen bed and 1 person to a twin.</p>"
+        "<p>During the registration period, log into the FnF #{year} Cabins lodging registration page and select the lodging options tab.Please note that you will be able to register for exactly one room*, and NO MORE than one room. Once you select a room, FnF #{year} Cabins will reserve that room in your name until the payment deadline (July 14th), during which time you must send your payment or we will release your reservation.</p><p>Please note that some of the rooms have space for as many as 6 people**, so you can organize a group and split up the room however you wish. Once you have registered and paid for a room, any room changes or cost sharing are your responsibility. <strong>Please note</strong>: you will also be responsible for any damages that may occur and removal of all trash. <strong>FnF campout is a pack in and pack out event and this applies to the cabins as well.</strong><p style=\"font-style: italic; font-size: smaller;\">* The notable exception: In the Main Cabin, you may registerfor individual beds in dormitory-style rooms. These rooms have multiple twin bunk beds for which you can register for more than one.<br/><br/>** Assuming 2 people to a double or queen bed and 1 person to a twin.</p>"
   },
   {
     category: 'home', title: 'Pay',
     body:
-        "<p>Once you have reserved your lodging through FnF #{year} Cabins, you will receive a confirmation email. Please check the FAQ for payment options other than the PayPal button at check-out.</p>Please note that your pre-paid registration only lasts until July 18th. If we have not received your payment within that time, FnF #{year} Cabins will cancel your reservation and make your lodging preference available for other participants.</p>Once we receive payment, FnF #{year} Cabins will send you an email confirming your paid reservation.</p><p>Should you have any questions about the FnF lodging policy, please contact fnfreservations@gmail.com."
+        "<p>Once you have reserved your lodging through FnF #{year} Cabins, you will receive a confirmation email. Please check the FAQ for payment options other than the PayPal button at check-out.</p>Please note that your pre-paid registration only lasts until July 14th. If we have not received your payment within that time, FnF #{year} Cabins will cancel your reservation and make your lodging preference available for other participants.</p>Once we receive payment, FnF #{year} Cabins will send you an email confirming your paid reservation.</p><p>Should you have any questions about the FnF lodging policy, please contact fnfreservations@gmail.com."
   },
 
   {
@@ -68,7 +68,7 @@ posts = Post.create([
   {
       category: 'faq', title: 'When can I pre-register for a cabin?',
       body:
-          'The pre-registration page will open June 20.  You\'ll need to enter your name, email address, and phone number, create a password, and verify your selected registration tier - i.e, your role at the campout or the accommodations needed for medical priority. This pre-registration step does not guarantee you a cabin; it just allows us to validate your eligibility before we open the signup sheet to each tier.'
+          'The pre-registration page will open June 23.  You\'ll need to enter your name, email address, and phone number, create a password, and verify your selected registration tier - i.e, your role at the campout or the accommodations needed for medical priority. This pre-registration step does not guarantee you a cabin; it just allows us to validate your eligibility before we open the signup sheet to each tier.'
   },
   {
       category: 'faq', title: 'Do I need to pre-register if I pre-registered last year?',
@@ -90,16 +90,16 @@ posts = Post.create([
       body:
           'The tier you have been placed in determines when you can sign up.<br/><br/>
 
-Tier 1 - Tuesday, July 5th @ 7:30pm<br/><br/>
-Tier 2 - Wednesday, July 6th @7:30pm<br/><br/>
-Tier 3 – Thursday, July 7th @7:30pm<br/><br/>
+Tier 1 - Friday, July 7th @ 7:30pm<br/><br/>
+Tier 2 - Saturday, July 8th @7:30pm<br/><br/>
+Tier 3 – Saturday, July 8th @7:30pm<br/><br/>
 
 Once your tier is open, you will be able to sign in using the same email address and password you pre-registered with and choose to reserve an available room. The Registration app will allow you to choose a specific room from among those that have not yet been registered.'
   },
   {
       category: 'faq', title: 'When do you need payment for the cabin?',
       body:
-          'If we have not received your payment by July 18th, we will send you a notification that your payment is late. At that time, only Paypal payments will be accepted. In the event that we still have not received payment, we will cancel your room reservation, allowing someone else to register for it. SEND YOUR PAYMENT ON TIME'
+          'If we have not received your payment by July 14th, we will send you a notification that your payment is late. At that time, only Paypal payments will be accepted. In the event that we still have not received payment, we will cancel your room reservation, allowing someone else to register for it. SEND YOUR PAYMENT ON TIME'
   },
   {
       category: 'faq', title: 'I forgot to pay for my cabin/room when I reserved it. How can I pay after the fact?',
@@ -108,9 +108,9 @@ Once your tier is open, you will be able to sign in using the same email address
 1.  Pay via Paypal: Send $ to paypal@cfaea.org. Be sure to select "Send money to friends or family" and write your cabin/room number in the comments<br/><br/>
 2.  Pay via check: Make your payment to CFAEA by check and send it to the following address:<br/><br/>
 CFAEA<br/><br/>
-c/o Jessica Allard<br/><br/>
-2806 Kingsland Ave<br/><br/>
-Oakland, CA 94619<br/><br/>
+c/o Jenny Lee<br/><br/>
+930 Pacific Ave. #1<br/><br/>
+San Francisco, CA 94133<br/><br/>
 Additionally, please include the cabin/room number in the notes on the check.'
   },
   {
@@ -167,96 +167,103 @@ array.each { |label|
   building = Building.create(label: label, building_type: summer_cabin)
   Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                        label: "Summer Cabin #{label}", description: '1x double (futon) - screens & no electricity',
-                       occupancy: 2, price: 185.0, quantity: 1, air_conditioning: false, bathroom: false, kitchen: false)
+                       occupancy: 2, price: 180.0, quantity: 1, air_conditioning: false, bathroom: false, kitchen: false)
 }
 
-array = ['A', 'B', 'C', 'D', 'E', 'F', 'H']
+array = ['A', 'B', 'E', 'F', 'H']
 array.each { |label|
   building = Building.create(label: label, building_type: wood_tent)
   Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                        label: "Wood Tent #{label}", description: '1x queen',
-                       occupancy: 2, price: 227.0, quantity: 1, air_conditioning: false, bathroom: false, kitchen: false)
+                       occupancy: 2, price: 220.0, quantity: 1, air_conditioning: false, bathroom: false, kitchen: false)
+}
+array = ['C', 'D']
+array.each { |label|
+  building = Building.create(label: label, building_type: wood_tent)
+  Accommodation.create(accommodation_type: private_room, building: building, hold: false,
+                       label: "Wood Tent #{label}", description: '1x double (futon) - screens & no electricity',
+                       occupancy: 2, price: 180.0, quantity: 1, air_conditioning: false, bathroom: false, kitchen: false)
 }
 building = Building.create(label: 'G', building_type: wood_tent)
 Accommodation.create(accommodation_type: private_room, building: building, hold: true,
                      label: 'Wood Tent G - Medic', description: '1x queen',
-                     occupancy: 2, price: 309.0, quantity: 1, air_conditioning: true, bathroom: false, kitchen: false)
+                     occupancy: 2, price: 300.0, quantity: 1, air_conditioning: true, bathroom: false, kitchen: false)
 
 
 building = Building.create(label: 'Cabin 1', building_type: cabin)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: "#{building.label} - Room A", description: '2x twin (can be joined for 1x queen)',
-                     occupancy: 2, price: 340.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 2, price: 330.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: "#{building.label} - Room B", description: '2x double',
-                     occupancy: 4, price: 412.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 4, price: 400.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: "#{building.label} - Room C", description: '2x twin (can be joined for 1x queen)',
-                     occupancy: 2, price: 340.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 2, price: 330.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: "#{building.label} - Room D", description: '1x double + 1x twin',
-                     occupancy: 3, price: 340.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 3, price: 330.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 
 building = Building.create(label: 'Cabin 2', 'description': 'Reserved for Radiant Atmospheres', building_type: cabin)
 Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
                      label: "#{building.label} - Room A", description: 'Front of cabin. 2x queen (bunked)',
-                     occupancy: 4, price: 381.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 4, price: 370.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
                      label: "#{building.label} - Room B", description: 'Front of cabin. 2x queen (bunked) + 1x double (futon)',
-                     occupancy: 6, price: 515.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 6, price: 500.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
                      label: "#{building.label} - Room C", description: 'Back of cabin. 2x queen (bunked)',
-                     occupancy: 4, price: 381.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 4, price: 370.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
                      label: "#{building.label} - Room D", description: 'Back of cabin. 2x twin',
-                     occupancy: 2, price: 361.0, quantity: 1, air_conditioning: true, bathroom: true, kitchen: false)
+                     occupancy: 2, price: 350.0, quantity: 1, air_conditioning: true, bathroom: true, kitchen: false)
 
 building = Building.create(label: 'Cabin 5', building_type: cabin)
 Accommodation.create(accommodation_type: semi_private_room, building: building, hold: false,
                      label: "#{building.label} - Room A", description: '2x queen (bunked)',
-                     occupancy: 4, price: 412.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 4, price: 400.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: semi_private_room, building: building, hold: false,
                      label: "#{building.label} - Room B", description: '2x twin (bunked) + 2x queen (bunked)',
-                     occupancy: 6, price: 515.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 6, price: 500.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: not_private_room, building: building, hold: false,
                      label: "#{building.label} - Room C", description: '1x double futon (living room)',
-                     occupancy: 2, price: 185.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 2, price: 180.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 
 building = Building.create(label: 'Cabin 6', building_type: cabin)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: "#{building.label} - Room A", description: '1x double',
-                     occupancy: 2, price: 391.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: true)
+                     occupancy: 2, price: 380.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: true)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: "#{building.label} - Room B", description: '1x queen + 1x twin',
-                     occupancy: 3, price: 391.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: true)
+                     occupancy: 3, price: 380.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: true)
 Accommodation.create(accommodation_type: not_private_room, building: building, hold: false,
                      label: "#{building.label} - Room C", description: '1x double futon (living room)',
-                     occupancy: 2, price: 206.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: true)
+                     occupancy: 2, price: 200.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: true)
 
 building = Building.create(label: 'Cabin 7', building_type: cabin)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: "#{building.label} - Room A", description: '1x double',
-                     occupancy: 2, price: 361.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 2, price: 350.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: "#{building.label} - Room B", description: '1x queen + 1x twin',
-                     occupancy: 3, price: 361.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 3, price: 350.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: not_private_room, building: building, hold: false,
                      label: "#{building.label} - Room C", description: '1x double futon (living room)',
-                     occupancy: 2, price: 185.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 2, price: 180.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 
 building = Building.create(label: 'Main Lodge', building_type: lodge)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: 'Main Lodge Master Bedroom MLB', description: '1x queen + 1x twin',
-                     occupancy: 3, price: 309.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 3, price: 300.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
                      label: 'Main Lodge A - Quiet Dorm', description: '1 twin bed in a room of 10 twin beds (bunked)',
-                     occupancy: 1, price: 67.0, quantity: 10, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 1, price: 65.0, quantity: 10, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
                      label: 'Main Lodge C - Dorm', description: '1 twin bed in a room of 8 twin beds (bunked)',
-                     occupancy: 1, price: 67.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 1, price: 65.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
                      label: 'Main Lodge D - Dorm', description: '1 twin bed in a room of 8 twin beds (bunked)',
-                     occupancy: 1, price: 67.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 1, price: 65.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
 
 Planner.create([
 ])

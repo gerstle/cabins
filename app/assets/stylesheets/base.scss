@@ -16,7 +16,7 @@ a, a:hover, a:focus {
 
 img.logo {
   position: relative;
-  left: -46px;
+  left: -30px;
   top: -27px;
 }
 
@@ -138,6 +138,8 @@ main {
   border-radius: 5px;
   border: 1px solid #ddd;
   margin: 4px 0 12px 0;
+  padding: 15px;
+  h3 { margin-top: 0; }
 }
 
 .title {
