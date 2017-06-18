@@ -15,7 +15,7 @@ California Foundation for the Advancement of Electronic Arts cabins reservations
 
 # image build & publish
 1. git tag -a -m "release 1.1.0" 1.1.0
-2. `rm -rf public/assets; RAILS_ENV=production bundle exec rake assets:precompile`
+2. `sudo rm -rf tmp && rm -rf public/assets && RAILS_ENV=production bundle exec rake assets:precompile`
 3. make sure `ProxyPass /assets` is set in conf/httpd-vhosts.conf
 4. docker build -t cabins .
 5. docker image ls
