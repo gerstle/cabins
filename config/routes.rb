@@ -62,7 +62,8 @@ Rails.application.routes.draw do
   patch 'admin/tiers/:id' => 'tiers#update'
 
   get 'admin/reservations' => 'reservations#index', as: 'admin_reservations'
-  put 'admin/reservations/:id' => 'reservations#paid', as: 'admin_paid_reservation'
+  get 'admin/reservations/:id/payment' => 'reservations#payment', as: 'admin_payment_reservation'
+  patch 'admin/reservations/:id' => 'reservations#paid', as: 'admin_paid_reservation'
   delete 'admin/reservations/:id' => 'reservations#delete', as: 'admin_delete_reservation'
 
   resources :password_resets, only: [:new, :create, :edit, :update]

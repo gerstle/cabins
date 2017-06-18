@@ -11,6 +11,8 @@
     <th>Price</th>
     <th>Total Price</th>
     <th>Reservation Date</th>
+    <th>Payment Received</th>
+    <th>Payment Method</th>
     <th>Payment received by</th>
     <th>Payment received on</th>
     <th>Actions</th>
@@ -26,11 +28,13 @@
         <td><%= number_to_currency r.accommodation.price %></td>
         <td><%= number_to_currency r.price %></td>
         <td><%= r.created_at.strftime("%-d %b %Y %T %Z") %></td>
+        <td><%= number_to_currency r.payment_amount %></td>
+        <td><%= !r.payment_type.nil? ? r.payment_type.label : '' %></td>
         <td><%= !r.processed_by_user.nil? ? r.processed_by_user.name : '' %></td>
         <td><%= !r.paid_date.nil? ? r.paid_date.strftime("%-d %b %Y %T %Z") : '' %></td>
         <td>
           <% if r.paid_date.nil? %>
-            <%= link_to 'mark&nbsp;paid'.html_safe, admin_paid_reservation_path(r), method: :put, data: {confirm: 'You actually received payment for this reservation?'} %><br/>
+            <%= link_to 'record&nbsp;payment'.html_safe, admin_payment_reservation_path(r) %><br/>
           <% end %>
           <%= link_to 'delete', admin_delete_reservation_path(r), method: :delete, data: {confirm: 'Kinda harsh to swipe someone\'s bed, are you sure you want to delete this reservation?'} %>
         </td>

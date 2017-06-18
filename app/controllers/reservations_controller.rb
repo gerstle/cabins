@@ -98,11 +98,16 @@ class ReservationsController < ApplicationController
     redirect_to admin_reservations_path
   end
 
+  def payment
+    @reservation = Reservation.find(params[:id])
+    @error = @reservation # tell _error_messages.html.erb to use this object for form errors
+  end
+
   def paid
     @reservation = Reservation.find(params[:id])
-    @error = @reservation# tell _error_messages.html.erb to use this object for form errors
+    @error = @reservation # tell _error_messages.html.erb to use this object for form errors
 
-    if @reservation.update(paid_date: DateTime.now(), processed_by_user_id: current_user.id)
+    if @reservation.update_attributes(reservation_params) && @reservation.update(paid_date: DateTime.now(), processed_by_user_id: current_user.id)
       flash[:success] = "reservation #{@reservation.id} marked as paid"
       index
       @reservation.send_paid_confirmation_email
@@ -114,6 +119,6 @@ class ReservationsController < ApplicationController
 
   private
     def reservation_params
-      params.require(:reservation).permit(:price, :quantity, :accommodation_id)
+      params.require(:reservation).permit(:price, :quantity, :accommodation_id, :payment_amount, :payment_types_id)
     end
 end
