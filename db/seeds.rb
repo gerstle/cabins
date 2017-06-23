@@ -145,10 +145,10 @@ user_asdf = User.create(name: 'asdf', email:'asdf@gmail.com', password:'asdfasdf
 # user_caseytest = User.create(name: 'caseytest', email:'gerstle+test@gmail.com', password:'asdfasdf', password_confirmation:'asdfasdf', phone: '1111', role: 'attendee', admin: false);
 
 Tier.create([
-  {label: 'Tier 0', description: 'Secret', available: DateTime.new(year, 6, 6, 19, 30, 0, '-07:00')},
-  {label: 'Tier 1', description: 'Planners Medical', available: DateTime.new(year, 7, 5, 19, 30, 0, '-07:00')},
-  {label: 'Tier 2', description: 'Planners', available: DateTime.new(year, 7, 6, 19, 30, 0, '-07:00')},
-  {label: 'Tier 3', description: 'All', available: DateTime.new(year, 7, 7, 19, 30, 0, '-07:00')},
+  {label: 'Tier 0', description: 'Secret', available: DateTime.new(year, 6, 30, 19, 00, 0, '-07:00')},
+  {label: 'Tier 1', description: 'Planners Medical', available: DateTime.new(year, 7, 7, 19, 30, 0, '-07:00')},
+  {label: 'Tier 2', description: 'Planners', available: DateTime.new(year, 7, 8, 16, 30, 0, '-07:00')},
+  {label: 'Tier 3', description: 'All', available: DateTime.new(year, 7, 8, 19, 30, 0, '-07:00')},
 ])
 
 summer_cabin = BuildingType.create(label: 'Summer Cabin');
