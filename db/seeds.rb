@@ -165,42 +165,51 @@ array = ['S1', 'S2']
 array.each { |label|
   building = Building.create(label: label, building_type: summer_cabin)
   Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                       label: "Summer Cabin #{label}", description: '1x double (futon) - screens & no electricity',
+                       label: "Summer Cabin #{label}", description: '1x double (futon) - screened in & no electricity. Just like camping but without having to put up your own tent!',
                        occupancy: 2, price: 180.0, quantity: 1, air_conditioning: false, bathroom: false, kitchen: false)
 }
 
-array = ['A', 'B', 'E', 'F', 'H']
+array = ['A', 'E', 'F', 'H']
 array.each { |label|
   building = Building.create(label: label, building_type: wood_tent)
   Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                       label: "Wood Tent #{label}", description: '1x queen',
+                       label: "Wood Tent #{label}", description: '1x full',
                        occupancy: 2, price: 220.0, quantity: 1, air_conditioning: false, bathroom: false, kitchen: false)
 }
+
+array = ['B']
+array.each { |label|
+  building = Building.create(label: label, building_type: wood_tent)
+  Accommodation.create(accommodation_type: private_room, building: building, hold: false,
+                       label: "Wood Tent #{label}", description: '1x queen. Has power.',
+                       occupancy: 2, price: 220.0, quantity: 1, air_conditioning: false, bathroom: false, kitchen: false)
+}
+
 array = ['C', 'D']
 array.each { |label|
   building = Building.create(label: label, building_type: wood_tent)
   Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                       label: "Wood Tent #{label}", description: '1x double (futon) - screens & no electricity',
+                       label: "Wood Tent #{label}", description: '2x twins - can be joined. Has power.',
                        occupancy: 2, price: 180.0, quantity: 1, air_conditioning: false, bathroom: false, kitchen: false)
 }
 building = Building.create(label: 'G', building_type: wood_tent)
 Accommodation.create(accommodation_type: private_room, building: building, hold: true,
-                     label: 'Wood Tent G - Medic', description: '1x queen',
+                     label: 'Wood Tent G - Medic', description: '1x queen. Has power.',
                      occupancy: 2, price: 300.0, quantity: 1, air_conditioning: true, bathroom: false, kitchen: false)
 
 
 building = Building.create(label: 'Cabin 1', building_type: cabin)
 accommodation_c1a = Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                     label: "#{building.label} - Room A", description: '2x twin (can be joined for 1x queen)',
+                     label: "#{building.label} - Room A", description: '2x twin (can be joined)',
                      occupancy: 2, price: 330.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                     label: "#{building.label} - Room B", description: '2x double',
+                     label: "#{building.label} - Room B", description: '2x full',
                      occupancy: 4, price: 400.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                     label: "#{building.label} - Room C", description: '2x twin (can be joined for 1x queen)',
+                     label: "#{building.label} - Room C", description: '2x twin (can be joined)',
                      occupancy: 2, price: 330.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                     label: "#{building.label} - Room D", description: '1x double + 1x twin',
+                     label: "#{building.label} - Room D", description: '1x full + 1x twin',
                      occupancy: 3, price: 330.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 
 building = Building.create(label: 'Cabin 2', 'description': 'Reserved for Radiant Atmospheres', building_type: cabin)
@@ -208,7 +217,7 @@ accommodation_c2a = Accommodation.create(accommodation_type: semi_private_room, 
                      label: "#{building.label} - Room A", description: 'Front of cabin. 2x queen (bunked)',
                      occupancy: 4, price: 370.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 accommodation_c2b = Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
-                     label: "#{building.label} - Room B", description: 'Front of cabin. 2x queen (bunked) + 1x double (futon)',
+                     label: "#{building.label} - Room B", description: 'Front of cabin. 2x queen (bunked) + 1x full (futon)',
                      occupancy: 6, price: 500.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: semi_private_room, building: building, hold: true,
                      label: "#{building.label} - Room C", description: 'Back of cabin. 2x queen (bunked)',
@@ -219,49 +228,49 @@ Accommodation.create(accommodation_type: semi_private_room, building: building, 
 
 building = Building.create(label: 'Cabin 5', building_type: cabin)
 Accommodation.create(accommodation_type: semi_private_room, building: building, hold: false,
-                     label: "#{building.label} - Room A", description: '2x queen (bunked)',
-                     occupancy: 4, price: 400.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
-Accommodation.create(accommodation_type: semi_private_room, building: building, hold: false,
-                     label: "#{building.label} - Room B", description: '2x twin (bunked) + 2x queen (bunked)',
+                     label: "#{building.label} - Room A", description: '2x twin (bunked) + 2x queen (bunked)',
                      occupancy: 6, price: 500.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+Accommodation.create(accommodation_type: semi_private_room, building: building, hold: false,
+                     label: "#{building.label} - Room B", description: '2x queen (bunked)',
+                     occupancy: 4, price: 400.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: not_private_room, building: building, hold: false,
-                     label: "#{building.label} - Room C", description: '1x double futon (living room)',
+                     label: "#{building.label} - Sitting Room", description: '1x full futon (living room)',
                      occupancy: 2, price: 180.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 
 building = Building.create(label: 'Cabin 6', building_type: cabin)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                     label: "#{building.label} - Room A", description: '1x double',
-                     occupancy: 2, price: 380.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: true)
-Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                     label: "#{building.label} - Room B", description: '1x queen + 1x twin',
+                     label: "#{building.label} - Room A", description: '1x queen + 1x twin',
                      occupancy: 3, price: 380.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: true)
+Accommodation.create(accommodation_type: private_room, building: building, hold: false,
+                     label: "#{building.label} - Room B", description: '1x queen',
+                     occupancy: 2, price: 380.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: true)
 Accommodation.create(accommodation_type: not_private_room, building: building, hold: false,
-                     label: "#{building.label} - Room C", description: '1x double futon (living room)',
+                     label: "#{building.label} - Sitting Room", description: '1x full futon (living room)',
                      occupancy: 2, price: 200.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: true)
 
 building = Building.create(label: 'Cabin 7', building_type: cabin)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                     label: "#{building.label} - Room A", description: '1x double',
-                     occupancy: 2, price: 350.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
-Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                     label: "#{building.label} - Room B", description: '1x queen + 1x twin',
+                     label: "#{building.label} - Room A", description: '1x double + 1x twin',
                      occupancy: 3, price: 350.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+Accommodation.create(accommodation_type: private_room, building: building, hold: false,
+                     label: "#{building.label} - Room B", description: '1x double',
+                     occupancy: 2, price: 350.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: not_private_room, building: building, hold: false,
-                     label: "#{building.label} - Room C", description: '1x double futon (living room)',
+                     label: "#{building.label} - Sitting Room", description: '1x full futon (living room)',
                      occupancy: 2, price: 180.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 
 building = Building.create(label: 'Main Lodge', building_type: lodge)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
-                     label: 'Main Lodge Master Bedroom MLB', description: '1x queen + 1x twin',
+                     label: 'Main Lodge Master Bedroom - 4', description: '1x queen + 1x twin',
                      occupancy: 3, price: 300.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
-                     label: 'Main Lodge A - Quiet Dorm', description: '1 twin bed in a room of 10 twin beds (bunked)',
-                     occupancy: 1, price: 65.0, quantity: 10, air_conditioning: false, bathroom: true, kitchen: false)
-Accommodation.create(accommodation_type: bed, building: building, hold: false,
-                     label: 'Main Lodge C - Dorm', description: '1 twin bed in a room of 8 twin beds (bunked)',
+                     label: 'Main Lodge 1 - Dorm', description: '1 twin bed in a room of 8 twin beds (bunked)',
                      occupancy: 1, price: 65.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
-                     label: 'Main Lodge D - Dorm', description: '1 twin bed in a room of 8 twin beds (bunked)',
+                     label: 'Main Lodge 2 - Quiet Dorm', description: '1 twin bed in a room of 10 twin beds (bunked)',
+                     occupancy: 1, price: 65.0, quantity: 10, air_conditioning: false, bathroom: true, kitchen: false)
+Accommodation.create(accommodation_type: bed, building: building, hold: false,
+                     label: 'Main Lodge 3 - Dorm', description: '1 twin bed in a room of 8 twin beds (bunked)',
                      occupancy: 1, price: 65.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
 
 Planner.create([
