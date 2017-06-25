@@ -262,16 +262,16 @@ Accommodation.create(accommodation_type: not_private_room, building: building, h
 building = Building.create(label: 'Main Lodge', building_type: lodge)
 Accommodation.create(accommodation_type: private_room, building: building, hold: false,
                      label: 'Main Lodge Master Bedroom - 4', description: '1x queen + 1x twin',
-                     occupancy: 3, price: 300.0, quantity: 1, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 3, price: 300.0, quantity: 1, air_conditioning: true, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
                      label: 'Main Lodge 1 - Dorm', description: '1 twin bed in a room of 8 twin beds (bunked)',
-                     occupancy: 1, price: 65.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 1, price: 65.0, quantity: 8, air_conditioning: true, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
                      label: 'Main Lodge 2 - Quiet Dorm', description: '1 twin bed in a room of 10 twin beds (bunked)',
-                     occupancy: 1, price: 65.0, quantity: 10, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 1, price: 65.0, quantity: 10, air_conditioning: true, bathroom: true, kitchen: false)
 Accommodation.create(accommodation_type: bed, building: building, hold: false,
                      label: 'Main Lodge 3 - Dorm', description: '1 twin bed in a room of 8 twin beds (bunked)',
-                     occupancy: 1, price: 65.0, quantity: 8, air_conditioning: false, bathroom: true, kitchen: false)
+                     occupancy: 1, price: 65.0, quantity: 8, air_conditioning: true, bathroom: true, kitchen: false)
 
 Planner.create([
 ])
