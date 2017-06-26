@@ -18,13 +18,16 @@ input[type=text] {
 
 .navbar-stuff {
     margin-top: 8px;
+    margin-left: 15px;
 }
 
 .navbar-farleft{
     margin-left: 0px;
     padding-left: 0px;
 }
-
+.dropdown-menu > li {
+    margin-left: 10px;
+}
 .dropdown-menu > li > a.selected {
     font-weight: bold;
 }
