@@ -1,8 +1,4 @@
-<div class="row">
-  <div class="col-md-12">
-    <h3>reservation management</h3>
-  </div>
-</div>
+<h3>reservation management</h3>
 
 <%= form_tag admin_reservations_path, :class => "navbar-farleft", :remote => true, :method => 'get', :id => 'reservations_search' do %>
 <nav class="navbar navbar-default">
@@ -61,8 +57,6 @@
 </nav><!-- end search nav -->
 <% end %>
 
-<div class="row">
-  <div id="reservations" class="col-md-12 contentcolumn">
-    <%= render 'reservations'%>
-  </div><!-- end content column-->
-</div><!-- end content row-->
+<div id="reservations" class="contentcolumn">
+  <%= render 'reservations'%>
+</div><!-- end content column-->
