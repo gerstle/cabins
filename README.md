@@ -15,14 +15,15 @@ California Foundation for the Advancement of Electronic Arts cabins reservations
 
 # image build & publish
 1. git tag -a -m "release 1.1.0" 1.1.0
-2. `sudo rm -rf tmp && rm -rf public/assets && RAILS_ENV=production bundle exec rake assets:precompile`
-3. make sure `ProxyPass /assets` is set in conf/httpd-vhosts.conf
-4. docker build -t cabins .
-5. docker image ls
-6. docker tag <image hash> gerstle/cabins:latest
-7. docker tag <image hash> gerstle/cabins:1.1.0
-8. docker login
-9. docker push gerstle/cabins
+2. update `cabins.env` for prod
+3. `sudo rm -rf tmp && rm -rf public/assets && RAILS_ENV=production bundle exec rake assets:precompile`
+4. make sure `ProxyPass /assets` is set in conf/httpd-vhosts.conf
+5. docker build -t cabins .
+6. docker image ls
+7. docker tag <image hash> gerstle/cabins:latest
+8. docker tag <image hash> gerstle/cabins:1.1.0
+9. docker login
+10. docker push gerstle/cabins
 
 # simple ec2 instance deployment
 1. docker-machine create --driver amazonec2 --amazonec2-region us-west-1 --amazonec2-instance-type t2.micro --amazonec2-zone "b" cabins-dev
@@ -34,9 +35,13 @@ California Foundation for the Advancement of Electronic Arts cabins reservations
 7. docker-compose up -d
 8. docker-compose logs -f -t
 
-for prod...
-1. update cabins.env for prod settings
-2. ssh in and `bundle exec rake assets:precompile` ... probably a way to do this in the dockerfile or something
+prod...
+1. update `cabins.env` for prod
+2. docker-machine env cabins-prod
+3. eval $(docker-machine env cabins-prod)
+4. docker image pull gerstle/cabins
+5. docker-compose build (needed for web)
+6. docker-compose up -d
 
 # email previews
 http://localhost/rails/mailers/user_mailer/
