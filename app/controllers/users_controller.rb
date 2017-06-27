@@ -65,7 +65,7 @@ class UsersController < ApplicationController
     end
 
     @registrations = User.all
-    render 'registrations/index'
+    redirect_to registrations_path
   end
 
   private
