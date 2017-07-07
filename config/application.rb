@@ -42,5 +42,7 @@ module Cabins
     config.action_mailer.default_options = {
       from: ENV['ACTION_MAILER_DEFAULT_FROM']
     }
+
+    config.time_zone = 'Pacific Time (US & Canada)'
   end
 end
