@@ -9,7 +9,7 @@
           <% if !r.confirmed_time.nil? %>
           <div class="row confirmation">
             <div class="col-md-10 col-md-offset-1 accommodation">
-              <div class="col-md-9">
+              <div class="col-md-8">
                 <% if r.user %>
                   <div class="row heading">
                     <span class="buildinglabel"><%= r.user.name %></span>
@@ -48,17 +48,16 @@
                   </div>
                 </div>
               </div>
-              <div class="col-md-3">
-                <div class="row right">
+              <div class="col-md-4">
+                <div class="row right red-border">
                   <div class="reservation">
                     <div class="title"><%= number_to_currency r.price %></div>
                   </div>
-                </div>
-                <div class="row right">
                   <div class="book">
                     <div class="price">
                       <% if r.paid_date.nil? %>
-                          Pay us all the money!
+                          <p>Pay us all the money!</p>
+                          <p>Please include a note with your payment in the form of 'CABIN: xxxxx', where xxxxx is the name of your cabin/room</p>
                           <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
                             <input type="hidden" name="cmd" value="_xclick">
                             <!-- <input type="hidden" name="business" value="FCNX9KTXRNJ7S"> --> <!-- TEST -->
