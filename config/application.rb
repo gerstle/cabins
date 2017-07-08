@@ -37,7 +37,8 @@ module Cabins
     }
 
     config.action_mailer.default_url_options = {
-      host: ENV['ACTION_MAILER_HOST']
+      host: ENV['ACTION_MAILER_HOST'],
+      protocol: ENV['ACTION_MAILER_PROTOCOL']
     }
     config.action_mailer.default_options = {
       from: ENV['ACTION_MAILER_DEFAULT_FROM']
